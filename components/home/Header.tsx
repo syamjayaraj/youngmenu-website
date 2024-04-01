@@ -1,4 +1,5 @@
 import { Header } from "@/model/models";
+import RichText from "../RichText";
 
 interface customProps {
   pageData: Header;
@@ -13,9 +14,9 @@ export default function Header({ pageData }: customProps) {
               <h1 className="display-5 fw-normal">
                 <span className="fw-bold">{pageData?.title}</span>
               </h1>
-              <p className="home-desc text-muted mt-4">
-                {pageData?.description}
-              </p>
+              <div className="home-desc text-muted mt-4">
+                <RichText data={pageData?.description} />
+              </div>
               <div className="pt-2 mt-5">
                 <a
                   href="#search-store"

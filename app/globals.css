@@ -233,7 +233,7 @@ hr {
 }
 
 .bg-primary {
-  background-color: #12a894 !important;
+  background-color: #fec802 !important;
 }
 
 .bg-soft-primary {
@@ -241,16 +241,16 @@ hr {
 }
 
 .text-primary {
-  color: #12a894 !important;
+  color: #fec802 !important;
 }
 
 .border-primary {
-  color: #12a894 !important;
+  color: #fec802 !important;
 }
 
 .btn-soft-primary {
   background-color: rgba(18, 168, 148, 0.25) !important;
-  color: #12a894 !important;
+  color: #fec802 !important;
 }
 
 .btn-soft-primary:hover,
@@ -266,7 +266,7 @@ hr {
 
 .btn-primary {
   background: #12a894;
-  border-color: #12a894 !important;
+  border-color: #fec802 !important;
   color: #ffffff !important;
 }
 
@@ -1244,7 +1244,7 @@ hr {
 .navbar-custom.navbar-white .navbar-nav li a:hover,
 .navbar-custom.navbar-white .navbar-nav li a:focus,
 .navbar-custom.navbar-white .navbar-nav li a:active {
-  color: #12a894 !important;
+  color: #fec802 !important;
 }
 
 /*---NAVBAR STICKY--*/
@@ -1272,7 +1272,7 @@ hr {
 .nav-sticky.navbar-custom .navbar-nav li a:hover,
 .nav-sticky.navbar-custom .navbar-nav li a:focus,
 .nav-sticky.navbar-custom .navbar-nav li a:active {
-  color: #12a894 !important;
+  color: #fec802 !important;
 }
 
 .nav-sticky.navbar-custom .navbar-toggles {
@@ -1488,6 +1488,18 @@ hr {
   max-width: 700px;
   margin: 0 auto;
 }
+.bg-home-2 .home-desc ul {
+  display: flex;
+}
+.bg-home-2 .home-desc ul li {
+  display: flex;
+  list-style: none;
+  margin: 0 0.3rem;
+  border: 2px solid white;
+  border-radius: 0.4rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
 
 .video-icon-btn {
   width: 60px;
@@ -1501,7 +1513,7 @@ hr {
 .video-icon-btn i {
   line-height: 60px;
   font-size: 30px;
-  color: #12a894;
+  color: #fec802;
 }
 
 .bg-home-3 {
@@ -1680,7 +1692,7 @@ hr {
 .tns-outer .tns-controls button:hover,
 .tns-outer .tns-controls button:active {
   outline: none;
-  background-color: #12a894 !important;
+  background-color: #fec802 !important;
   color: #ffffff;
 }
 
@@ -1712,11 +1724,11 @@ hr {
 .tns-outer .tns-nav button:active,
 .tns-outer .tns-nav button.active {
   outline: none;
-  background-color: #12a894 !important;
+  background-color: #fec802 !important;
 }
 
 .tns-outer .tns-nav button.tns-nav-active {
-  background-color: #12a894 !important;
+  background-color: #fec802 !important;
 }
 
 .client-images img {
@@ -1870,7 +1882,7 @@ textarea.form-control {
   .navbar-custom .navbar-nav li.active a,
   .navbar-custom .navbar-nav li a:hover,
   .navbar-custom .navbar-nav li a:active {
-    color: #12a894 !important;
+    color: #fec802 !important;
   }
   .navbar-toggler {
     font-size: 24px;

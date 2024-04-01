@@ -30,18 +30,18 @@ export default function Navigation() {
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="navbar-nav ms-auto" id="navbar-navlist">
             <li className="nav-item">
-              <a className="nav-link" href="#home">
+              <a className="nav-link" href="/">
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#services">
-                Services
+              <a className="nav-link" href="#search-store">
+                Search Menu
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#features">
-                Features
+              <a className="nav-link" href="#product">
+                Products
               </a>
             </li>
             <li className="nav-item">

@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "./store.css";
 import "@/css/bootstrap.min.css";
 import "@/css/materialdesignicons.min.css";
 import "@/css/pe-icon-7-stroke.css";
 import "@/css/tiny-slider.css";
-
-import Navigation from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,7 +23,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navigation />
         {children}
         <Footer />
         <script src="@/js/smooth-scroll.polyfills.min.js"></script>

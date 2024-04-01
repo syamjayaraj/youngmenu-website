@@ -5,74 +5,49 @@ import {
   Modal,
   ModalBody,
 } from "reactstrap";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
-export function ItemModal(props) {
-  let { showMenu, setShowMenu, categories, styles } = props;
-  const router = useRouter();
+interface CustomProps {
+  data: any;
+  handleItemModalClose: any;
+  storeDetails: any;
+}
 
+export function ItemModal({
+  data,
+  handleItemModalClose,
+  storeDetails,
+}: CustomProps) {
   return (
-    <Modal isOpen={modalData._id ? true : false} className={styles.modal}>
-      <ModalBody className={styles.modalBody}>
-        <div className={styles.modalIconContainer} onClick={handleModalClose}>
-          <i className={["fas fa-times" + " " + styles.modalIcon]}></i>
-        </div>
-        {items.length === 0 ? null : items.length === 1 ? (
-          <img src={items[0]} className={styles.modalImage} />
-        ) : (
-          <div>
-            <Carousel activeIndex={activeIndex} next={next} previous={previous}>
-              <CarouselIndicators
-                items={items}
-                activeIndex={activeIndex}
-                onClickHandler={goToIndex}
-              />
-              {slides}
-              <CarouselControl
-                direction="prev"
-                directionText="Previous"
-                onClickHandler={previous}
-              />
-              <CarouselControl
-                direction="next"
-                directionText="Next"
-                onClickHandler={next}
-              />
-            </Carousel>
+    <>
+      <Modal isOpen={data?.name ? true : false} className="menu-modal">
+        <ModalBody className="modal-body">
+          <div className="modal-icon-container" onClick={handleItemModalClose}>
+            <i className="mdi mdi-close"></i>
           </div>
-        )}
-
-        <div className={styles.modalBodyDetails}>
-          <h3>{modalData.name}</h3>
-          <p>{modalData.about} </p>
-          <div className={styles.priceCardContainer}>
-            {modalData.prices.length !== 0 &&
-              modalData.prices[0].price !== "" &&
-              modalData.prices.map((price, priceIndex) => {
-                return (
-                  <div className={styles.priceCard} key={priceIndex}>
-                    {price.variety ? (
-                      <div className={styles.priceCardSection1}>
-                        {price.variety}
-                      </div>
-                    ) : null}
-                    <div className={styles.priceCardSection2}>
-                      <span>{modalData.store.currencySign}</span>
-                      {price.price}
-                    </div>
+          <div className="modal-body-details">
+            <h3>{data?.name}</h3>
+            <p>{data?.about} </p>
+            <div className="price-card-container">
+              {data?.variant?.map((item: any, index: number) => (
+                <div className="price-card" key={index}>
+                  {item?.variety ? (
+                    <div className="price-card-section1">{item?.variety}</div>
+                  ) : null}
+                  <div className="price-card-section2">
+                    <span>{storeDetails?.currency}</span>
+                    {item?.price}
                   </div>
-                );
-              })}
-          </div>
-          {modalData.store && modalData.store.orderNow ? (
-            <a href={`tel:${store.phoneNumber}`} className={styles.orderNow}>
+                </div>
+              ))}
+            </div>
+            <a href={`tel:${data?.store?.phoneNumber}`} className="order-now">
               <i className="fas fa-phone-volume"></i>
               Order now
             </a>
-          ) : null}
-        </div>
-      </ModalBody>
-    </Modal>
+          </div>
+        </ModalBody>
+      </Modal>
+    </>
   );
 }

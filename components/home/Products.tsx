@@ -1,6 +1,6 @@
 export function Products() {
   return (
-    <section className="section bg-light" id="features">
+    <section className="section bg-light" id="product">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8">

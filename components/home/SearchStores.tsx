@@ -1,7 +1,6 @@
 "use client";
 import { searchStore } from "@/apiService/apiService";
 import { SearchStore, SuggestionItem } from "@/model/models";
-import Link from "next/link";
 import { useState } from "react";
 import Autosuggest from "react-autosuggest";
 
@@ -20,12 +19,13 @@ export default function SearchStores({ pageData }: customProps) {
   const renderSuggestion = (suggestionItem: SuggestionItem) => {
     if (suggestionItem?.attributes?.name) {
       return (
-        <Link
+        <a
           href={`/store/${suggestionItem?.attributes?.slug}`}
           className="suggestion"
+          target="_blank"
         >
           {suggestionItem?.attributes?.name}
-        </Link>
+        </a>
       );
     }
   };

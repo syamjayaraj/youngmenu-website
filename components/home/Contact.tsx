@@ -1,4 +1,29 @@
+"use client";
+
+import { submitContactForm } from "@/apiService/apiService";
+import { useState } from "react";
+
 export function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    message: "",
+  });
+
+  const handleInputChange = (event: any) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmitContactForm = async () => {
+    const response = await submitContactForm(formData);
+    if (response) {
+    }
+  };
+
   return (
     <section className="section" id="contact">
       <div className="container">
@@ -37,16 +62,17 @@ export function Contact() {
 
           <div className="col-lg-8 offset-lg-1">
             <div className="custom-form mt-4">
-              <form action="#">
+              <form onSubmit={handleSubmitContactForm}>
                 <div className="row">
                   <div className="col-lg-6">
                     <div className="form-group mt-2">
                       <input
                         name="name"
-                        id="name"
                         type="text"
                         className="form-control"
-                        placeholder="Your name"
+                        placeholder="Name"
+                        value={formData.name}
+                        onChange={handleInputChange}
                       />
                     </div>
                   </div>
@@ -54,10 +80,9 @@ export function Contact() {
                     <div className="form-group mt-2">
                       <input
                         name="email"
-                        id="email"
                         type="email"
                         className="form-control"
-                        placeholder="Your email"
+                        placeholder="Email"
                       />
                     </div>
                   </div>
@@ -67,9 +92,9 @@ export function Contact() {
                     <div className="form-group mt-2">
                       <input
                         type="text"
+                        name="phoneNumber"
                         className="form-control"
-                        id="subject"
-                        placeholder="Your Subject.."
+                        placeholder="Phone Number"
                       />
                     </div>
                   </div>
@@ -78,24 +103,23 @@ export function Contact() {
                   <div className="col-lg-12">
                     <div className="form-group mt-2">
                       <textarea
-                        name="comments"
-                        id="comments"
+                        name="message"
                         rows={4}
                         className="form-control"
-                        placeholder="Your message..."
+                        placeholder="Message"
                       ></textarea>
                     </div>
                   </div>
                 </div>
                 <div className="row mt-2">
                   <div className="col-lg-12">
-                    <input
+                    <button
                       type="submit"
-                      id="submit"
                       name="send"
                       className="submitBnt btn btn-rounded btn-primary"
-                      value="Send Message"
-                    />
+                    >
+                      Send Message
+                    </button>
                   </div>
                 </div>
               </form>

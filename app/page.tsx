@@ -1,4 +1,5 @@
 import { loadHomePage } from "@/apiService/apiService";
+import Navigation from "@/components/Navigation";
 import { Contact } from "@/components/home/Contact";
 import Header from "@/components/home/Header";
 import { Pricing } from "@/components/home/Pricing";
@@ -8,11 +9,11 @@ import Testimonial from "@/components/home/Testimonial";
 
 const Home = async () => {
   const homePageData: any = await loadHomePage("en");
-
   const { header, searchStore } = homePageData;
 
   return (
     <>
+      <Navigation />
       <Header pageData={header} />
       <SearchStores pageData={searchStore} />
       <Products />
