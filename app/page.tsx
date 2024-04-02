@@ -14,7 +14,6 @@ import Client from "@/components/home/Client";
 const Home = async () => {
   const homePageData: any = await loadHomePage("en");
   const navigationData: any = await loadNavigation("en");
-  const storeSlugs: any = await loadStoreSlugs();
   const { header, searchStore, products, client, pricing, contact } =
     homePageData;
 

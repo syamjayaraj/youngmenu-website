@@ -4,7 +4,6 @@ import { StoreDetails } from "@/components/store/StoreDetails";
 import Menu from "@/components/store/Menu";
 import CategoryModal from "@/components/store/CategoryModal";
 import { useEffect, useState } from "react";
-import { format } from "path";
 
 interface CustomProps {
   data: any;
@@ -68,6 +67,7 @@ const StorePageContainer = ({ data }: CustomProps) => {
         handleCategoryPopupClose={handleCategoryPopupClose}
         data={categoryNames}
       />
+
       <div className="restaurant">
         <div className="menu-icon" onClick={() => handleCategoryPopupOpen()}>
           <i className="mdi mdi-menu"></i>

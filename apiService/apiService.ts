@@ -245,10 +245,10 @@ const submitContactForm = async (data: any) => {
   }
 };
 
-const loadStoreSlugs = async () => {
+const loadStoreSlugs = async (locale: string) => {
   const query = `
-    query GetStore() {
-      stores {
+    query GetStores($locale: I18NLocaleCode!) {
+      stores(locale: $locale) {
         data {
           id
           attributes {
@@ -259,10 +259,13 @@ const loadStoreSlugs = async () => {
     }
   `;
 
+  const variables = {
+    locale: { code: locale },
+  };
+
   try {
-    const response: any = await request(graphqlUrl, query);
-    console.log(response, "res");
-    return response;
+    const response: any = await request(graphqlUrl, query, variables);
+    return response?.stores?.data;
   } catch (error) {
     console.error("Error fetching data from Strapi:", error);
     return null;
