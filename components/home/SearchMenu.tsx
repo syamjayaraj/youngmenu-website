@@ -1,22 +1,26 @@
 "use client";
 import { searchStore } from "@/apiService/apiService";
-import { SearchStore, SuggestionItem } from "@/model/models";
+import {
+  ISearchInputProps,
+  ISearchMenu,
+  ISuggestionItem,
+} from "@/model/models";
 import { useState } from "react";
 import Autosuggest from "react-autosuggest";
 
 interface customProps {
-  pageData: SearchStore;
+  pageData: ISearchMenu;
 }
 
-export default function SearchStores({ pageData }: customProps) {
+const SearchMenu = ({ pageData }: customProps) => {
   const [value, setValue] = useState("");
-  const [suggestions, setSuggestions] = useState<SuggestionItem[]>([]);
+  const [suggestions, setSuggestions] = useState<ISuggestionItem[]>([]);
 
-  function getSuggestionValue(param: any) {
+  const getSuggestionValue = (param: any) => {
     return param.name;
-  }
+  };
 
-  const renderSuggestion = (suggestionItem: SuggestionItem) => {
+  const renderSuggestion = (suggestionItem: ISuggestionItem) => {
     if (suggestionItem?.attributes?.name) {
       return (
         <a
@@ -30,16 +34,16 @@ export default function SearchStores({ pageData }: customProps) {
     }
   };
 
-  let onChange = (event: Event, { newValue, method }: any) => {
+  const onChange = (event: Event, { newValue }: { newValue: string }) => {
     setValue(newValue);
   };
 
-  let onSuggestionsFetchRequested = async ({ value }: any) => {
-    const stores: SuggestionItem[] = await searchStore(value);
+  const onSuggestionsFetchRequested = async ({ value }: { value: string }) => {
+    const stores: ISuggestionItem[] = await searchStore(value);
     setSuggestions(stores);
   };
 
-  let onSuggestionsClearRequested = () => {
+  const onSuggestionsClearRequested = () => {
     setSuggestions([]);
   };
 
@@ -50,14 +54,14 @@ export default function SearchStores({ pageData }: customProps) {
     </div>
   );
 
-  const inputProps: any = {
+  const inputProps: ISearchInputProps = {
     placeholder: pageData?.searchInputPlaceholder,
     value,
     onChange: onChange,
   };
 
   return (
-    <section className="section" id="search-store">
+    <section className="section" id="search-menu">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8">
@@ -86,4 +90,5 @@ export default function SearchStores({ pageData }: customProps) {
       </div>
     </section>
   );
-}
+};
+export default SearchMenu;

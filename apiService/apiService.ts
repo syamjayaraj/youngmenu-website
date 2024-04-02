@@ -4,6 +4,44 @@ const graphqlUrl =
   process?.env?.NEXT_PUBLIC_GRAPHQL_URL ?? "http://localhost:1337/graphql";
 const apiUrl =
   process?.env?.NEXT_PUBLIC_API_URL ?? "http://localhost:1337/api/";
+
+const loadNavigation = async (locale: string) => {
+  const query = `
+      query GetNavigation($locale: I18NLocaleCode!) {
+        navigation(locale: $locale) {
+          data {
+            id
+            attributes {
+              navItem {
+                name
+                url
+              }
+              logo {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+
+  const variables = {
+    locale: { code: locale },
+  };
+
+  try {
+    const response: any = await request(graphqlUrl, query, variables);
+    return response?.navigation?.data?.attributes;
+  } catch (error) {
+    console.error("Error fetching data from Strapi:", error);
+    return null;
+  }
+};
+
 const loadHomePage = async (locale: string) => {
   const query = `
     query GetHomePage($locale: I18NLocaleCode!) {
@@ -19,6 +57,49 @@ const loadHomePage = async (locale: string) => {
                 title
                 description
                 searchInputPlaceholder
+            }
+            products {
+              title
+              description
+              productItem {
+                title
+                productFeature {
+                  number
+                  title
+                  description
+                }
+              }
+            }
+            client {
+              title
+              description
+              testimonial {
+                description
+                name
+                storeName
+              }
+            }
+            pricing {
+              title
+              description
+              plan {
+                name
+                amount
+                term
+                badge
+                point {
+                  name
+                }
+              }
+            }
+            contact {
+              title
+              description
+              contactItem {
+                label
+                value
+                url
+              }
             }
           }
         }
@@ -158,4 +239,10 @@ const submitContactForm = async (data: any) => {
   }
 };
 
-export { loadHomePage, searchStore, loadStoreDetails, submitContactForm };
+export {
+  loadNavigation,
+  loadHomePage,
+  searchStore,
+  loadStoreDetails,
+  submitContactForm,
+};

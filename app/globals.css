@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+html {
+  scroll-behavior: smooth !important;
+}
 body {
   font-family: "Inter", sans-serif;
   line-height: 26px;
@@ -105,9 +108,9 @@ label {
     left top,
     right top,
     from(#002d3a),
-    to(#12a894)
+    to(#fec802)
   );
-  background: linear-gradient(to right, #002d3a, #12a894);
+  background: linear-gradient(to right, #002d3a, #fec802);
   opacity: 0.9;
   position: absolute;
   height: 100%;
@@ -265,7 +268,7 @@ hr {
 }
 
 .btn-primary {
-  background: #12a894;
+  background: #fec802;
   border-color: #fec802 !important;
   color: #ffffff !important;
 }
@@ -283,8 +286,8 @@ hr {
 }
 
 .btn-outline-primary {
-  color: #12a894;
-  border-color: #12a894;
+  color: #fec802;
+  border-color: #fec802;
 }
 
 .btn-outline-primary:hover,
@@ -295,8 +298,8 @@ hr {
 .btn-outline-primary:not(:disabled):not(.disabled):active,
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus,
 .btn-outline-primary .open > .dropdown-toggle.btn-primary {
-  background: #12a894;
-  border-color: #12a894;
+  background: #fec802;
+  border-color: #fec802;
 }
 
 .bg-success {
@@ -1499,6 +1502,15 @@ hr {
   border-radius: 0.4rem;
   padding-left: 0.3rem;
   padding-right: 0.3rem;
+  background: #fec802 !important;
+}
+
+.bg-home-2 .home-desc ul li:hover {
+  background: #f9f9f9 !important;
+}
+
+.bg-home-2 .home-desc ul li a {
+  color: #6c757d !important;
 }
 
 .video-icon-btn {
@@ -1546,7 +1558,7 @@ hr {
   position: relative;
   display: inline-block;
   border-radius: 50%;
-  background-color: #12a894;
+  background-color: #fec802;
 }
 
 .services-box .services-icon i {
@@ -1562,7 +1574,7 @@ hr {
 }
 
 .services-box:hover .services-icon i {
-  color: #12a894;
+  color: #fec802;
 }
 
 .services-box:hover .services-icon:before {
@@ -1682,7 +1694,7 @@ hr {
   border-radius: 50%;
   border: none;
   background-color: rgba(18, 168, 148, 0.2) !important;
-  color: #12a894;
+  color: #fec802;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   font-size: 18px;
@@ -1770,7 +1782,7 @@ hr {
 
 .pricing-box .lable-name {
   position: relative;
-  background-color: #12a894;
+  background-color: #fec802;
   color: #ffffff;
   font-size: 12px;
   display: -webkit-box;
@@ -1790,8 +1802,8 @@ hr {
 
 .pricing-box .lable-name:after {
   content: "";
-  border-top: 20px solid #12a894;
-  border-bottom: 20px solid #12a894;
+  border-top: 20px solid #fec802;
+  border-bottom: 20px solid #fec802;
   border-right: 11px solid transparent;
   border-left: 11px solid transparent;
   position: absolute;
@@ -1836,7 +1848,7 @@ textarea.form-control {
 }
 
 .contact-social a:hover {
-  color: #12a894;
+  color: #fec802;
 }
 
 .contact-social a i {

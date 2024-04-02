@@ -1,12 +1,12 @@
-import { Header } from "@/model/models";
+import { IHeader } from "@/model/models";
 import RichText from "../RichText";
 
 interface customProps {
-  pageData: Header;
+  pageData: IHeader;
 }
 export default function Header({ pageData }: customProps) {
   return (
-    <section className="bg-home-2 align-items-center d-flex" id="home">
+    <section className="bg-home-2 align-items-center d-flex" id="#header">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-12">
@@ -19,7 +19,7 @@ export default function Header({ pageData }: customProps) {
               </div>
               <div className="pt-2 mt-5">
                 <a
-                  href="#search-store"
+                  href="#search-menu"
                   data-bs-toggle="modal"
                   data-bs-target="#watchvideomodal"
                   className="video-icon-btn bg-white"

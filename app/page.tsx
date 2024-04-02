@@ -1,25 +1,27 @@
-import { loadHomePage } from "@/apiService/apiService";
+import { loadHomePage, loadNavigation } from "@/apiService/apiService";
 import Navigation from "@/components/Navigation";
-import { Contact } from "@/components/home/Contact";
+import Contact from "@/components/home/Contact";
 import Header from "@/components/home/Header";
-import { Pricing } from "@/components/home/Pricing";
-import { Products } from "@/components/home/Products";
-import SearchStores from "@/components/home/SearchStores";
-import Testimonial from "@/components/home/Testimonial";
+import Pricing from "@/components/home/Pricing";
+import Products from "@/components/home/Products";
+import SearchMenu from "@/components/home/SearchMenu";
+import Client from "@/components/home/Client";
 
 const Home = async () => {
   const homePageData: any = await loadHomePage("en");
-  const { header, searchStore } = homePageData;
+  const navigationData: any = await loadNavigation("en");
+  const { header, searchStore, products, client, pricing, contact } =
+    homePageData;
 
   return (
     <>
-      <Navigation />
+      <Navigation data={navigationData} />
       <Header pageData={header} />
-      <SearchStores pageData={searchStore} />
-      <Products />
-      <Testimonial />
-      <Pricing />
-      <Contact />
+      <SearchMenu pageData={searchStore} />
+      <Products pageData={products} />
+      <Client pageData={client} />
+      <Pricing pageData={pricing} />
+      <Contact pageData={contact} />
     </>
   );
 };

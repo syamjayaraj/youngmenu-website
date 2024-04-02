@@ -25,9 +25,9 @@ export default function RootLayout({
       <body className={inter.className}>
         {children}
         <Footer />
-        <script src="@/js/smooth-scroll.polyfills.min.js"></script>
-        <script src="@/js/gumshoe.polyfills.min.js"></script>
-        <script src="@/js/tiny-slider.js"></script>
+        <script src="@/js/smooth-scroll.polyfills.min.js" async />
+        <script src="@/js/gumshoe.polyfills.min.js" async />
+        <script src="@/js/tiny-slider.js" async />
       </body>
     </html>
   );

@@ -1,19 +1,28 @@
-export default function Navigation() {
+import Link from "next/link";
+
+export default function Navigation({ data }: any) {
+  console.log(data?.logo?.data?.attributes?.url, "data");
   return (
     <nav
       className="navbar navbar-expand-lg  navbar-white fixed-top navbar-custom sticky sticky-light"
       id="navbar"
     >
       <div className="container">
-        <a className="navbar-brand logo text-uppercase" href="index-1.html">
-          {/* <img
-            src="images/logo-dark.png"
+        <Link className="navbar-brand logo text-uppercase" href="/">
+          <img
+            src={`http://localhost:1337${data?.logo?.data?.attributes?.url}`}
             className="logo-dark"
             alt=""
-            height="20"
-          /> */}
-          <span className="fw-bold">YoungMenu</span>
-        </a>
+            height="40"
+          />
+          <img
+            src={`http://localhost:1337${data?.logo?.data?.attributes?.url}`}
+            className="logo-light"
+            alt=""
+            height="40"
+          />
+          {/* <span className="fw-bold">YoungMenu</span> */}
+        </Link>
 
         <button
           className="navbar-toggler"
@@ -29,36 +38,15 @@ export default function Navigation() {
 
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="navbar-nav ms-auto" id="navbar-navlist">
-            <li className="nav-item">
-              <a className="nav-link" href="/">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#search-store">
-                Search Menu
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#product">
-                Products
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#client">
-                Clients
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#pricing">
-                Pricing
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#contact">
-                Contact
-              </a>
-            </li>
+            {data?.navItem?.map((item: any, index: number) => {
+              return (
+                <li className="nav-item">
+                  <Link className="nav-link" href={item?.url} scroll={true}>
+                    {item?.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
