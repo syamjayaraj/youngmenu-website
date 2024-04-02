@@ -70,33 +70,31 @@ export function StoreDetails({ data }: CustomProps) {
               </div>
             </div>
           ) : null}
-          {data?.paymentMethod?.cash && (
-            <div className="d-flex payment-section">
-              <div className="label">Payment methods:</div>
-              {data?.paymentMethod?.cash && <div className="text">CASH</div>}
-              {data?.paymentMethod?.upi && <div className="text">UPI</div>}
-              {data?.paymentMethod?.card && <div className="text">CARD</div>}
-            </div>
-          )}
+          <div className="d-flex payment-section">
+            <div className="label">Payment methods:</div>
+            {data?.paymentMethod?.cash && <div className="text">CASH</div>}
+            {data?.paymentMethod?.upi && <div className="text">UPI</div>}
+            {data?.paymentMethod?.card && <div className="text">CARD</div>}
+          </div>
           <div className="icons">
             {data?.socialMedia?.whatsapp ? (
               <a href={`https://wa.me/${data?.socialMedia?.whatsapp}`}>
-                <i className="fab fa-whatsapp"></i>
+                <i className="mdi mdi-whatsapp"></i>
               </a>
             ) : null}
             {data?.socialMedia?.facebook ? (
               <a href={data?.socialMedia?.facebook}>
-                <i className="fab fa-facebook"></i>
+                <i className="mdi mdi-facebook"></i>
               </a>
             ) : null}
             {data?.socialMedia?.instagram ? (
               <a href={data?.socialMedia?.instagram}>
-                <i className="fab fa-instagram"></i>
+                <i className="mdi mdi-instagram"></i>
               </a>
             ) : null}
             {data?.socialMedia?.youtube ? (
               <a href={data?.socialMedia?.youtube}>
-                <i className="fab fa-youtube"></i>
+                <i className="mdi mdi-youtube"></i>
               </a>
             ) : null}
           </div>

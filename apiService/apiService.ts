@@ -245,10 +245,35 @@ const submitContactForm = async (data: any) => {
   }
 };
 
+const loadStoreSlugs = async () => {
+  const query = `
+    query GetStore() {
+      stores {
+        data {
+          id
+          attributes {
+            slug
+         }
+        }
+      }
+    }
+  `;
+
+  try {
+    const response: any = await request(graphqlUrl, query);
+    console.log(response, "res");
+    return response;
+  } catch (error) {
+    console.error("Error fetching data from Strapi:", error);
+    return null;
+  }
+};
+
 export {
   loadNavigation,
   loadHomePage,
   searchStore,
   loadStoreDetails,
   submitContactForm,
+  loadStoreSlugs,
 };

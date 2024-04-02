@@ -15,12 +15,6 @@ const Menu = ({ data, handleItemModalOpen, storeDetails }: CustomProps) => {
           <section id={category?.name} key={categoryIndex}>
             <h2>{category?.name}</h2>
             {category?.items.map((item: any, itemIndex: number) => {
-              console.log(
-                domainUrl,
-                item?.image?.data[0]?.attributes?.url,
-                "images"
-              );
-
               return (
                 <div
                   className="row card d-flex flex-row"
@@ -45,8 +39,6 @@ const Menu = ({ data, handleItemModalOpen, storeDetails }: CustomProps) => {
                         {item?.variant?.length !== 0 &&
                           item?.variant?.map(
                             (variant: any, priceIndex: number) => {
-                              console.log(item?.variant, "lorem");
-
                               return (
                                 <div className="price-card" key={priceIndex}>
                                   {variant?.name ? (

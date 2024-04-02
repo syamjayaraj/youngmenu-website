@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 export default function Navigation({ data }: any) {
-  console.log(data?.logo?.data?.attributes?.url, "data");
   return (
     <nav
       className="navbar navbar-expand-lg  navbar-white fixed-top navbar-custom sticky sticky-light"

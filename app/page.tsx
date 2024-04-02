@@ -1,4 +1,8 @@
-import { loadHomePage, loadNavigation } from "@/apiService/apiService";
+import {
+  loadHomePage,
+  loadNavigation,
+  loadStoreSlugs,
+} from "@/apiService/apiService";
 import Navigation from "@/components/Navigation";
 import Contact from "@/components/home/Contact";
 import Header from "@/components/home/Header";
@@ -10,6 +14,7 @@ import Client from "@/components/home/Client";
 const Home = async () => {
   const homePageData: any = await loadHomePage("en");
   const navigationData: any = await loadNavigation("en");
+  const storeSlugs: any = await loadStoreSlugs();
   const { header, searchStore, products, client, pricing, contact } =
     homePageData;
 

@@ -56,8 +56,6 @@ const StorePageContainer = ({ data }: CustomProps) => {
     setCategoryNames(Array.from(categoryNamesSet));
   }, [data]);
 
-  console.log(categoryWiseItems, "format");
-
   return (
     <div>
       <ItemModal
@@ -70,7 +68,6 @@ const StorePageContainer = ({ data }: CustomProps) => {
         handleCategoryPopupClose={handleCategoryPopupClose}
         data={categoryNames}
       />
-
       <div className="restaurant">
         <div className="menu-icon" onClick={() => handleCategoryPopupOpen()}>
           <i className="mdi mdi-menu"></i>

@@ -7,7 +7,6 @@ interface customProps {
 }
 
 const Client = ({ pageData }: customProps) => {
-  console.log(pageData, "red");
   return (
     <section className="section bg-light" id="clients">
       <div className="container">
