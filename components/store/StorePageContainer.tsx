@@ -4,16 +4,17 @@ import { StoreDetails } from "@/components/store/StoreDetails";
 import Menu from "@/components/store/Menu";
 import CategoryModal from "@/components/store/CategoryModal";
 import { useEffect, useState } from "react";
+import { format } from "path";
 
-interface customProps {
+interface CustomProps {
   data: any;
 }
 
-const StorePageContainer = ({ data }: customProps) => {
+const StorePageContainer = ({ data }: CustomProps) => {
   const [itemPopup, setItemPopup] = useState<any>();
   const [showCategoryPopup, setShowCategoryPopup] = useState<boolean>(false);
-  const [categoryNames, setCategoryNames] = useState<String[]>();
-  const [categoryWiseItems, setCategoryWiseItems] = useState<any>();
+  const [categoryNames, setCategoryNames] = useState<string[]>([]);
+  const [categoryWiseItems, setCategoryWiseItems] = useState<any[]>();
 
   const handleItemModalOpen = (item: any) => {
     setItemPopup(item);
@@ -43,6 +44,7 @@ const StorePageContainer = ({ data }: customProps) => {
       categories[categoryName].push({
         name: item.attributes.name,
         variant: item.attributes.variant,
+        image: item?.attributes?.image,
       });
     });
 
@@ -53,6 +55,8 @@ const StorePageContainer = ({ data }: customProps) => {
     setCategoryWiseItems(formattedData);
     setCategoryNames(Array.from(categoryNamesSet));
   }, [data]);
+
+  console.log(categoryWiseItems, "format");
 
   return (
     <div>

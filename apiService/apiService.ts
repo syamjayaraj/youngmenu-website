@@ -197,6 +197,13 @@ const loadStoreDetails = async (slug: string) => {
                       }
                     }
                   }
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
                 }
               }
             }

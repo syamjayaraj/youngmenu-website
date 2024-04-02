@@ -118,7 +118,11 @@
 
 .image-container {
   padding: 0;
-  margin-right: 1rem;
+}
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.4rem;
 }
 
 .card-image {
@@ -169,8 +173,9 @@
   cursor: pointer;
   padding: 1rem;
   border: none !important;
-  border-radius: 1.1rem !important;
+  border-radius: 0.4rem !important;
   box-shadow: 0 1px 1px 0 #dfdfdf, 0 1px 10px 0 rgb(10 14 29 / 6%);
+  max-width: 40rem;
 }
 
 .add-icon-container {

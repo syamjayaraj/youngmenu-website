@@ -18,9 +18,9 @@ const Home = async () => {
       <Navigation data={navigationData} />
       <Header pageData={header} />
       <SearchMenu pageData={searchStore} />
-      {/* <Products pageData={products} />
+      <Products pageData={products} />
       <Client pageData={client} />
-      <Pricing pageData={pricing} /> */}
+      <Pricing pageData={pricing} />
       <Contact pageData={contact} />
     </>
   );

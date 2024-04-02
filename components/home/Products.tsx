@@ -27,6 +27,7 @@ export default function Products({ pageData }: customProps) {
                 className={`row mt-5 pt-4 align-items-center ${
                   index % 2 !== 0 ? "flex-row-reverse" : ""
                 }`}
+                key={"product-item" + index}
               >
                 <div className="col-lg-5">
                   <div className="mt-4">

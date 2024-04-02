@@ -40,7 +40,7 @@ export default function Navigation({ data }: any) {
           <ul className="navbar-nav ms-auto" id="navbar-navlist">
             {data?.navItem?.map((item: any, index: number) => {
               return (
-                <li className="nav-item">
+                <li className="nav-item" key={"nav-item" + index}>
                   <Link className="nav-link" href={item?.url} scroll={true}>
                     {item?.name}
                   </Link>

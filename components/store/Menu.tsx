@@ -1,3 +1,6 @@
+const domainUrl =
+  process?.env?.NEXT_PUBLIC_DOMAIN_URL ?? "https://api.youngmenu.com";
+
 interface CustomProps {
   data: any;
   handleItemModalOpen: any;
@@ -11,43 +14,60 @@ const Menu = ({ data, handleItemModalOpen, storeDetails }: CustomProps) => {
         return (
           <section id={category?.name} key={categoryIndex}>
             <h2>{category?.name}</h2>
-            {category?.items.map((item: any, itemIndex: number) => (
-              <div
-                className="row card"
-                key={itemIndex}
-                onClick={() => handleItemModalOpen(item)}
-              >
-                {/* {item.images.length !== 0 ? (
-                <div className="col col-3 image-container">
-                  <img
-                    src={item.images && item.images[0]}
-                    alt="..."
-                    className={"card-img" + " card-image"}
-                  />
-                </div>
-              ) : null} */}
-                <div className="col col-8 card-right">
-                  <h3 className={"card-title" + " card-title"}>{item.name}</h3>
-                  <div className="price-card-container">
-                    {item?.variant?.map((variant: any, priceIndex: number) => {
-                      return (
-                        <div className="price-card" key={priceIndex}>
-                          {variant?.name ? (
-                            <div className="price-card-section1">
-                              {variant?.name}
-                            </div>
-                          ) : null}
-                          <div className="price-card-section2">
-                            <span>{storeDetails?.currency}</span>
-                            {variant?.price}
-                          </div>
-                        </div>
-                      );
-                    })}
+            {category?.items.map((item: any, itemIndex: number) => {
+              console.log(
+                domainUrl,
+                item?.image?.data[0]?.attributes?.url,
+                "images"
+              );
+
+              return (
+                <div
+                  className="row card d-flex flex-row"
+                  key={itemIndex}
+                  onClick={() => handleItemModalOpen(item)}
+                >
+                  {item?.image?.data?.length !== 0 ? (
+                    <div className="col col-3">
+                      <div className="image-container">
+                        <img
+                          src={`${domainUrl}${item?.image?.data[0]?.attributes?.url}`}
+                          alt="..."
+                          className="card-image"
+                        />
+                      </div>
+                    </div>
+                  ) : null}
+                  <div className="col col-8">
+                    <div className="card-right">
+                      <h3 className="card-title">{item.name}</h3>
+                      <div className="price-card-container">
+                        {item?.variant?.length !== 0 &&
+                          item?.variant?.map(
+                            (variant: any, priceIndex: number) => {
+                              console.log(item?.variant, "lorem");
+
+                              return (
+                                <div className="price-card" key={priceIndex}>
+                                  {variant?.name ? (
+                                    <div className="price-card-section1">
+                                      {variant?.name}
+                                    </div>
+                                  ) : null}
+                                  <div className="price-card-section2">
+                                    <span>{storeDetails?.currency}</span>
+                                    {variant?.price}
+                                  </div>
+                                </div>
+                              );
+                            }
+                          )}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </section>
         );
       })}
