@@ -226,13 +226,12 @@ const submitContactForm = async (data: any) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({ data: data }),
     });
-    console.log(response, "res");
     if (response.ok) {
-      console.log("Form submitted successfully");
+      return true;
     } else {
-      console.error("Form submission failed");
+      false;
     }
   } catch (error) {
     console.error("Error submitting form:", error);

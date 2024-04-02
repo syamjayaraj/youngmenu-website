@@ -80,6 +80,13 @@ export interface HomePage {
   contact: IContact;
 }
 
+export interface IFormData {
+  name: string;
+  email: string;
+  phoneNumber: string;
+  message: string;
+}
+
 export interface ISearchInputProps {
   placeholder: string;
   value: string;

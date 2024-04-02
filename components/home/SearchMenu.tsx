@@ -5,6 +5,7 @@ import {
   ISearchMenu,
   ISuggestionItem,
 } from "@/model/models";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Autosuggest from "react-autosuggest";
 
@@ -12,30 +13,35 @@ interface customProps {
   pageData: ISearchMenu;
 }
 
+interface ISuggestionParam {
+  attributes: {
+    name: string;
+    slug: string;
+  };
+}
+
 const SearchMenu = ({ pageData }: customProps) => {
-  const [value, setValue] = useState("");
+  const router = useRouter();
+  const [value, setValue] = useState<string>("");
   const [suggestions, setSuggestions] = useState<ISuggestionItem[]>([]);
 
-  const getSuggestionValue = (param: any) => {
-    return param.name;
+  const getSuggestionValue = (param: ISuggestionParam) => {
+    return param?.attributes?.name;
   };
 
   const renderSuggestion = (suggestionItem: ISuggestionItem) => {
-    if (suggestionItem?.attributes?.name) {
-      return (
-        <a
-          href={`/store/${suggestionItem?.attributes?.slug}`}
-          className="suggestion"
-          target="_blank"
-        >
-          {suggestionItem?.attributes?.name}
-        </a>
-      );
-    }
+    return <div className="suggestion">{suggestionItem?.attributes?.name}</div>;
   };
 
-  const onChange = (event: Event, { newValue }: { newValue: string }) => {
-    setValue(newValue);
+  const onChange = (
+    event: React.FormEvent,
+    { newValue }: { newValue: string }
+  ) => {
+    if (newValue) {
+      setValue(newValue?.trim());
+    } else {
+      setValue("");
+    }
   };
 
   const onSuggestionsFetchRequested = async ({ value }: { value: string }) => {
@@ -47,12 +53,16 @@ const SearchMenu = ({ pageData }: customProps) => {
     setSuggestions([]);
   };
 
-  const renderInputComponent = (inputProps: any) => (
+  const renderInputComponent = (props: any) => (
     <div className="input-container">
       <i className="mdi mdi-magnify"></i>
-      <input {...inputProps} />
+      <input {...props} />
     </div>
   );
+
+  const onSuggestionSelected = (event: any, { suggestion }: any) => {
+    router.push(`/store/${suggestion?.attributes?.slug}`);
+  };
 
   const inputProps: ISearchInputProps = {
     placeholder: pageData?.searchInputPlaceholder,
@@ -85,6 +95,7 @@ const SearchMenu = ({ pageData }: customProps) => {
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
             renderInputComponent={renderInputComponent}
+            onSuggestionSelected={onSuggestionSelected}
           />
         </div>
       </div>

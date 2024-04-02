@@ -1,6 +1,6 @@
 "use client";
 import { submitContactForm } from "@/apiService/apiService";
-import { IContact, IContactItem } from "@/model/models";
+import { IContact, IContactItem, IFormData } from "@/model/models";
 import { useState } from "react";
 import RichText from "../RichText";
 
@@ -9,12 +9,13 @@ interface customProps {
 }
 
 export default function Contact({ pageData }: customProps) {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<IFormData>({
     name: "",
     email: "",
     phoneNumber: "",
     message: "",
   });
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleInputChange = (event: any) => {
     setFormData({
@@ -23,10 +24,20 @@ export default function Contact({ pageData }: customProps) {
     });
   };
 
-  const handleSubmitContactForm = async () => {
+  const handleSubmitContactForm = async (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
     const response = await submitContactForm(formData);
-    // if (response) {
-    // }
+    if (response) {
+      setFormSubmitted(true);
+      setFormData({
+        name: "",
+        email: "",
+        phoneNumber: "",
+        message: "",
+      });
+    }
   };
 
   return (
@@ -36,7 +47,7 @@ export default function Contact({ pageData }: customProps) {
           <div className="col-lg-8">
             <div className="heading-box text-center">
               <h3 className="heading-title">
-                <span className="fw-normal">{pageData?.title}</span>
+                <span className="fw-bold">{pageData?.title}</span>
               </h3>
               <div className="heading-desc text-muted mt-3">
                 <RichText data={pageData?.description} />
@@ -65,13 +76,13 @@ export default function Contact({ pageData }: customProps) {
 
           <div className="col-lg-8 offset-lg-1">
             <div className="custom-form mt-4">
-              <form onSubmit={handleSubmitContactForm}>
+              <form onSubmit={(event) => handleSubmitContactForm(event)}>
                 <div className="row">
-                  <div className="col-lg-6">
+                  <div className="col-lg-12">
                     <div className="form-group mt-2">
                       <input
-                        name="name"
                         type="text"
+                        name="name"
                         className="form-control"
                         placeholder="Name"
                         value={formData.name}
@@ -79,6 +90,8 @@ export default function Contact({ pageData }: customProps) {
                       />
                     </div>
                   </div>
+                </div>
+                <div className="row">
                   <div className="col-lg-6">
                     <div className="form-group mt-2">
                       <input
@@ -86,22 +99,25 @@ export default function Contact({ pageData }: customProps) {
                         type="email"
                         className="form-control"
                         placeholder="Email"
+                        value={formData.email}
+                        onChange={handleInputChange}
                       />
                     </div>
                   </div>
-                </div>
-                <div className="row">
-                  <div className="col-lg-12">
+                  <div className="col-lg-6">
                     <div className="form-group mt-2">
                       <input
-                        type="text"
                         name="phoneNumber"
+                        type="text"
                         className="form-control"
                         placeholder="Phone Number"
+                        value={formData.phoneNumber}
+                        onChange={handleInputChange}
                       />
                     </div>
                   </div>
                 </div>
+
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="form-group mt-2">
@@ -110,16 +126,38 @@ export default function Contact({ pageData }: customProps) {
                         rows={4}
                         className="form-control"
                         placeholder="Message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        style={{
+                          resize: "none",
+                        }}
                       ></textarea>
                     </div>
                   </div>
                 </div>
+                {formSubmitted && (
+                  <div className="row mt-2">
+                    <div className="col-lg-12">
+                      <p className="text-muted">
+                        <i
+                          className="mdi mdi-check-circle"
+                          style={{
+                            color: "#1cb51c",
+                            marginRight: ".3rem",
+                            fontSize: "1.2em",
+                          }}
+                        ></i>
+                        Your message has been successfully submitted
+                      </p>
+                    </div>
+                  </div>
+                )}
                 <div className="row mt-2">
                   <div className="col-lg-12">
                     <button
                       type="submit"
                       name="send"
-                      className="submitBnt btn btn-rounded btn-warning"
+                      className="submit-button btn btn-rounded"
                     >
                       Send Message
                     </button>
