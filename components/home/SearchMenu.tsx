@@ -8,6 +8,7 @@ import {
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Autosuggest from "react-autosuggest";
+import RichText from "../RichText";
 
 interface customProps {
   pageData: ISearchMenu;
@@ -79,9 +80,9 @@ const SearchMenu = ({ pageData }: customProps) => {
               <h3 className="heading-title fw-normal">
                 <span className="fw-bold">{pageData?.title}</span>
               </h3>
-              <p className="heading-desc text-muted mt-4">
-                {pageData?.description}
-              </p>
+              <div className="heading-desc text-muted mt-4">
+                <RichText data={pageData?.description} />
+              </div>
             </div>
           </div>
         </div>

@@ -62,27 +62,6 @@ const Client = ({ pageData }: customProps) => {
                                   </p>
                                 </div>
                               </div>
-                              <div className="col-lg-6">
-                                <div className="mt-4">
-                                  <ul className="list-inline text-end mb-0">
-                                    <li className="list-inline-item">
-                                      <i className="mdi mdi-star text-warning f-16"></i>
-                                    </li>
-                                    <li className="list-inline-item">
-                                      <i className="mdi mdi-star text-warning f-16"></i>
-                                    </li>
-                                    <li className="list-inline-item">
-                                      <i className="mdi mdi-star text-warning f-16"></i>
-                                    </li>
-                                    <li className="list-inline-item">
-                                      <i className="mdi mdi-star text-warning f-16"></i>
-                                    </li>
-                                    <li className="list-inline-item">
-                                      <i className="mdi mdi-star text-warning f-16"></i>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
                             </div>
                           </div>
                         </div>
