@@ -1,5 +1,5 @@
-import { loadStoreDetails } from "@/apiService/apiService";
-import { IStoreDetails } from "@/model/models";
+import { loadStoreDetails, loadStorePageSeo } from "@/apiService/apiService";
+import { ISeo, IStoreDetails } from "@/model/models";
 import StorePageContainer from "@/components/store/StorePageContainer";
 import { Metadata } from "next";
 
@@ -8,18 +8,17 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const storeSeoDetails: IStoreDetails = await loadStoreDetails(params?.slug);
-  const keywords = `${storeSeoDetails?.name}, ${storeSeoDetails?.address}, ${storeSeoDetails?.slug}`;
+  const seo: ISeo = await loadStorePageSeo(params?.slug);
   return {
-    title: `${storeSeoDetails?.name} - YoungMenu`,
-    description: storeSeoDetails?.about,
-    keywords: keywords,
+    title: seo?.title,
+    description: seo?.description,
+    keywords: seo?.keywords,
     openGraph: {
-      type: "website",
-      url: `https://youngmenu.com/${storeSeoDetails?.slug}`,
-      title: storeSeoDetails?.name,
-      description: storeSeoDetails?.about,
-      siteName: "YoungMenu",
+      type: seo?.ogType ?? "website",
+      url: seo?.ogUrl,
+      title: seo?.ogTitle,
+      description: seo?.ogDescription,
+      siteName: seo?.ogSiteName,
     },
   };
 }

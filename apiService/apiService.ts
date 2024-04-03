@@ -1,38 +1,22 @@
 import { request } from "graphql-request";
+import {
+  homePageQuery,
+  homePageSeoQuery,
+  navigationQuery,
+  searchStoreQuery,
+  storeDetailsQuery,
+  storePageSeoQuery,
+  storeSlugsQuery,
+} from "./query";
 
-const graphqlUrl =
-  process?.env?.NEXT_PUBLIC_GRAPHQL_URL ?? "http://localhost:1337/graphql";
-const apiUrl =
-  process?.env?.NEXT_PUBLIC_API_URL ?? "http://localhost:1337/api/";
+const graphqlUrl: any = process?.env?.NEXT_PUBLIC_GRAPHQL_URL;
+const apiUrl: any = process?.env?.NEXT_PUBLIC_API_URL;
 
 const loadNavigation = async (locale: string) => {
-  const query = `
-      query GetNavigation($locale: I18NLocaleCode!) {
-        navigation(locale: $locale) {
-          data {
-            id
-            attributes {
-              navItem {
-                name
-                url
-              }
-              logo {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `;
-
+  const query = navigationQuery;
   const variables = {
     locale: { code: locale },
   };
-
   try {
     const response: any = await request(graphqlUrl, query, variables);
     return response?.navigation?.data?.attributes;
@@ -43,74 +27,10 @@ const loadNavigation = async (locale: string) => {
 };
 
 const loadHomePage = async (locale: string) => {
-  const query = `
-    query GetHomePage($locale: I18NLocaleCode!) {
-      homePage(locale: $locale) {
-        data {
-          id
-          attributes {
-            header {
-              title
-              description
-            }
-            searchStore {
-                title
-                description
-                searchInputPlaceholder
-            }
-            products {
-              title
-              description
-              productItem {
-                title
-                productFeature {
-                  number
-                  title
-                  description
-                }
-              }
-            }
-            client {
-              title
-              description
-              testimonial {
-                description
-                name
-                storeName
-              }
-            }
-            pricing {
-              title
-              description
-              plan {
-                name
-                amount
-                term
-                badge
-                point {
-                  name
-                }
-              }
-            }
-            contact {
-              title
-              description
-              contactItem {
-                label
-                value
-                url
-              }
-            }
-          }
-        }
-      }
-    }
-  `;
-
+  const query = homePageQuery;
   const variables = {
     locale: { code: locale },
   };
-
   try {
     const response: any = await request(graphqlUrl, query, variables);
     return response?.homePage?.data?.attributes;
@@ -120,25 +40,25 @@ const loadHomePage = async (locale: string) => {
   }
 };
 
-const searchStore = async (searchTerm: string) => {
-  const query = `
-    query SearchStores($searchTerm: String) {
-      stores(filters: { name: { contains: $searchTerm }}) {
-        data {
-          id
-          attributes {
-            name,
-            slug
-         }
-        }
-      }
-    }
-  `;
+const loadHomePageSeo = async (locale: string) => {
+  const query = homePageSeoQuery;
+  const variables = {
+    locale: { code: locale },
+  };
+  try {
+    const response: any = await request(graphqlUrl, query, variables);
+    return response?.homePage?.data?.attributes?.seo;
+  } catch (error) {
+    console.error("Error fetching data from Strapi:", error);
+    return null;
+  }
+};
 
+const searchStore = async (searchTerm: string) => {
+  const query = searchStoreQuery;
   const variables = {
     searchTerm,
   };
-
   try {
     const response: any = await request(graphqlUrl, query, variables);
     return response?.stores?.data;
@@ -149,77 +69,26 @@ const searchStore = async (searchTerm: string) => {
 };
 
 const loadStoreDetails = async (slug: string) => {
-  const query = `
-    query GetStore($slug: String) {
-      stores(filters: { slug: { eq: $slug }}) {
-        data {
-          id
-          attributes {
-            name,
-            about,
-            phoneNumber,
-            phoneNumber2,
-            address,
-            website,
-            email,
-            currency,
-            slug,
-            paymentMethod {
-              upi,
-              cash,
-              card
-            },
-             socialMedia {
-              facebook,
-              instagram,
-              whatsapp,
-              youtube
-            },
-            store_category {
-              data {
-                attributes {
-                  name
-                }
-              }
-            }
-            items {
-              data {
-                attributes {
-                  name,
-                  variant {
-                    name,
-                    price
-                  },
-                  item_category {
-                    data {
-                      attributes {
-                        name
-                      }
-                    }
-                  }
-                  image {
-                    data {
-                      attributes {
-                        url
-                      }
-                    }
-                  }
-                }
-              }
-            }
-         }
-        }
-      }
-    }
-  `;
-
+  const query = storeDetailsQuery;
   const variables = {
     slug,
   };
-
   try {
     const response: any = await request(graphqlUrl, query, variables);
     return response?.stores?.data[0]?.attributes;
+  } catch (error) {
+    console.error("Error fetching data from Strapi:", error);
+    return null;
+  }
+};
+const loadStorePageSeo = async (slug: string) => {
+  const query = storePageSeoQuery;
+  const variables = {
+    slug,
+  };
+  try {
+    const response: any = await request(graphqlUrl, query, variables);
+    return response?.stores?.data[0]?.attributes?.seo;
   } catch (error) {
     console.error("Error fetching data from Strapi:", error);
     return null;
@@ -246,23 +115,10 @@ const submitContactForm = async (data: any) => {
 };
 
 const loadStoreSlugs = async (locale: string) => {
-  const query = `
-    query GetStores($locale: I18NLocaleCode!) {
-      stores(locale: $locale) {
-        data {
-          id
-          attributes {
-            slug
-         }
-        }
-      }
-    }
-  `;
-
+  const query = storeSlugsQuery;
   const variables = {
     locale: { code: locale },
   };
-
   try {
     const response: any = await request(graphqlUrl, query, variables);
     return response?.stores?.data;
@@ -275,8 +131,10 @@ const loadStoreSlugs = async (locale: string) => {
 export {
   loadNavigation,
   loadHomePage,
+  loadHomePageSeo,
   searchStore,
   loadStoreDetails,
+  loadStorePageSeo,
   submitContactForm,
   loadStoreSlugs,
 };

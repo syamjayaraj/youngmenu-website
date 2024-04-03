@@ -1,3 +1,27 @@
+export interface ISeo {
+  title: string;
+  description: string;
+  keywords: string;
+  ogTitle: string;
+  ogDescription: string;
+  ogType:
+    | "website"
+    | "article"
+    | "book"
+    | "profile"
+    | "music.song"
+    | "music.album"
+    | "music.playlist"
+    | "music.radio_station"
+    | "video.movie"
+    | "video.episode"
+    | "video.tv_show"
+    | "video.other"
+    | undefined;
+  ogImage: any;
+  ogUrl: string;
+  ogSiteName: string;
+}
 export interface IHeader {
   title: string;
   description: string;
