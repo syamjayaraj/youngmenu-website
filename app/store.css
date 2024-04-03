@@ -371,6 +371,21 @@
     max-width: 8rem;
     margin-top: 1.2rem;
   }
+  .menu-icon {
+    position: fixed;
+    left: inherit;
+    top: inherit;
+    right: 10%;
+    bottom: 8%;
+    z-index: 4;
+    box-shadow: 0 2px 5px 0 #dfdfdf, 0 8px 40px 0 rgb(10 14 29 / 6%);
+    padding: 0.7rem;
+    padding-top: 0.5rem;
+    border-radius: 0.5rem;
+    padding-bottom: 0.3rem;
+    cursor: pointer;
+    background: white;
+  }
 }
 
 @media only screen and (max-width: 575px) {
