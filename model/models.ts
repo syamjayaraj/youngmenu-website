@@ -91,6 +91,7 @@ export interface IContactItem {
   label: string;
   value: string;
   url: string;
+  target: string;
 }
 export interface IContact {
   title: string;

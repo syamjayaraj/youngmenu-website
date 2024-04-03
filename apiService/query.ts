@@ -91,6 +91,7 @@ const homePageQuery = `
               label
               value
               url
+              target
             }
           }
         }

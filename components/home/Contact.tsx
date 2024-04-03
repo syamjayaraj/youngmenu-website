@@ -61,11 +61,14 @@ export default function Contact({ pageData }: customProps) {
             <div className="mt-4">
               {pageData?.contactItem?.map(
                 (item: IContactItem, index: number) => {
+                  console.log(item, "item");
                   return (
                     <div className="mt-4" key={"contact-item" + index}>
                       <h5 className="f-17 mb-1">{item?.label}</h5>
                       <p className="text-muted">
-                        <a href={item?.url}>{item?.value}</a>
+                        <a href={item?.url} target={item?.target}>
+                          {item?.value}
+                        </a>
                       </p>
                     </div>
                   );

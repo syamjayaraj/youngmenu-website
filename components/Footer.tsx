@@ -22,7 +22,7 @@ export function Footer() {
                 className="text-muted"
                 target="_blank"
               >
-                YoungMenu.com
+                YoungMenu
               </a>{" "}
               2024
             </p>
