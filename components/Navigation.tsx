@@ -1,6 +1,11 @@
+"use client";
 import Link from "next/link";
-
+import { useState } from "react";
 export default function Navigation({ data }: any) {
+  const [showMenu, setShowMenu] = useState(false);
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
   return (
     <nav
       className="navbar navbar-expand-lg  navbar-white fixed-top navbar-custom sticky sticky-light"
@@ -23,24 +28,21 @@ export default function Navigation({ data }: any) {
           {/* <span className="fw-bold">YoungMenu</span> */}
         </Link>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarCollapse"
-          aria-controls="navbarCollapse"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button className="navbar-toggler" onClick={toggleMenu}>
           <span className="mdi mdi-menu"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarCollapse">
+        <div className={`${showMenu ? "" : "collapse"} navbar-collapse`}>
           <ul className="navbar-nav ms-auto" id="navbar-navlist">
             {data?.navItem?.map((item: any, index: number) => {
               return (
                 <li className="nav-item" key={"nav-item" + index}>
-                  <Link className="nav-link" href={item?.url} scroll={true}>
+                  <Link
+                    className="nav-link"
+                    href={item?.url}
+                    scroll={true}
+                    onClick={() => setShowMenu(false)}
+                  >
                     {item?.name}
                   </Link>
                 </li>

@@ -25,11 +25,11 @@ const CategoryModal = ({
           <i className="mdi mdi-close modal-icon"></i>
         </div>
 
-        <div className="logo-container">
+        {/* <div className="logo-container">
           <Link href="/">
             <img src="/assets/img/youngmenu-logo.png" />
           </Link>
-        </div>
+        </div> */}
 
         <div className="menu">
           {data?.map((item: any, index: number) => (
