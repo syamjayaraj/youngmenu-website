@@ -6,8 +6,8 @@ import {
   Modal,
   ModalBody,
 } from "reactstrap";
-import { useRouter } from "next/router";
 import { useState } from "react";
+import imageUrl from "@/utils/generate-image-url";
 
 interface CustomProps {
   data: any;
@@ -22,35 +22,52 @@ export function ItemModal({
 }: CustomProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+  const images = data?.image?.data?.map(
+    (item: any) => `${imageUrl(item?.attributes?.url)}`
+  );
 
-  let onExited = () => {
+  const onExiting = () => {
+    setAnimating(true);
+  };
+
+  const onExited = () => {
     setAnimating(false);
   };
 
-  // let next = () => {
-  //   if (animating) return;
-  //   const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
-  //   setActiveIndex(nextIndex);
-  // };
+  const next = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === images?.length - 1 ? 0 : activeIndex + 1;
+    setActiveIndex(nextIndex);
+  };
 
-  // let previous = () => {
-  //   if (animating) return;
-  //   const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
-  //   setActiveIndex(nextIndex);
-  // };
+  const previous = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === 0 ? images?.length - 1 : activeIndex - 1;
+    setActiveIndex(nextIndex);
+  };
 
-  // let goToIndex = (newIndex) => {
-  //   if (animating) return;
-  //   setActiveIndex(newIndex);
-  // };
+  const goToIndex = (newIndex: number) => {
+    if (animating) return;
+    setActiveIndex(newIndex);
+  };
 
-  // const slides = items.map((item, index) => {
-  //   return (
-  //     <CarouselItem onExiting={onExiting} onExited={onExited} key={index + 123}>
-  //       <img src={item} className={styles.modalImage} />
-  //     </CarouselItem>
-  //   );
-  // });
+  const slides = images?.map((item: any, index: number) => {
+    return (
+      <CarouselItem
+        onExiting={onExiting}
+        onExited={onExited}
+        key={"carousel-item" + index}
+      >
+        <img
+          src={item}
+          alt="Item Image"
+          className="modal-image"
+          // layout={"fill"}
+          // objectFit={"contain"}
+        />
+      </CarouselItem>
+    );
+  });
 
   return (
     <>
@@ -59,7 +76,7 @@ export function ItemModal({
           <div className="modal-icon-container" onClick={handleItemModalClose}>
             <i className="mdi mdi-close"></i>
           </div>
-          {/* {data?.image?.data === 0 ? null :
+          {images === 0 ? null : (
             <div>
               <Carousel
                 activeIndex={activeIndex}
@@ -67,7 +84,7 @@ export function ItemModal({
                 previous={previous}
               >
                 <CarouselIndicators
-                  items={items}
+                  items={images}
                   activeIndex={activeIndex}
                   onClickHandler={goToIndex}
                 />
@@ -84,7 +101,7 @@ export function ItemModal({
                 />
               </Carousel>
             </div>
-          } */}
+          )}
           <div className="modal-body-details">
             <h3>{data?.name}</h3>
             <p>{data?.about} </p>

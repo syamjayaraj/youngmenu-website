@@ -2,8 +2,6 @@ import { loadStoreSlugs } from "@/apiService/apiService";
 
 const Sitemap = async () => {
   const storeSlugs = await loadStoreSlugs("en");
-  console.log(storeSlugs, "sitemap");
-
   const storeSlugsSitemap = storeSlugs?.map((item: any) => {
     const sitemapItemFormatted = {
       url: `https://youngmenu.com/store/${item?.attributes?.slug}`,
