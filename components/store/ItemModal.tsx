@@ -1,3 +1,4 @@
+"use client";
 import {
   Carousel,
   CarouselControl,
@@ -8,6 +9,7 @@ import {
 } from "reactstrap";
 import { useState } from "react";
 import imageUrl from "@/utils/generate-image-url";
+import Image from "next/image";
 
 interface CustomProps {
   data: any;
@@ -22,9 +24,12 @@ export function ItemModal({
 }: CustomProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
-  const images = data?.image?.data?.map(
-    (item: any) => `${imageUrl(item?.attributes?.url)}`
-  );
+
+  const images = data?.image?.data
+    ? data?.image?.data?.map(
+        (item: any) => `${imageUrl(item?.attributes?.url)}`
+      )
+    : [];
 
   const onExiting = () => {
     setAnimating(true);
@@ -76,32 +81,26 @@ export function ItemModal({
           <div className="modal-icon-container" onClick={handleItemModalClose}>
             <i className="mdi mdi-close"></i>
           </div>
-          {images === 0 ? null : (
-            <div>
-              <Carousel
+          <div>
+            <Carousel activeIndex={activeIndex} next={next} previous={previous}>
+              <CarouselIndicators
+                items={images}
                 activeIndex={activeIndex}
-                next={next}
-                previous={previous}
-              >
-                <CarouselIndicators
-                  items={images}
-                  activeIndex={activeIndex}
-                  onClickHandler={goToIndex}
-                />
-                {slides}
-                <CarouselControl
-                  direction="prev"
-                  directionText="Previous"
-                  onClickHandler={previous}
-                />
-                <CarouselControl
-                  direction="next"
-                  directionText="Next"
-                  onClickHandler={next}
-                />
-              </Carousel>
-            </div>
-          )}
+                onClickHandler={goToIndex}
+              />
+              {slides}
+              <CarouselControl
+                direction="prev"
+                directionText="Previous"
+                onClickHandler={previous}
+              />
+              <CarouselControl
+                direction="next"
+                directionText="Next"
+                onClickHandler={next}
+              />
+            </Carousel>
+          </div>
           <div className="modal-body-details">
             <h3>{data?.name}</h3>
             <p>{data?.about} </p>
