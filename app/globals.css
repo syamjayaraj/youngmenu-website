@@ -1493,6 +1493,7 @@ hr {
 }
 .bg-home-2 .home-desc ul {
   display: flex;
+  flex-wrap: wrap;
 }
 .bg-home-2 .home-desc ul li {
   display: flex;
@@ -1619,6 +1620,20 @@ hr {
 @media (max-width: 768px) {
   .client-item {
     padding: 0px;
+  }
+  .input-container input {
+    width: 90vw;
+  }
+  .react-autosuggest__suggestions-container--open {
+    width: 90vw !important;
+  }
+  .bg-home-2 .home-desc ul {
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+  }
+  .bg-home-2 .home-desc ul li {
+    width: fit-content;
   }
 }
 
