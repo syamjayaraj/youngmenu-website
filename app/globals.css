@@ -2054,7 +2054,7 @@ textarea.form-control {
 }
 @media only screen and (max-width: 390px) {
   .input-container input {
-    font-size: 0.7em;
+    font-size: 1em;
   }
 }
 
