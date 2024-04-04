@@ -401,7 +401,7 @@
   }
 }
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 768px) {
   .logo-container img {
     max-width: 6rem;
     margin-top: 1.4rem;
@@ -414,5 +414,11 @@
 
   .price-card {
     padding: 0.1rem 0.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .details-card .item {
+    align-items: baseline !important;
   }
 }
