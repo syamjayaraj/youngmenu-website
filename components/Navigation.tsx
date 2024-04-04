@@ -1,4 +1,5 @@
 "use client";
+import imageUrl from "@/utils/generate-image-url";
 import Link from "next/link";
 import { useState } from "react";
 export default function Navigation({ data }: any) {
@@ -14,13 +15,13 @@ export default function Navigation({ data }: any) {
       <div className="container">
         <Link className="navbar-brand logo text-uppercase" href="/">
           <img
-            src={`http://localhost:1337${data?.logo?.data?.attributes?.url}`}
+            src={imageUrl(data?.logo?.data?.attributes?.url)}
             className="logo-dark"
             alt=""
             height="40"
           />
           <img
-            src={`http://localhost:1337${data?.logo?.data?.attributes?.url}`}
+            src={imageUrl(data?.logo?.data?.attributes?.url)}
             className="logo-light"
             alt=""
             height="40"

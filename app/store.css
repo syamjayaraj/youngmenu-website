@@ -176,6 +176,7 @@
   border-radius: 0.4rem !important;
   box-shadow: 0 1px 1px 0 #dfdfdf, 0 1px 10px 0 rgb(10 14 29 / 6%);
   max-width: 40rem;
+  /* max-height: 10rem; */
 }
 
 .add-icon-container {
