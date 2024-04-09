@@ -34,7 +34,7 @@ export interface ISeo {
     | "video.tv_show"
     | "video.other"
     | undefined;
-  ogImage: any;
+  ogImage: IImage;
   ogUrl: string;
   ogSiteName: string;
 }

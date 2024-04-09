@@ -1,5 +1,6 @@
 import { loadStorePageSeo } from "@/apiService/apiService";
 import { ISeo } from "@/model/models";
+import imageUrl from "@/utils/generate-image-url";
 import { Metadata } from "next";
 
 type Props = {
@@ -18,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: seo?.ogTitle,
       description: seo?.ogDescription,
       siteName: seo?.ogSiteName,
+      images: [imageUrl(seo?.ogImage?.data?.attributes?.url)],
     },
   };
 }

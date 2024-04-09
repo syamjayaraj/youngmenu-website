@@ -12,6 +12,7 @@ import VirtualMenu from "@/components/home/VirtualMenu";
 import Client from "@/components/home/Client";
 import { Metadata } from "next";
 import { ISeo } from "@/model/models";
+import imageUrl from "@/utils/generate-image-url";
 
 type Props = {
   params: { slug: string };
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: seo?.ogTitle,
       description: seo?.ogDescription,
       siteName: seo?.ogSiteName,
+      images: [imageUrl(seo?.ogImage?.data?.attributes?.url)],
     },
   };
 }
