@@ -102,7 +102,7 @@ export function CarouselComponent({ data, type }: customProps) {
 
   return (
     <>
-      {data?.length === 1 && (
+      {data?.length === 1 && type === "item-slider" && (
         <img
           src={data[0]}
           alt="Item Image"
@@ -111,7 +111,7 @@ export function CarouselComponent({ data, type }: customProps) {
           // objectFit={"contain"}
         />
       )}
-      {data?.length > 1 && (
+      {(data?.length > 1 || (data?.length === 1 && type === "testimonial")) && (
         <Carousel activeIndex={activeIndex} next={next} previous={previous}>
           <CarouselIndicators
             items={data}

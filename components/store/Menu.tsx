@@ -28,7 +28,7 @@ const Menu = ({ data, handleItemModalOpen, storeDetails }: CustomProps) => {
                       <div className="image-container">
                         <img
                           src={imageUrl(item?.image?.data[0]?.attributes?.url)}
-                          alt="item-image"
+                          alt="store-item-image"
                           className="card-image"
                         />
                       </div>
