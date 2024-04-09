@@ -11,7 +11,6 @@ interface CustomProps {
 }
 
 const StorePageContainer = ({ data }: CustomProps) => {
-  console.log(data, "data");
   const [itemPopup, setItemPopup] = useState<any>();
   const [showCategoryPopup, setShowCategoryPopup] = useState<boolean>(false);
   const [categoryNames, setCategoryNames] = useState<string[]>([]);

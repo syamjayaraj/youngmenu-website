@@ -6,7 +6,6 @@ interface customProps {
   pageData: IProduct;
 }
 export default function Products({ pageData }: customProps) {
-  console.log(pageData?.productItem?.[0]?.image, "page");
   return (
     <section className="section bg-light" id="products">
       <div className="container">

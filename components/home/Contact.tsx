@@ -23,7 +23,6 @@ export default function Contact({ pageData }: customProps) {
     formData: FormValues,
     { resetForm }: FormikHelpers<FormValues>
   ) => {
-    console.log("inside");
     const response = await submitContactForm(formData);
     if (response) {
       setFormSubmitted(true);

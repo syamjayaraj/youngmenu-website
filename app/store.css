@@ -376,7 +376,7 @@
   .menu-modal {
     left: 0;
     right: auto;
-    width: 70%;
+    width: 70% !important;
   }
 
   .logo-container img {
@@ -400,7 +400,7 @@
   }
   .modal {
     position: fixed;
-    bottom: 3rem !important;
+    bottom: 1rem !important;
     z-index: 1055;
     display: none;
     width: 100%;
@@ -446,8 +446,15 @@
   .price-card {
     padding: 0.1rem 0.3rem;
   }
+  .card-title {
+    font-size: 1.3em;
+  }
   .card-description {
     font-size: 1.1em !important;
+  }
+  .menu-modal {
+    left: 50% !important;
+    transform: translate(-53%) !important;
   }
 }
 

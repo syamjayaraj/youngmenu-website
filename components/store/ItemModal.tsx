@@ -22,8 +22,6 @@ export function ItemModal({
       )
     : [];
 
-  console.log(data?.ingredients?.data, "inc");
-
   return (
     <>
       <Modal isOpen={data?.name ? true : false} className="item-modal">
