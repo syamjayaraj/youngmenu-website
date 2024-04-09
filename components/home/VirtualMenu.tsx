@@ -5,7 +5,6 @@ import {
   ISearchMenu,
   ISuggestionItem,
 } from "@/model/models";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Autosuggest from "react-autosuggest";
 import RichText from "../RichText";
@@ -21,8 +20,7 @@ interface ISuggestionParam {
   };
 }
 
-const SearchMenu = ({ pageData }: customProps) => {
-  const router = useRouter();
+const VirtualMenu = ({ pageData }: customProps) => {
   const [value, setValue] = useState<string>("");
   const [suggestions, setSuggestions] = useState<ISuggestionItem[]>([]);
 
@@ -62,7 +60,7 @@ const SearchMenu = ({ pageData }: customProps) => {
   );
 
   const onSuggestionSelected = (event: any, { suggestion }: any) => {
-    router.push(`/store/${suggestion?.attributes?.slug}`);
+    window.open(`/store/${suggestion?.attributes?.slug}`, "_ blank");
   };
 
   const inputProps: ISearchInputProps = {
@@ -72,7 +70,7 @@ const SearchMenu = ({ pageData }: customProps) => {
   };
 
   return (
-    <section className="section" id="search-menu">
+    <section className="section" id="virtual-menu">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8">
@@ -103,4 +101,4 @@ const SearchMenu = ({ pageData }: customProps) => {
     </section>
   );
 };
-export default SearchMenu;
+export default VirtualMenu;

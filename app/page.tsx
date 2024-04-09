@@ -8,7 +8,7 @@ import Contact from "@/components/home/Contact";
 import Header from "@/components/home/Header";
 import Pricing from "@/components/home/Pricing";
 import Products from "@/components/home/Products";
-import SearchMenu from "@/components/home/SearchMenu";
+import VirtualMenu from "@/components/home/VirtualMenu";
 import Client from "@/components/home/Client";
 import { Metadata } from "next";
 import { ISeo } from "@/model/models";
@@ -42,7 +42,7 @@ const Home = async () => {
     <>
       <Navigation data={navigationData} />
       <Header pageData={header} />
-      <SearchMenu pageData={searchStore} />
+      <VirtualMenu pageData={searchStore} />
       <Products pageData={products} />
       <Client pageData={client} />
       <Pricing pageData={pricing} />

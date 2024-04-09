@@ -5,6 +5,15 @@ export interface IImage {
     };
   };
 }
+export interface IImages {
+  data: [
+    {
+      attributes: {
+        url: string;
+      };
+    }
+  ];
+}
 export interface ISeo {
   title: string;
   description: string;
@@ -137,15 +146,23 @@ export interface IVariant {
   variant: IVariant;
 }
 
-export interface IItem {
+export interface IIngredient {
   attributes: {
     name: string;
-    variant: IVariant[];
-    item_category: {
-      data: {
-        attributes: {
-          name: string;
-        };
+  };
+}
+
+export interface IItem {
+  name: string;
+  variant: IVariant[];
+  description: string;
+  shortDescription: string;
+  ingredients: { data: IIngredient[] };
+  image: IImages;
+  item_category: {
+    data: {
+      attributes: {
+        name: string;
       };
     };
   };

@@ -10,6 +10,7 @@ interface CustomProps {
 }
 
 const StorePageContainer = ({ data }: CustomProps) => {
+  console.log(data, "data");
   const [itemPopup, setItemPopup] = useState<any>();
   const [showCategoryPopup, setShowCategoryPopup] = useState<boolean>(false);
   const [categoryNames, setCategoryNames] = useState<string[]>([]);
@@ -44,6 +45,9 @@ const StorePageContainer = ({ data }: CustomProps) => {
         name: item.attributes.name,
         variant: item.attributes.variant,
         image: item?.attributes?.image,
+        shortDescription: item?.attributes?.shortDescription,
+        description: item?.attributes?.description,
+        ingredients: item?.attributes?.ingredients,
       });
     });
 

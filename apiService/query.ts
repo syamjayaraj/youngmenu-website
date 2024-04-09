@@ -180,6 +180,15 @@ query GetStore($slug: String) {
           data {
             attributes {
               name,
+              shortDescription,
+              description,
+              ingredients {
+                data {
+                  attributes {
+                    name
+                  }
+                }
+              },
               variant {
                 name,
                 price

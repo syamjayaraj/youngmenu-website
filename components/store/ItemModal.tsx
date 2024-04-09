@@ -1,17 +1,11 @@
-"use client";
-import {
-  Carousel,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselItem,
-  Modal,
-  ModalBody,
-} from "reactstrap";
-import { useState } from "react";
+import { Modal, ModalBody } from "reactstrap";
 import imageUrl from "@/utils/generate-image-url";
+import { CarouselComponent } from "../CarouselComponent";
+import { IIngredient, IItem } from "@/model/models";
+import RichText from "../RichText";
 
 interface CustomProps {
-  data: any;
+  data: IItem;
   handleItemModalClose: any;
   storeDetails: any;
 }
@@ -21,57 +15,13 @@ export function ItemModal({
   handleItemModalClose,
   storeDetails,
 }: CustomProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
-
   const images = data?.image?.data
     ? data?.image?.data?.map(
         (item: any) => `${imageUrl(item?.attributes?.url)}`
       )
     : [];
 
-  const onExiting = () => {
-    setAnimating(true);
-  };
-
-  const onExited = () => {
-    setAnimating(false);
-  };
-
-  const next = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === images?.length - 1 ? 0 : activeIndex + 1;
-    setActiveIndex(nextIndex);
-  };
-
-  const previous = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === 0 ? images?.length - 1 : activeIndex - 1;
-    setActiveIndex(nextIndex);
-  };
-
-  const goToIndex = (newIndex: number) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  };
-
-  const slides = images?.map((item: any, index: number) => {
-    return (
-      <CarouselItem
-        onExiting={onExiting}
-        onExited={onExited}
-        key={"carousel-item" + index}
-      >
-        <img
-          src={item}
-          alt="Item Image"
-          className="modal-image"
-          // layout={"fill"}
-          // objectFit={"contain"}
-        />
-      </CarouselItem>
-    );
-  });
+  console.log(data?.ingredients?.data, "inc");
 
   return (
     <>
@@ -80,44 +30,27 @@ export function ItemModal({
           <div className="modal-icon-container" onClick={handleItemModalClose}>
             <i className="mdi mdi-close"></i>
           </div>
-          <div>
-            {images?.length > 1 && (
-              <Carousel
-                activeIndex={activeIndex}
-                next={next}
-                previous={previous}
-              >
-                <CarouselIndicators
-                  items={images}
-                  activeIndex={activeIndex}
-                  onClickHandler={goToIndex}
-                />
-                {slides}
-                <CarouselControl
-                  direction="prev"
-                  directionText="Previous"
-                  onClickHandler={previous}
-                />
-                <CarouselControl
-                  direction="next"
-                  directionText="Next"
-                  onClickHandler={next}
-                />
-              </Carousel>
-            )}
-            {images?.length === 1 && (
-              <img
-                src={images[0]}
-                alt="Item Image"
-                className="modal-image"
-                // layout={"fill"}
-                // objectFit={"contain"}
-              />
-            )}
-          </div>
+          <CarouselComponent data={images} type="item-slider" />
           <div className="modal-body-details">
-            <h3>{data?.name}</h3>
-            <p>{data?.about} </p>
+            <h3 className="title">{data?.name}</h3>
+            <div className="description">
+              {data?.description ? (
+                <RichText data={data?.description} />
+              ) : (
+                <p>{data?.shortDescription}</p>
+              )}
+            </div>
+            <div className="ingredients">
+              {data?.ingredients?.data?.map(
+                (ingredient: IIngredient, index: number) => {
+                  return (
+                    <div className="ingredient">
+                      {ingredient?.attributes?.name}
+                    </div>
+                  );
+                }
+              )}
+            </div>
             <div className="price-card-container">
               {data?.variant?.map((item: any, index: number) => {
                 return (

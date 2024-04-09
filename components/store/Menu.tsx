@@ -1,3 +1,6 @@
+import { IItem } from "@/model/models";
+import imageUrl from "@/utils/generate-image-url";
+
 const domainUrl = process?.env?.NEXT_PUBLIC_DOMAIN_URL;
 
 interface CustomProps {
@@ -13,28 +16,30 @@ const Menu = ({ data, handleItemModalOpen, storeDetails }: CustomProps) => {
         return (
           <section id={category?.name} key={categoryIndex}>
             <h2>{category?.name}</h2>
-            {category?.items.map((item: any, itemIndex: number) => {
+            {category?.items.map((item: IItem, itemIndex: number) => {
               return (
                 <div
                   className="row card d-flex flex-row"
                   key={itemIndex}
                   onClick={() => handleItemModalOpen(item)}
                 >
-                  {item?.image?.data?.length !== 0 ? (
+                  {item?.image?.data && (
                     <div className="col col-3">
                       <div className="image-container">
                         <img
-                          src={`${domainUrl}${item?.image?.data[0]?.attributes?.url}`}
+                          src={imageUrl(item?.image?.data[0]?.attributes?.url)}
                           alt="..."
                           className="card-image"
                         />
                       </div>
                     </div>
-                  ) : null}
+                  )}
                   <div className="col col-8">
                     <div className="card-right">
-                      <h3 className="card-title">{item.name}</h3>
-                      <p className="card-description text-muted">{item.name}</p>
+                      <h3 className="card-title">{item?.name}</h3>
+                      <p className="card-description text-muted">
+                        {item?.shortDescription}
+                      </p>
                       <div className="price-card-container">
                         {item?.variant?.length !== 0 &&
                           item?.variant?.map(
