@@ -44,7 +44,7 @@ export function ItemModal({
               {data?.ingredients?.data?.map(
                 (ingredient: IIngredient, index: number) => {
                   return (
-                    <div className="ingredient">
+                    <div className="ingredient" key={"ingredient" + index}>
                       {ingredient?.attributes?.name}
                     </div>
                   );
