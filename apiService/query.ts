@@ -196,7 +196,7 @@ query GetStore($slug: String) {
           absoluteUrl,
           relativeUrl
         },
-        items (pagination: {limit:500}) {
+        items (pagination: {limit:300}) {
           data {
             attributes {
               name,

@@ -2,7 +2,7 @@ import { Modal, ModalBody } from "reactstrap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-interface customProps {
+interface Props {
   showCategoryPopup: boolean;
   handleCategoryPopupClose: any;
   data: any;
@@ -12,7 +12,7 @@ const CategoryModal = ({
   showCategoryPopup,
   handleCategoryPopupClose,
   data,
-}: customProps) => {
+}: Props) => {
   const pathname = usePathname();
 
   return (

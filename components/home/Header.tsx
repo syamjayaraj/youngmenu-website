@@ -1,10 +1,10 @@
 import { IHeader } from "@/model/models";
 import RichText from "../RichText";
 
-interface customProps {
+interface Props {
   pageData: IHeader;
 }
-export default function Header({ pageData }: customProps) {
+export default function Header({ pageData }: Props) {
   return (
     <section className="bg-home-2 align-items-center d-flex" id="#header">
       <div className="container">

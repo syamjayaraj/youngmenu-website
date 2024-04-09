@@ -8,12 +8,12 @@ import {
   CarouselItem,
 } from "reactstrap";
 
-interface customProps {
+interface Props {
   data: any;
   type: "testimonial" | "item-slider";
 }
 
-export function CarouselComponent({ data, type }: customProps) {
+export function CarouselComponent({ data, type }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 

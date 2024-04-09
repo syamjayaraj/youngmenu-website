@@ -1,9 +1,9 @@
 import { IPlan, IPoint, IPricing } from "@/model/models";
 import RichText from "../RichText";
-interface customProps {
+interface Props {
   pageData: IPricing;
 }
-const Pricing = ({ pageData }: customProps) => {
+const Pricing = ({ pageData }: Props) => {
   return (
     <section className="section" id="pricing">
       <div className="container">

@@ -5,7 +5,7 @@ import { useState } from "react";
 import RichText from "../RichText";
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 
-interface customProps {
+interface Props {
   pageData: IContact;
 }
 
@@ -16,7 +16,7 @@ interface FormValues {
   message: string;
 }
 
-export default function Contact({ pageData }: customProps) {
+export default function Contact({ pageData }: Props) {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleSubmitContactForm = async (

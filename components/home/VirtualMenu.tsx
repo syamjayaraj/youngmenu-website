@@ -9,7 +9,7 @@ import { useState } from "react";
 import Autosuggest from "react-autosuggest";
 import RichText from "../RichText";
 
-interface customProps {
+interface Props {
   pageData: ISearchMenu;
 }
 
@@ -20,7 +20,7 @@ interface ISuggestionParam {
   };
 }
 
-const VirtualMenu = ({ pageData }: customProps) => {
+const VirtualMenu = ({ pageData }: Props) => {
   const [value, setValue] = useState<string>("");
   const [suggestions, setSuggestions] = useState<ISuggestionItem[]>([]);
 

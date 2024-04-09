@@ -3,11 +3,11 @@ import RichText from "../RichText";
 import Link from "next/link";
 import imageUrl from "@/utils/generate-image-url";
 import { CarouselComponent } from "../CarouselComponent";
-interface customProps {
+interface Props {
   pageData: IClient;
 }
 
-const Client = ({ pageData }: customProps) => {
+const Client = ({ pageData }: Props) => {
   const testimonials = pageData?.testimonial ? pageData?.testimonial : [];
 
   return (

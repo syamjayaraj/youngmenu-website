@@ -2,10 +2,10 @@ import { IProduct, IProductItem } from "@/model/models";
 import RichText from "../RichText";
 import imageUrl from "@/utils/generate-image-url";
 
-interface customProps {
+interface Props {
   pageData: IProduct;
 }
-export default function Products({ pageData }: customProps) {
+export default function Products({ pageData }: Props) {
   return (
     <section className="section bg-light" id="products">
       <div className="container">
