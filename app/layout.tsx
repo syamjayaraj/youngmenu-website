@@ -4,8 +4,6 @@ import "./globals.css";
 import "./store.css";
 import "@/css/bootstrap.min.css";
 import "@/css/materialdesignicons.min.css";
-import "@/css/pe-icon-7-stroke.css";
-import "@/css/tiny-slider.css";
 import { Footer } from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -33,9 +31,6 @@ export default function RootLayout({
       <body className={inter.className}>
         {children}
         <Footer />
-        <script src="@/js/smooth-scroll.polyfills.min.js" async />
-        <script src="@/js/gumshoe.polyfills.min.js" async />
-        <script src="@/js/tiny-slider.js" async />
       </body>
     </html>
   );

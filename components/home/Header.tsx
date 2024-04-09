@@ -53,12 +53,6 @@ export default function Header({ pageData }: customProps) {
                 aria-label="Close"
               ></button>
             </div>
-            <video id="VisaChipCardVideo" className="video-box" controls>
-              <source
-                src="https://www.w3schools.com/html/mov_bbb.mp4"
-                type="video/mp4"
-              />
-            </video>
           </div>
         </div>
       </div>

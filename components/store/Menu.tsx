@@ -1,5 +1,4 @@
-const domainUrl =
-  process?.env?.NEXT_PUBLIC_DOMAIN_URL ?? "https://api.youngmenu.com";
+const domainUrl = process?.env?.NEXT_PUBLIC_DOMAIN_URL;
 
 interface CustomProps {
   data: any;
@@ -35,6 +34,7 @@ const Menu = ({ data, handleItemModalOpen, storeDetails }: CustomProps) => {
                   <div className="col col-8">
                     <div className="card-right">
                       <h3 className="card-title">{item.name}</h3>
+                      <p className="card-description text-muted">{item.name}</p>
                       <div className="price-card-container">
                         {item?.variant?.length !== 0 &&
                           item?.variant?.map(

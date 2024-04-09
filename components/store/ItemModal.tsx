@@ -82,24 +82,39 @@ export function ItemModal({
             <i className="mdi mdi-close"></i>
           </div>
           <div>
-            <Carousel activeIndex={activeIndex} next={next} previous={previous}>
-              <CarouselIndicators
-                items={images}
+            {images?.length > 1 && (
+              <Carousel
                 activeIndex={activeIndex}
-                onClickHandler={goToIndex}
+                next={next}
+                previous={previous}
+              >
+                <CarouselIndicators
+                  items={images}
+                  activeIndex={activeIndex}
+                  onClickHandler={goToIndex}
+                />
+                {slides}
+                <CarouselControl
+                  direction="prev"
+                  directionText="Previous"
+                  onClickHandler={previous}
+                />
+                <CarouselControl
+                  direction="next"
+                  directionText="Next"
+                  onClickHandler={next}
+                />
+              </Carousel>
+            )}
+            {images?.length === 1 && (
+              <img
+                src={images[0]}
+                alt="Item Image"
+                className="modal-image"
+                // layout={"fill"}
+                // objectFit={"contain"}
               />
-              {slides}
-              <CarouselControl
-                direction="prev"
-                directionText="Previous"
-                onClickHandler={previous}
-              />
-              <CarouselControl
-                direction="next"
-                directionText="Next"
-                onClickHandler={next}
-              />
-            </Carousel>
+            )}
           </div>
           <div className="modal-body-details">
             <h3>{data?.name}</h3>

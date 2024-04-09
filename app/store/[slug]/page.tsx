@@ -34,3 +34,5 @@ const Store = async ({ params }: { params: { slug: string } }) => {
 };
 
 export default Store;
+
+export const revalidate = 360;

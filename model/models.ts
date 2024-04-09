@@ -1,3 +1,10 @@
+export interface IImage {
+  data: {
+    attributes: {
+      url: string;
+    };
+  };
+}
 export interface ISeo {
   title: string;
   description: string;
@@ -50,16 +57,16 @@ export interface IProduct {
 }
 
 export interface ITestimonial {
-  image: any;
+  image: IImage;
   description: string;
   name: string;
   storeName: string;
 }
 
 export interface IStore {
-  logo: any;
   relativeUrl: string;
   absoluteUrl: string;
+  logo: IImage;
 }
 
 export interface IClient {

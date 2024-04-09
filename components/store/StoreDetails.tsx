@@ -14,11 +14,12 @@ export function StoreDetails({ data }: CustomProps) {
       </svg>
       <div className="details-container">
         <div className="details">
+          <img
+            src="https://api.youngmenu.com/uploads/118198407_309490103496994_7675813711058807696_n_518b186175.jpg"
+            className="logo-image"
+          />
           <h1>{data?.name}</h1>
-          <h6>
-            {data?.store_category?.data?.attributes?.name &&
-              data?.store_category?.data?.attributes?.name}
-          </h6>
+          <h6>{data?.store_category?.data?.attributes?.name}</h6>
           <p>{data?.about}</p>
         </div>
       </div>

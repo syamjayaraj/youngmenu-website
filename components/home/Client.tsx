@@ -1,6 +1,7 @@
 import { IClient, IStore, ITestimonial } from "@/model/models";
 import RichText from "../RichText";
 import Link from "next/link";
+import imageUrl from "@/utils/generate-image-url";
 
 interface customProps {
   pageData: IClient;
@@ -28,6 +29,7 @@ const Client = ({ pageData }: customProps) => {
             <div className="client-slider">
               {pageData?.testimonial?.map(
                 (testimonial: ITestimonial, index: number) => {
+                  console.log(testimonial?.image?.data, "data");
                   return (
                     <div className="client-item" key={"testimonial" + index}>
                       <div className="row">
@@ -35,7 +37,9 @@ const Client = ({ pageData }: customProps) => {
                           <div className="mt-4">
                             <div className="testi-img">
                               <img
-                                src="images/users/img-2.jpg"
+                                src={imageUrl(
+                                  testimonial?.image?.data?.attributes?.url
+                                )}
                                 className="img-fluid"
                                 alt=""
                               />
@@ -75,26 +79,27 @@ const Client = ({ pageData }: customProps) => {
         </div>
         <div className="row mt-5">
           {pageData?.store?.map((storeItem: IStore, index: number) => {
+            console.log(storeItem, "store");
             return (
               <div className="col-lg-3" key={"store-item" + index}>
                 <div className="client-images mt-4">
                   {storeItem?.relativeUrl && (
-                    <Link href={storeItem?.relativeUrl}>
+                    <Link href={storeItem?.relativeUrl} target="_blank">
                       <img
-                        src="images/clients/img-2.png"
+                        src={imageUrl(storeItem?.logo?.data?.attributes?.url)}
                         alt="logo-img"
                         className="mx-auto img-fluid d-block"
                       />
                     </Link>
                   )}
                   {storeItem?.absoluteUrl && (
-                    <Link href={storeItem?.absoluteUrl}>
+                    <a href={storeItem?.absoluteUrl} target="_blank">
                       <img
-                        src="images/clients/img-2.png"
+                        src={imageUrl(storeItem?.logo?.data?.attributes?.url)}
                         alt="logo-img"
                         className="mx-auto img-fluid d-block"
                       />
-                    </Link>
+                    </a>
                   )}
                 </div>
               </div>

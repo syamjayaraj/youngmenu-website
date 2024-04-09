@@ -69,6 +69,24 @@ const homePageQuery = `
               description
               name
               storeName
+              image {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+            }
+            store {
+              relativeUrl
+              absoluteUrl
+              logo {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
             }
           }
           pricing {
