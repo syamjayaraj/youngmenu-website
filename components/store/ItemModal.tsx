@@ -1,13 +1,14 @@
 import { Modal, ModalBody } from "reactstrap";
 import imageUrl from "@/utils/generate-image-url";
 import { CarouselComponent } from "../CarouselComponent";
-import { IIngredient, IItem } from "@/model/models";
+import { IIngredient, IItem, IStoreDetails } from "@/model/models";
 import RichText from "../RichText";
+import Link from "next/link";
 
 interface CustomProps {
   data: IItem;
   handleItemModalClose: any;
-  storeDetails: any;
+  storeDetails: IStoreDetails;
 }
 
 export function ItemModal({
@@ -64,10 +65,24 @@ export function ItemModal({
                 );
               })}
             </div>
-            <a href={`tel:${storeDetails?.phoneNumber}`} className="order-now">
-              <i className="fas fa-phone-volume"></i>
-              Order now
-            </a>
+            {storeDetails?.callButton?.absoluteUrl && (
+              <a
+                href={storeDetails?.callButton?.absoluteUrl}
+                className="order-now"
+              >
+                <i className="fas fa-phone-volume"></i>
+                {storeDetails?.callButton?.label}
+              </a>
+            )}
+            {storeDetails?.callButton?.relativeUrl && (
+              <Link
+                href={storeDetails?.callButton?.relativeUrl}
+                className="order-now"
+              >
+                <i className="fas fa-phone-volume"></i>
+                {storeDetails?.callButton?.label}
+              </Link>
+            )}
           </div>
         </ModalBody>
       </Modal>

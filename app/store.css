@@ -459,7 +459,7 @@
   border-radius: 50%;
 }
 .card-description {
-  font-size: 0.9em;
+  font-size: 1em;
 }
 .ingredients {
   display: flex;

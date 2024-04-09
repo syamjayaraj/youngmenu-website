@@ -1,5 +1,8 @@
+import { IStoreDetails } from "@/model/models";
+import imageUrl from "@/utils/generate-image-url";
+
 interface CustomProps {
-  data: any;
+  data: IStoreDetails;
 }
 
 export function StoreDetails({ data }: CustomProps) {
@@ -14,10 +17,13 @@ export function StoreDetails({ data }: CustomProps) {
       </svg>
       <div className="details-container">
         <div className="details">
-          <img
-            src="https://api.youngmenu.com/uploads/118198407_309490103496994_7675813711058807696_n_518b186175.jpg"
-            className="logo-image"
-          />
+          {data?.logo?.data?.attributes?.url && (
+            <img
+              src={imageUrl(data?.logo?.data?.attributes?.url)}
+              className="logo-image"
+              alt="logo-image"
+            />
+          )}
           <h1>{data?.name}</h1>
           <h6>{data?.store_category?.data?.attributes?.name}</h6>
           <p>{data?.about}</p>
@@ -25,14 +31,12 @@ export function StoreDetails({ data }: CustomProps) {
       </div>
       <div className="details-card-container">
         <div className="details-card">
-          {/* {data?.opensAt && data?.closesAt ? (
+          {data?.hours && (
             <div className="d-flex item">
               <div className="label">Hours:</div>
-              <div className="text">
-                {data?.opensAt} - {data?.closesAt}
-              </div>
+              <div className="text">{data?.hours}</div>
             </div>
-          ) : null} */}
+          )}
           {data?.phoneNumber ? (
             <div className="d-flex item">
               <div className="label">Phone Number:</div>

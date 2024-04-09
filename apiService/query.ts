@@ -60,6 +60,13 @@ const homePageQuery = `
                 title
                 description
               }
+              image {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
             }
           }
           client {
@@ -151,6 +158,7 @@ query GetStore($slug: String) {
       attributes {
         name,
         about,
+        hours
         phoneNumber,
         phoneNumber2,
         address,
@@ -158,6 +166,13 @@ query GetStore($slug: String) {
         email,
         currency,
         slug,
+        logo {
+          data {
+            attributes {
+              url
+            }
+          }
+        },
         paymentMethod {
           upi,
           cash,
@@ -176,6 +191,11 @@ query GetStore($slug: String) {
             }
           }
         }
+        callButton {
+          label,
+          absoluteUrl,
+          relativeUrl
+        },
         items {
           data {
             attributes {

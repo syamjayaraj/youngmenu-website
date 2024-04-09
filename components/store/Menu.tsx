@@ -23,12 +23,12 @@ const Menu = ({ data, handleItemModalOpen, storeDetails }: CustomProps) => {
                   key={itemIndex}
                   onClick={() => handleItemModalOpen(item)}
                 >
-                  {item?.image?.data && (
+                  {item?.image?.data[0]?.attributes?.url && (
                     <div className="col col-3">
                       <div className="image-container">
                         <img
                           src={imageUrl(item?.image?.data[0]?.attributes?.url)}
-                          alt="..."
+                          alt="item-image"
                           className="card-image"
                         />
                       </div>

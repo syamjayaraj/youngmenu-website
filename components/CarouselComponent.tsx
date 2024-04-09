@@ -59,7 +59,7 @@ export function CarouselComponent({ data, type }: customProps) {
                       <img
                         src={imageUrl(item?.image?.data?.attributes?.url)}
                         className="img-fluid"
-                        alt=""
+                        alt="testimonial-image"
                       />
                     </div>
 

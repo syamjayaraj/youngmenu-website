@@ -4,9 +4,10 @@ import { StoreDetails } from "@/components/store/StoreDetails";
 import Menu from "@/components/store/Menu";
 import CategoryModal from "@/components/store/CategoryModal";
 import { useEffect, useState } from "react";
+import { IStoreDetails } from "@/model/models";
 
 interface CustomProps {
-  data: any;
+  data: IStoreDetails;
 }
 
 const StorePageContainer = ({ data }: CustomProps) => {

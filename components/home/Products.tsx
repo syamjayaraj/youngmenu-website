@@ -1,10 +1,12 @@
 import { IProduct, IProductItem } from "@/model/models";
 import RichText from "../RichText";
+import imageUrl from "@/utils/generate-image-url";
 
 interface customProps {
   pageData: IProduct;
 }
 export default function Products({ pageData }: customProps) {
+  console.log(pageData?.productItem?.[0]?.image, "page");
   return (
     <section className="section bg-light" id="products">
       <div className="container">
@@ -65,15 +67,19 @@ export default function Products({ pageData }: customProps) {
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-6 offset-lg-1">
-                  <div className="mt-4 p-5">
-                    <img
-                      src="images/features/img-1.png"
-                      className="img-fluid"
-                      alt=""
-                    />
+                {productItem?.image?.data?.attributes?.url && (
+                  <div className="col-lg-6 offset-lg-1">
+                    <div className="mt-4 p-5">
+                      <img
+                        src={imageUrl(
+                          productItem?.image?.data?.attributes?.url
+                        )}
+                        className="img-fluid"
+                        alt="feature-image"
+                      />
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             );
           }

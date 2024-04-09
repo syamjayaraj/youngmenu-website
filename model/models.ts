@@ -57,6 +57,7 @@ export interface IProductFeature {
 export interface IProductItem {
   title: string;
   productFeature: IProductFeature[];
+  image: IImage;
 }
 
 export interface IProduct {
@@ -170,6 +171,7 @@ export interface IItem {
 export interface IStoreDetails {
   name: string;
   about: string;
+  hours: string;
   phoneNumber: string;
   phoneNumber2: string;
   address: string;
@@ -177,12 +179,18 @@ export interface IStoreDetails {
   email: string;
   currency: string;
   slug: string;
+  logo: IImage;
   store_category: {
     data: {
       attributes: {
         name: string;
       };
     };
+  };
+  callButton: {
+    label: string;
+    absoluteUrl: string;
+    relativeUrl: string;
   };
   paymentMethod: {
     upi: boolean;

@@ -17,13 +17,13 @@ export default function Navigation({ data }: any) {
           <img
             src={imageUrl(data?.logo?.data?.attributes?.url)}
             className="logo-dark"
-            alt=""
+            alt="logo-image"
             height="40"
           />
           <img
             src={imageUrl(data?.logo?.data?.attributes?.url)}
             className="logo-light"
-            alt=""
+            alt="logo-image"
             height="40"
           />
           {/* <span className="fw-bold">YoungMenu</span> */}
