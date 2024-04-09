@@ -7,6 +7,8 @@ type Props = {
   params: { slug: string };
 };
 
+export const revalidate = 3600;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const seo: ISeo = await loadStorePageSeo(params?.slug);
   return {

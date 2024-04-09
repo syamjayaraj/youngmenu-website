@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { request } from "graphql-request";
 import {
   homePageQuery,
@@ -12,7 +13,7 @@ import {
 const graphqlUrl: any = process?.env?.NEXT_PUBLIC_GRAPHQL_URL;
 const apiUrl: any = process?.env?.NEXT_PUBLIC_API_URL;
 
-const loadNavigation = async (locale: string) => {
+const loadNavigation = cache(async (locale: string) => {
   const query = navigationQuery;
   const variables = {
     locale: { code: locale },
@@ -24,9 +25,9 @@ const loadNavigation = async (locale: string) => {
     console.error("Error fetching data from Strapi:", error);
     return null;
   }
-};
+});
 
-const loadHomePage = async (locale: string) => {
+const loadHomePage = cache(async (locale: string) => {
   const query = homePageQuery;
   const variables = {
     locale: { code: locale },
@@ -38,9 +39,9 @@ const loadHomePage = async (locale: string) => {
     console.error("Error fetching data from Strapi:", error);
     return null;
   }
-};
+});
 
-const loadHomePageSeo = async (locale: string) => {
+const loadHomePageSeo = cache(async (locale: string) => {
   const query = homePageSeoQuery;
   const variables = {
     locale: { code: locale },
@@ -52,7 +53,7 @@ const loadHomePageSeo = async (locale: string) => {
     console.error("Error fetching data from Strapi:", error);
     return null;
   }
-};
+});
 
 const searchStore = async (searchTerm: string) => {
   const query = searchStoreQuery;
@@ -68,7 +69,7 @@ const searchStore = async (searchTerm: string) => {
   }
 };
 
-const loadStoreDetails = async (slug: string) => {
+const loadStoreDetails = cache(async (slug: string) => {
   const query = storeDetailsQuery;
   const variables = {
     slug,
@@ -80,8 +81,8 @@ const loadStoreDetails = async (slug: string) => {
     return null;
     // return error?.response?.data?.stores?.data[0]?.attributes;
   }
-};
-const loadStorePageSeo = async (slug: string) => {
+});
+const loadStorePageSeo = cache(async (slug: string) => {
   const query = storePageSeoQuery;
   const variables = {
     slug,
@@ -93,7 +94,7 @@ const loadStorePageSeo = async (slug: string) => {
     console.error("Error fetching data from Strapi:", error);
     return null;
   }
-};
+});
 
 const submitContactForm = async (data: any) => {
   try {
