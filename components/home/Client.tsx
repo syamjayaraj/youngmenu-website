@@ -29,7 +29,6 @@ const Client = ({ pageData }: customProps) => {
             <div className="client-slider">
               {pageData?.testimonial?.map(
                 (testimonial: ITestimonial, index: number) => {
-                  console.log(testimonial?.image?.data, "data");
                   return (
                     <div className="client-item" key={"testimonial" + index}>
                       <div className="row">
@@ -79,7 +78,6 @@ const Client = ({ pageData }: customProps) => {
         </div>
         <div className="row mt-5">
           {pageData?.store?.map((storeItem: IStore, index: number) => {
-            console.log(storeItem, "store");
             return (
               <div className="col-lg-3" key={"store-item" + index}>
                 <div className="client-images mt-4">

@@ -9,7 +9,6 @@ import {
 } from "reactstrap";
 import { useState } from "react";
 import imageUrl from "@/utils/generate-image-url";
-import Image from "next/image";
 
 interface CustomProps {
   data: any;
@@ -120,19 +119,19 @@ export function ItemModal({
             <h3>{data?.name}</h3>
             <p>{data?.about} </p>
             <div className="price-card-container">
-              {data?.variant?.map((item: any, index: number) => (
-                <div className="price-card" key={index}>
-                  {item?.variety ? (
-                    <div className="price-card-section1">{item?.variety}</div>
-                  ) : null}
-                  <div className="price-card-section2">
-                    <span>{storeDetails?.currency}</span>
-                    {item?.price}
+              {data?.variant?.map((item: any, index: number) => {
+                return (
+                  <div className="price-card" key={"variant" + index}>
+                    <div className="price-card-section1">{item?.name}</div>
+                    <div className="price-card-section2">
+                      <span>{storeDetails?.currency}</span>
+                      {item?.price}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
-            <a href={`tel:${data?.store?.phoneNumber}`} className="order-now">
+            <a href={`tel:${storeDetails?.phoneNumber}`} className="order-now">
               <i className="fas fa-phone-volume"></i>
               Order now
             </a>
