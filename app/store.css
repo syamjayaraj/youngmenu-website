@@ -446,6 +446,9 @@
   .price-card {
     padding: 0.1rem 0.3rem;
   }
+  .card-description {
+    font-size: 1.1em !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -459,7 +462,7 @@
   border-radius: 50%;
 }
 .card-description {
-  font-size: 1em;
+  font-size: 0.9em;
 }
 .ingredients {
   display: flex;
