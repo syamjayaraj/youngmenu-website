@@ -2061,3 +2061,8 @@ textarea.form-control {
 .navbar-toggler:focus {
   box-shadow: none !important;
 }
+.error-message {
+  font-size: 0.9em;
+  margin-top: 0.2rem;
+  /* margin-top: -0.8rem; */
+}
