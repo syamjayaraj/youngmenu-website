@@ -78,10 +78,10 @@ const loadStoreDetails = async (slug: string) => {
     return response?.stores?.data[0]?.attributes;
   } catch (error: any) {
     console.error(
-      error?.response?.data?.stores[0]?.data,
+      error?.response?.data?.stores?.data[0]?.attributes,
       "Error fetching data from Strapi:"
     );
-    return error?.response?.data?.stores[0]?.data;
+    return error?.response?.data?.stores?.data[0]?.attributes;
   }
 };
 const loadStorePageSeo = async (slug: string) => {

@@ -36,14 +36,15 @@ const StorePageContainer = ({ data }: CustomProps) => {
     const categories: any = {};
     const categoryNamesSet = new Set<string>();
     data?.items?.data?.forEach((item: any) => {
-      const categoryName = item.attributes.item_category.data.attributes.name;
+      const categoryName =
+        item?.attributes?.item_category?.data?.attributes?.name;
       categoryNamesSet.add(categoryName);
       if (!categories[categoryName]) {
         categories[categoryName] = [];
       }
       categories[categoryName].push({
-        name: item.attributes.name,
-        variant: item.attributes.variant,
+        name: item?.attributes?.name,
+        variant: item?.attributes?.variant,
         image: item?.attributes?.image,
         shortDescription: item?.attributes?.shortDescription,
         description: item?.attributes?.description,
