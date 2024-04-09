@@ -7,6 +7,19 @@ type Props = {
   params: { slug: string };
 };
 
+const Store = async ({ params }: Props) => {
+  const storeData: IStoreDetails = await loadStoreDetails(params?.slug);
+  console.log(storeData, "store");
+
+  return (
+    <>
+      <StorePageContainer data={storeData} />
+    </>
+  );
+};
+
+export default Store;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const seo: ISeo = await loadStorePageSeo(params?.slug);
   return {
@@ -23,16 +36,4 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const Store = async ({ params }: { params: { slug: string } }) => {
-  const storeData: IStoreDetails = await loadStoreDetails(params?.slug);
-
-  return (
-    <>
-      <StorePageContainer data={storeData} />
-    </>
-  );
-};
-
-export default Store;
-
-export const revalidate = 360;
+// export const revalidate = 360;
