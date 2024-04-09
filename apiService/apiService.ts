@@ -77,11 +77,8 @@ const loadStoreDetails = async (slug: string) => {
     const response: any = await request(graphqlUrl, query, variables);
     return response?.stores?.data[0]?.attributes;
   } catch (error: any) {
-    console.error(
-      error?.response?.data?.stores?.data[0]?.attributes,
-      "Error fetching data from Strapi:"
-    );
-    return error?.response?.data?.stores?.data[0]?.attributes;
+    return null;
+    // return error?.response?.data?.stores?.data[0]?.attributes;
   }
 };
 const loadStorePageSeo = async (slug: string) => {
