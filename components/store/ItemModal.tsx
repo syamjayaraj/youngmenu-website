@@ -26,7 +26,7 @@ export function ItemModal({
 
   return (
     <>
-      <Modal isOpen={data?.name ? true : false} className="menu-modal">
+      <Modal isOpen={data?.name ? true : false} className="item-modal">
         <ModalBody className="modal-body">
           <div className="modal-icon-container" onClick={handleItemModalClose}>
             <i className="mdi mdi-close"></i>
