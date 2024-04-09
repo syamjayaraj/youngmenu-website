@@ -7,7 +7,10 @@ type Props = {
 };
 
 export default async function Store({ params }: Props) {
-  const storeData: IStoreDetails = await loadStoreDetails(params?.slug);
+  let storeData = null;
+  do {
+    storeData = await loadStoreDetails(params?.slug);
+  } while (!storeData);
 
   return (
     <>

@@ -13,9 +13,9 @@ interface CustomProps {
 
 const StorePageContainer = ({ data }: CustomProps) => {
   const router = useRouter();
-  if (!data) {
-    router.refresh();
-  }
+  // if (!data) {
+  //   router.refresh();
+  // }
   const [itemPopup, setItemPopup] = useState<any>();
   const [showCategoryPopup, setShowCategoryPopup] = useState<boolean>(false);
   const [categoryNames, setCategoryNames] = useState<string[]>([]);
