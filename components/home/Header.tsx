@@ -19,7 +19,7 @@ export default function Header({ pageData }: Props) {
               </div>
               <div className="pt-2 mt-5">
                 <a
-                  href="#search-menu"
+                  href="#virtual-menu"
                   data-bs-toggle="modal"
                   data-bs-target="#watchvideomodal"
                   className="video-icon-btn bg-white"
@@ -31,27 +31,6 @@ export default function Header({ pageData }: Props) {
                   </span>
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        className="modal fade bd-example-modal-lg"
-        id="watchvideomodal"
-        data-keyboard="false"
-        tabIndex={-1}
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered modal-dialog modal-lg">
-          <div className="modal-content home-modal">
-            <div className="modal-header border-0">
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
             </div>
           </div>
         </div>
