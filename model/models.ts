@@ -158,6 +158,7 @@ export interface IItem {
   variant: IVariant[];
   description: string;
   shortDescription: string;
+  veg: boolean;
   ingredients: { data: IIngredient[] };
   image: IImages;
   item_category: {

@@ -213,6 +213,7 @@ query GetStore($slug: String) {
                 name,
                 price
               },
+              veg,
               item_category {
                 data {
                   attributes {

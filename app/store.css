@@ -201,6 +201,14 @@
   font-size: 1em;
   margin-bottom: 1rem;
 }
+.veg-icon {
+  font-size: 0.5em;
+  margin-right: 0.5rem;
+}
+.veg-icon i {
+  font-size: 2em;
+  color: #009f1e;
+}
 
 .card-text {
   font-size: 1em;

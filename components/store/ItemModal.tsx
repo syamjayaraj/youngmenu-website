@@ -31,7 +31,14 @@ export function ItemModal({
           </div>
           <CarouselComponent data={images} type="item-slider" />
           <div className="modal-body-details">
-            <h3 className="title">{data?.name}</h3>
+            <h3 className="title">
+              {data?.veg && (
+                <span className="veg-icon">
+                  <i className="mdi mdi-crop-square"></i>
+                </span>
+              )}
+              {data?.name}
+            </h3>
             <div className="description">
               {data?.description ? (
                 <RichText data={data?.description} />

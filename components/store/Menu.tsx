@@ -1,8 +1,6 @@
 import { IItem } from "@/model/models";
 import imageUrl from "@/utils/generate-image-url";
 
-const domainUrl = process?.env?.NEXT_PUBLIC_DOMAIN_URL;
-
 interface CustomProps {
   data: any;
   handleItemModalOpen: any;
@@ -36,7 +34,14 @@ const Menu = ({ data, handleItemModalOpen, storeDetails }: CustomProps) => {
                   )}
                   <div className="col col-8">
                     <div className="card-right">
-                      <h3 className="card-title">{item?.name}</h3>
+                      <h3 className="card-title">
+                        {item?.veg && (
+                          <span className="veg-icon">
+                            <i className="mdi mdi-crop-square"></i>
+                          </span>
+                        )}
+                        {item?.name}
+                      </h3>
                       <p className="card-description text-muted">
                         {item?.shortDescription}
                       </p>

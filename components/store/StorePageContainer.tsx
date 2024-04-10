@@ -5,17 +5,12 @@ import Menu from "@/components/store/Menu";
 import CategoryModal from "@/components/store/CategoryModal";
 import { useEffect, useState } from "react";
 import { IStoreDetails } from "@/model/models";
-import { useRouter } from "next/navigation";
 
 interface CustomProps {
   data: IStoreDetails;
 }
 
 const StorePageContainer = ({ data }: CustomProps) => {
-  const router = useRouter();
-  // if (!data) {
-  //   router.refresh();
-  // }
   const [itemPopup, setItemPopup] = useState<any>();
   const [showCategoryPopup, setShowCategoryPopup] = useState<boolean>(false);
   const [categoryNames, setCategoryNames] = useState<string[]>([]);
@@ -52,6 +47,7 @@ const StorePageContainer = ({ data }: CustomProps) => {
         variant: item?.attributes?.variant,
         image: item?.attributes?.image,
         shortDescription: item?.attributes?.shortDescription,
+        veg: item?.attributes?.veg,
         description: item?.attributes?.description,
         ingredients: item?.attributes?.ingredients,
       });
