@@ -1,5 +1,6 @@
 import { IStoreDetails } from "@/model/models";
 import imageUrl from "@/utils/generate-image-url";
+import RichText from "../RichText";
 
 interface CustomProps {
   data: IStoreDetails;
@@ -26,7 +27,9 @@ export function StoreDetails({ data }: CustomProps) {
           )}
           <h1>{data?.name}</h1>
           <h6>{data?.store_category?.data?.attributes?.name}</h6>
-          <p>{data?.about}</p>
+          <div>
+            <RichText data={data?.about} />
+          </div>
         </div>
       </div>
       <div className="details-card-container">
