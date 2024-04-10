@@ -1,5 +1,6 @@
 "use client";
 import imageUrl from "@/utils/generate-image-url";
+import Link from "next/link";
 import { useState } from "react";
 import {
   Carousel,
@@ -14,6 +15,7 @@ interface Props {
 }
 
 export function CarouselComponent({ data, type }: Props) {
+  console.log(data, "data");
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -77,7 +79,12 @@ export function CarouselComponent({ data, type }: Props) {
                       <div className="col-lg-6">
                         <div className="mt-4">
                           <h5 className="f-18 mb-0">{item?.name}</h5>
-                          <p className="text-muted mb-0">- {item?.storeName}</p>
+                          <p className="text-muted mb-0">
+                            -{" "}
+                            <Link target="_blank" href={item?.relativeUrl}>
+                              {item?.storeName}
+                            </Link>
+                          </p>
                         </div>
                       </div>
                     </div>

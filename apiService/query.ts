@@ -76,6 +76,8 @@ const homePageQuery = `
               description
               name
               storeName
+              absoluteUrl
+              relativeUrl
               image {
                 data {
                   attributes {
