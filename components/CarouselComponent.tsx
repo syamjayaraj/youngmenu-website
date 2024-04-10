@@ -15,7 +15,6 @@ interface Props {
 }
 
 export function CarouselComponent({ data, type }: Props) {
-  console.log(data, "data");
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
