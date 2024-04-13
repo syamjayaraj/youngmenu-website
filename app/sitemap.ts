@@ -6,7 +6,7 @@ const Sitemap = async () => {
     const sitemapItemFormatted = {
       url: `https://youngmenu.com/store/${item?.attributes?.slug}`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
+      changeFrequency: "daily",
       priority: 1,
     };
     return sitemapItemFormatted;
@@ -16,7 +16,7 @@ const Sitemap = async () => {
     {
       url: `https://youngmenu.com`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
+      changeFrequency: "daily",
       priority: 1,
     },
     ...storeSlugsSitemap,
