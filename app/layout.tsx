@@ -5,6 +5,7 @@ import "./store.css";
 import "@/css/bootstrap.min.css";
 import "@/css/materialdesignicons.min.css";
 import { Footer } from "@/components/Footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +34,7 @@ export default function RootLayout({
         {children}
         <Footer />
       </body>
+      <GoogleAnalytics gaId="G-LP6BYPMX9G" />
     </html>
   );
 }
