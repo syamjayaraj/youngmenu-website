@@ -10,7 +10,7 @@ const nextConfig = {
         pathname: "/uploads/**",
       },
       {
-        protocol: "http",
+        protocol: "https",
         hostname: "api.youngmenu.com",
         port: "",
         pathname: "/uploads/**",
