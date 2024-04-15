@@ -3,6 +3,7 @@ import { request } from "graphql-request";
 import {
   homePageQuery,
   homePageSeoQuery,
+  loadStoresQuery,
   navigationQuery,
   searchStoreQuery,
   storeDetailsQuery,
@@ -60,6 +61,18 @@ const searchStore = async (searchTerm: string) => {
   const variables = {
     searchTerm,
   };
+  try {
+    const response: any = await request(graphqlUrl, query, variables);
+    return response?.stores?.data;
+  } catch (error) {
+    console.error("Error fetching data from Strapi:", error);
+    return null;
+  }
+};
+
+const loadStoresPath = async () => {
+  const query = loadStoresQuery;
+  const variables = {};
   try {
     const response: any = await request(graphqlUrl, query, variables);
     return response?.stores?.data;
@@ -134,6 +147,7 @@ export {
   loadHomePage,
   loadHomePageSeo,
   searchStore,
+  loadStoresPath,
   loadStoreDetails,
   loadStorePageSeo,
   submitContactForm,

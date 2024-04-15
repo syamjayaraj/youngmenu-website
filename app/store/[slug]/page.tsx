@@ -1,4 +1,4 @@
-import { loadStoreDetails } from "@/apiService/apiService";
+import { loadStoreDetails, loadStoresPath } from "@/apiService/apiService";
 import StorePageContainer from "@/components/store/StorePageContainer";
 
 type Props = {
@@ -6,6 +6,13 @@ type Props = {
 };
 
 export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  const storesPath = await loadStoresPath();
+  return storesPath?.map((store: any) => ({
+    slug: store?.attributes?.slug,
+  }));
+}
 
 export default async function Store({ params }: Props) {
   let storeData = null;

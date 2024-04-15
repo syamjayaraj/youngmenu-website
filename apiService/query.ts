@@ -152,6 +152,18 @@ query SearchStores($searchTerm: String) {
   }
 }
 `;
+const loadStoresQuery = `
+query LoadStores{
+  stores{
+    data {
+      id
+      attributes {
+        slug
+     }
+    }
+  }
+}
+`;
 const storeDetailsQuery = `
 query GetStore($slug: String) {
   stores(filters: { slug: { eq: $slug }}) {
@@ -267,6 +279,7 @@ export {
   homePageQuery,
   homePageSeoQuery,
   searchStoreQuery,
+  loadStoresQuery,
   storeDetailsQuery,
   storePageSeoQuery,
   storeSlugsQuery,
