@@ -5,7 +5,7 @@ export function Footer() {
         <div className="text-center">
           <div className="mt-3 mt-sm-0">
             <p className="text-muted mb-0">
-              Carefully Handcrafted in <span className="fw-bold">BHARAT</span> |
+              Carefully Handcrafted in <span className="fw-bold">INDIA</span> |
               Powered by{" "}
               <a
                 href="https://floyet.com"

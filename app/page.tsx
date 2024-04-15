@@ -45,7 +45,7 @@ const Home = async () => {
       <Navigation data={navigationData} />
       <Header pageData={header} />
       <VirtualMenu pageData={searchStore} />
-      <Products pageData={products} />
+      {/* <Products pageData={products} /> */}
       <Client pageData={client} />
       <Pricing pageData={pricing} />
       <Contact pageData={contact} />

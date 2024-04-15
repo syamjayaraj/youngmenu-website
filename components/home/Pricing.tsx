@@ -20,7 +20,7 @@ const Pricing = ({ pageData }: Props) => {
           </div>
         </div>
         <div className="row mt-5 pt-4">
-          {pageData?.plan?.map((planItem: IPlan, index: number) => {
+          {[pageData?.plan[0]].map((planItem: IPlan, index: number) => {
             return (
               <div className="col-lg-4" key={"plan" + index}>
                 <div className="pricing-box bg-white text-center mt-4 hover-effect">

@@ -1664,6 +1664,7 @@ hr {
 
 .testi-img img {
   border-radius: 15px;
+  width: 100%;
 }
 
 .testi-title {
