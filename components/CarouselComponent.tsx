@@ -1,5 +1,6 @@
 "use client";
 import imageUrl from "@/utils/generate-image-url";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import {
@@ -57,10 +58,12 @@ export function CarouselComponent({ data, type }: Props) {
                 <div className="col-lg-4">
                   <div className="mt-4">
                     <div className="testi-img">
-                      <img
+                      <Image
                         src={imageUrl(item?.image?.data?.attributes?.url)}
                         className="img-fluid"
                         alt="testimonial-image"
+                        width={300}
+                        height={300}
                       />
                     </div>
 
@@ -93,12 +96,14 @@ export function CarouselComponent({ data, type }: Props) {
             </div>
           )}
           {type === "item-slider" && (
-            <img
+            <Image
               src={item}
               alt="Item Image"
               className="modal-image"
               // layout={"fill"}
               // objectFit={"contain"}
+              width={600}
+              height={600}
             />
           )}
         </>
@@ -109,12 +114,14 @@ export function CarouselComponent({ data, type }: Props) {
   return (
     <>
       {data?.length === 1 && type === "item-slider" && (
-        <img
+        <Image
           src={data[0]}
           alt="Item Image"
           className="modal-image"
           // layout={"fill"}
           // objectFit={"contain"}
+          width={600}
+          height={600}
         />
       )}
       {(data?.length > 1 || (data?.length === 1 && type === "testimonial")) && (

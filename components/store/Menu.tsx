@@ -1,5 +1,6 @@
 import { IItem } from "@/model/models";
 import imageUrl from "@/utils/generate-image-url";
+import Image from "next/image";
 
 interface CustomProps {
   data: any;
@@ -24,10 +25,12 @@ const Menu = ({ data, handleItemModalOpen, storeDetails }: CustomProps) => {
                   {item?.image?.data[0]?.attributes?.url && (
                     <div className="col col-3">
                       <div className="image-container">
-                        <img
+                        <Image
                           src={imageUrl(item?.image?.data[0]?.attributes?.url)}
                           alt="store-item-image"
                           className="card-image"
+                          width={200}
+                          height={200}
                         />
                       </div>
                     </div>

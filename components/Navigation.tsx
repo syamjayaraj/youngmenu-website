@@ -1,5 +1,6 @@
 "use client";
 import imageUrl from "@/utils/generate-image-url";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 export default function Navigation({ data }: any) {
@@ -14,19 +15,20 @@ export default function Navigation({ data }: any) {
     >
       <div className="container">
         <Link className="navbar-brand logo text-uppercase" href="/">
-          <img
+          <Image
             src={imageUrl(data?.logo?.data?.attributes?.url)}
             className="logo-dark"
             alt="logo-image"
-            height="40"
+            height={40}
+            width={133}
           />
-          <img
+          <Image
             src={imageUrl(data?.logo?.data?.attributes?.url)}
             className="logo-light"
             alt="logo-image"
-            height="40"
+            height={40}
+            width={133}
           />
-          {/* <span className="fw-bold">YoungMenu</span> */}
         </Link>
 
         <button className="navbar-toggler" onClick={toggleMenu}>

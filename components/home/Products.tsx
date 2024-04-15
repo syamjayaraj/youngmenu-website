@@ -1,6 +1,7 @@
 import { IProduct, IProductItem } from "@/model/models";
 import RichText from "../RichText";
 import imageUrl from "@/utils/generate-image-url";
+import Image from "next/image";
 
 interface Props {
   pageData: IProduct;
@@ -69,12 +70,14 @@ export default function Products({ pageData }: Props) {
                 {productItem?.image?.data?.attributes?.url && (
                   <div className="col-lg-6 offset-lg-1">
                     <div className="mt-4 p-5">
-                      <img
+                      <Image
                         src={imageUrl(
                           productItem?.image?.data?.attributes?.url
                         )}
                         className="img-fluid"
                         alt="feature-image"
+                        height={1000}
+                        width={1000}
                       />
                     </div>
                   </div>

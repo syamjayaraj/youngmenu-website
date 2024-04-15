@@ -1,6 +1,7 @@
 import { IStoreDetails } from "@/model/models";
 import imageUrl from "@/utils/generate-image-url";
 import RichText from "../RichText";
+import Image from "next/image";
 
 interface CustomProps {
   data: IStoreDetails;
@@ -19,10 +20,12 @@ export function StoreDetails({ data }: CustomProps) {
       <div className="details-container">
         <div className="details">
           {data?.logo?.data?.attributes?.url && (
-            <img
+            <Image
               src={imageUrl(data?.logo?.data?.attributes?.url)}
               className="logo-image"
               alt="logo-image"
+              width={200}
+              height={200}
             />
           )}
           <h1>{data?.name}</h1>

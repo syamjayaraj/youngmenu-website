@@ -3,6 +3,7 @@ import RichText from "../RichText";
 import Link from "next/link";
 import imageUrl from "@/utils/generate-image-url";
 import { CarouselComponent } from "../CarouselComponent";
+import Image from "next/image";
 interface Props {
   pageData: IClient;
 }
@@ -40,19 +41,23 @@ const Client = ({ pageData }: Props) => {
                 <div className="client-images mt-4">
                   {storeItem?.relativeUrl && (
                     <Link href={storeItem?.relativeUrl} target="_blank">
-                      <img
+                      <Image
                         src={imageUrl(storeItem?.logo?.data?.attributes?.url)}
-                        alt="logo-img"
+                        alt="client-img"
                         className="mx-auto img-fluid d-block"
+                        width={50}
+                        height={50}
                       />
                     </Link>
                   )}
                   {storeItem?.absoluteUrl && (
                     <a href={storeItem?.absoluteUrl} target="_blank">
-                      <img
+                      <Image
                         src={imageUrl(storeItem?.logo?.data?.attributes?.url)}
-                        alt="logo-img"
+                        alt="client-img"
                         className="mx-auto img-fluid d-block"
+                        width={50}
+                        height={50}
                       />
                     </a>
                   )}
