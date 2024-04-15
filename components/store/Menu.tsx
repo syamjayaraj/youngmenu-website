@@ -31,6 +31,7 @@ const Menu = ({ data, handleItemModalOpen, storeDetails }: CustomProps) => {
                           className="card-image"
                           width={200}
                           height={200}
+                          priority={true}
                         />
                       </div>
                     </div>

@@ -21,6 +21,7 @@ export default function Navigation({ data }: any) {
             alt="logo-image"
             height={40}
             width={133}
+            priority={true}
           />
           <Image
             src={imageUrl(data?.logo?.data?.attributes?.url)}
@@ -28,6 +29,7 @@ export default function Navigation({ data }: any) {
             alt="logo-image"
             height={40}
             width={133}
+            priority={true}
           />
         </Link>
 

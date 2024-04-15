@@ -64,6 +64,7 @@ export function CarouselComponent({ data, type }: Props) {
                         alt="testimonial-image"
                         width={300}
                         height={300}
+                        priority={true}
                       />
                     </div>
 
@@ -104,6 +105,7 @@ export function CarouselComponent({ data, type }: Props) {
               // objectFit={"contain"}
               width={600}
               height={600}
+              priority={true}
             />
           )}
         </>
@@ -122,6 +124,7 @@ export function CarouselComponent({ data, type }: Props) {
           // objectFit={"contain"}
           width={600}
           height={600}
+          priority={true}
         />
       )}
       {(data?.length > 1 || (data?.length === 1 && type === "testimonial")) && (

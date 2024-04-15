@@ -26,6 +26,7 @@ export function StoreDetails({ data }: CustomProps) {
               alt="logo-image"
               width={200}
               height={200}
+              priority={true}
             />
           )}
           <h1>{data?.name}</h1>
