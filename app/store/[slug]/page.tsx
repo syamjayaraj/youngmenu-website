@@ -5,7 +5,7 @@ type Props = {
   params: { slug: string };
 };
 
-export const revalidate = 3600;
+export const revalidate = 360;
 
 export async function generateStaticParams() {
   const storesPath = await loadStoresPath();
