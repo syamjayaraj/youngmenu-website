@@ -1612,6 +1612,10 @@ hr {
   padding: 0px 80px;
 }
 
+.nav-item i {
+  font-size: 1.6em;
+}
+
 @media (max-width: 1024px) {
   .client-item {
     padding: 80px;

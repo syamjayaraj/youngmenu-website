@@ -53,6 +53,16 @@ export default function Navigation({ data }: any) {
                 </li>
               );
             })}
+            <li className="nav-item">
+              <Link
+                className="nav-link"
+                href="https://github.com/syamjayaraj/youngmenu"
+                scroll={true}
+                target="_blank"
+              >
+                <i className="mdi mdi-github" />
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
