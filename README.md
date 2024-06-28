@@ -29,6 +29,22 @@ Youngmenu is a restaurant management platform. This repository contains the code
    # or
    yarn install
    ```
+3. Set up environment variables
+   Copy the .env.example file to .env.local:
+
+   ```
+   cp .env.example .env.local
+   ```
+
+   Please make sure to include your NEXT_PUBLIC_GRAPHQL_URL, NEXT_PUBLIC_API_URL, and NEXT_PUBLIC_DOMAIN_URL in the file:
+
+   ```env
+   NEXT_PUBLIC_GRAPHQL_URL=http://localhost:1337/graphql
+   NEXT_PUBLIC_API_URL=http://localhost:1337/api/
+   NEXT_PUBLIC_DOMAIN_URL=http://localhost:1337
+   ```
+
+   Before running this one, you must clone and run the [Youngmenu-cms](https://github.com/syamjayaraj/youngmenu-cms) project.
 
 ### Running the Project
 
