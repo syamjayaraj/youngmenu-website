@@ -4,8 +4,8 @@ Youngmenu is a restaurant management platform. This repository contains the code
 
 ## Features
 
-- Display a list of stores and their corresponding menus.
 - Detailed references and information about Youngmenu.
+- Display the list of stores and their corresponding menus.
 
 ## Getting Started
 
