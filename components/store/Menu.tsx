@@ -15,7 +15,7 @@ const Menu = ({ data, handleItemModalOpen, storeDetails }: CustomProps) => {
         return (
           <section id={category?.name} key={categoryIndex}>
             <h2>{category?.name}</h2>
-            {category?.items.map((item: IItem, itemIndex: number) => {
+            {category?.items?.map((item: IItem, itemIndex: number) => {
               return (
                 <div
                   className="row card d-flex flex-row"

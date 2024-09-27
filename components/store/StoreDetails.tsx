@@ -31,9 +31,8 @@ export function StoreDetails({ data }: CustomProps) {
           )}
           <h1>{data?.name}</h1>
           <h6>{data?.store_category?.data?.attributes?.name}</h6>
-          <div>
-            <RichText data={data?.about} />
-          </div>
+
+          <div>{data?.about && <RichText data={data?.about} />}</div>
         </div>
       </div>
       <div className="details-card-container">
