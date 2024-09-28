@@ -106,6 +106,7 @@
   position: absolute;
   top: 45vh;
   left: 0;
+  z-index: -1;
 }
 
 .card-container {
