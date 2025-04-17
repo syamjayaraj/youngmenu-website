@@ -39,7 +39,7 @@ const Home = async () => {
   const navigationData: any = await loadNavigation("en");
   const homePageData: any = await loadHomePage("en");
   const { header, searchStore, products, client, pricing, contact } =
-    homePageData;
+    homePageData || {};
   return (
     <>
       <Navigation data={navigationData} />

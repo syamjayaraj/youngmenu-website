@@ -150,16 +150,50 @@
   margin-bottom: 0.5rem;
 }
 
+.decrement-button {
+  border: 1px solid #cbcbcb;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  align-content: center;
+  font-size: 1.2em;
+  background: #cbcbcb;
+}
+.quantity {
+  font-size: 1.1em;
+  margin: 0 .5rem;
+  padding-top: .2rem;
+}
+.quantity  input {
+  width: 2.5rem;
+  text-align: center;
+  border: none;
+}
+
+.increment-button {
+  border: 1px solid #cbcbcb;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  align-content: center;
+  font-size: 1.2em;
+  background: #cbcbcb;
+}
+
 .price-card-section1 {
   border-right: 1px solid #cbcbcb;
   padding-right: 0.5rem;
   font-size: 0.8em;
   color: #858383;
   text-wrap: nowrap;
+  margin-right: 0.5rem;
+
 }
 
 .price-card-section2 {
-  padding-left: 0.5rem;
+  font-size: 1.2em;
 }
 
 .price-card-section2 span {

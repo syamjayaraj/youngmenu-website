@@ -1,9 +1,10 @@
-import { Modal, ModalBody } from "reactstrap";
+import { Input, Modal, ModalBody } from "reactstrap";
 import imageUrl from "@/utils/generate-image-url";
 import { CarouselComponent } from "../CarouselComponent";
 import { IIngredient, IItem, IStoreDetails } from "@/model/models";
 import RichText from "../RichText";
 import Link from "next/link";
+import { useState } from "react";
 
 interface CustomProps {
   data: IItem;
@@ -21,6 +22,20 @@ export function ItemModal({
         (item: any) => `${imageUrl(item?.attributes?.url)}`
       )
     : [];
+
+  const [quantity, setQuantity] = useState<Number>(1);
+
+  const handleChangeQuantity = (e: any) => {
+    setQuantity(Number(e?.target?.value));
+  };
+
+  const handleDecrementQuantity = () => {
+    setQuantity(Number(quantity) - 1);
+  };
+
+  const handleIncrementQuantity = () => {
+    setQuantity(Number(quantity) + 1);
+  };
 
   return (
     <>
@@ -61,7 +76,9 @@ export function ItemModal({
               {data?.variant?.map((item: any, index: number) => {
                 return (
                   <div className="price-card" key={"variant" + index}>
-                    <div className="price-card-section1">{item?.name}</div>
+                    {item?.name ? (
+                      <div className="price-card-section1">{item?.name}</div>
+                    ) : null}
                     <div className="price-card-section2">
                       <span>{storeDetails?.currency}</span>
                       {item?.price}
@@ -69,6 +86,25 @@ export function ItemModal({
                   </div>
                 );
               })}
+              <div
+                className="decrement-button"
+                onClick={handleDecrementQuantity}
+              >
+                -
+              </div>
+              <div className="quantity">
+                <input
+                  className=""
+                  value={quantity?.toString()}
+                  onChange={(e) => handleChangeQuantity(e)}
+                />
+              </div>
+              <div
+                className="increment-button"
+                onClick={handleIncrementQuantity}
+              >
+                +
+              </div>
             </div>
             {storeDetails?.callButton?.absoluteUrl && (
               <a

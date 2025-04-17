@@ -6,29 +6,44 @@ interface Props {
 }
 export default function Header({ pageData }: Props) {
   return (
-    <section className="bg-home-2 align-items-center d-flex" id="#header">
-      <div className="container">
+    <section className="hero-section position-relative" id="header">
+      {/* Video Background */}
+      <div className="video-background">
+        <video autoPlay loop muted playsInline className="hero-video">
+          <source src="/videos/cafe.mp4" type="video/mp4" />
+        </video>
+        <div className="video-overlay"></div>
+      </div>
+
+      <div className="container position-relative z-1">
         <div className="row justify-content-center">
-          <div className="col-lg-12">
+          <div className="col-lg-10 col-xl-8">
             <div className="text-center">
-              <h1 className="display-5 fw-normal">
-                <span className="fw-bold">{pageData?.title}</span>
+              {/* Main Title */}
+              <h1 className="display-3 fw-bold mb-4 text-white hero-title">
+                {pageData?.title}
               </h1>
-              <div className="home-desc text-muted mt-4">
+
+              {/* Description */}
+              <div className="home-desc text-white-75 fs-5 mb-5 max-w-2xl mx-auto">
                 <RichText data={pageData?.description} />
               </div>
-              <div className="pt-2 mt-5">
+
+              {/* Scroll Indicator */}
+              <div className="mt-5">
                 <a
                   href="#virtual-menu"
-                  data-bs-toggle="modal"
-                  data-bs-target="#watchvideomodal"
-                  className="video-icon-btn bg-white"
+                  className="text-white text-decoration-none"
                 >
-                  <span className="play-shadow">
-                    <span className="home-btn">
-                      <i className="mdi mdi-arrow-down text-center"></i>
+                  <div className="mouse">
+                    <div className="wheel"></div>
+                  </div>
+                  <div>
+                    <span className="scroll-arrow">
+                      <span></span>
+                      <span></span>
                     </span>
-                  </span>
+                  </div>
                 </a>
               </div>
             </div>

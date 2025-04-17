@@ -5,7 +5,12 @@ interface ICustomProps {
 }
 
 const RichText = (props: ICustomProps) => {
-  return <BlocksRenderer content={props?.data} />;
+  return (
+    props?.data&&
+    <>
+  <BlocksRenderer content={props?.data} />
+  </>
+)
 };
 
 export default RichText;

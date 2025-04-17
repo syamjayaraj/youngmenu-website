@@ -2,63 +2,78 @@
 import imageUrl from "@/utils/generate-image-url";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 export default function Navigation({ data }: any) {
   const [showMenu, setShowMenu] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
+
+  console.log(data, "url");
+
   return (
     <nav
-      className="navbar navbar-expand-lg  navbar-white fixed-top navbar-custom sticky sticky-light"
+      className={`navbar navbar-expand-lg fixed-top ${
+        scrolled ? "navbar-scrolled" : "navbar-transparent"
+      }`}
       id="navbar"
     >
       <div className="container">
-        <Link className="navbar-brand logo text-uppercase" href="/">
+        <Link className="navbar-brand" href="/">
           <Image
             src={imageUrl(data?.logo?.data?.attributes?.url)}
-            className="logo-dark"
             alt="logo-image"
             height={40}
             width={133}
             priority={true}
-          />
-          <Image
-            src={imageUrl(data?.logo?.data?.attributes?.url)}
-            className="logo-light"
-            alt="logo-image"
-            height={40}
-            width={133}
-            priority={true}
+            className="logo-img"
           />
         </Link>
 
-        <button className="navbar-toggler" onClick={toggleMenu}>
-          <span className="mdi mdi-menu"></span>
+        <button
+          className="navbar-toggler"
+          onClick={toggleMenu}
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className={`${showMenu ? "" : "collapse"} navbar-collapse`}>
-          <ul className="navbar-nav ms-auto" id="navbar-navlist">
-            {data?.navItem?.map((item: any, index: number) => {
-              return (
-                <li className="nav-item" key={"nav-item" + index}>
-                  <Link
-                    className="nav-link"
-                    href={item?.url}
-                    scroll={true}
-                    onClick={() => setShowMenu(false)}
-                  >
-                    {item?.name}
-                  </Link>
-                </li>
-              );
-            })}
+        <div className={`${showMenu ? "show" : ""} collapse navbar-collapse`}>
+          <ul className="navbar-nav ms-auto align-items-center">
+            {data?.navItem?.map((item: any, index: number) => (
+              <li className="nav-item" key={`nav-item-${index}`}>
+                <Link
+                  className="nav-link"
+                  href={item?.url}
+                  onClick={() => setShowMenu(false)}
+                >
+                  {item?.name}
+                </Link>
+              </li>
+            ))}
             <li className="nav-item">
               <Link
-                className="nav-link"
+                className="github-link"
                 href="https://github.com/syamjayaraj/youngmenu"
-                scroll={true}
                 target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setShowMenu(false)}
               >
                 <i className="mdi mdi-github" />
               </Link>
