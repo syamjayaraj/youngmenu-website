@@ -88,7 +88,9 @@ const loadStoreDetails = cache(async (slug: string) => {
     slug,
   };
   try {
-    const response: any = await request(graphqlUrl, query, variables);
+    // Construct store-specific GraphQL URL
+    const storeGraphqlUrl = `https://${slug}.youngmenu.com/graphql`;
+    const response: any = await request(storeGraphqlUrl, query, variables);
     return response?.stores?.data[0]?.attributes;
   } catch (error: any) {
     return null;
