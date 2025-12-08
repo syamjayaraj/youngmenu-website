@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/third-parties": "^14.2.1",
+    "@next/third-parties": "^16.0.7",
     "@strapi/blocks-react-renderer": "^1.0.1",
     "formik": "^2.4.5",
     "graphql-request": "^6.1.0",
-    "next": "^14.2.1",
+    "next": "16.0.7",
     "react": "^18",
     "react-autosuggest": "^10.1.0",
     "react-dom": "^18",
@@ -25,8 +25,8 @@
     "@types/react": "^18",
     "@types/react-autosuggest": "^10.1.11",
     "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.4",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.7",
     "typescript": "^5"
   }
 }
