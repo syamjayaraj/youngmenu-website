@@ -1,5 +1,6 @@
 import { loadStoreDetails, loadStoresPath } from "@/apiService/apiService";
 import StorePageContainer from "@/components/store/StorePageContainer";
+import ComingSoon from "@/components/home/ComingSoon";
 
 type Props = {
   params: { slug: string };
@@ -8,17 +9,20 @@ type Props = {
 export const revalidate = 60;
 
 export async function generateStaticParams() {
-  const storesPath = await loadStoresPath();
-  return storesPath?.map((store: any) => ({
-    slug: store?.attributes?.slug,
-  }));
+  return [];
 }
 
 export default async function Store({ params }: Props) {
   let storeData = null;
-  do {
+  try {
     storeData = await loadStoreDetails(params?.slug);
-  } while (!storeData);
+  } catch (error) {
+    console.error("Error loading store details:", error);
+  }
+
+  if (!storeData) {
+    return <ComingSoon />;
+  }
 
   return (
     <>
