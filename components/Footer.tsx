@@ -24,7 +24,7 @@ export function Footer() {
               >
                 YoungMenu
               </a>{" "}
-              2024
+              2026
             </p>
           </div>
         </div>
