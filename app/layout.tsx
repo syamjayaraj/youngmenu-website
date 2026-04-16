@@ -53,14 +53,6 @@ export const metadata: Metadata = {
     title: "YoungMenu — Restaurant Management Platform",
     description:
       "A complete management platform for restaurants, cafes, and home bakers. Counter POS, waiter app, kitchen display, QR menu — everything in one place.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "YoungMenu — Restaurant Management Platform",
-      },
-    ],
   },
 
   twitter: {
@@ -68,7 +60,6 @@ export const metadata: Metadata = {
     title: "YoungMenu — Restaurant Management Platform",
     description:
       "Counter POS, waiter app, kitchen display, and QR menu for restaurants, cafes, and home bakers.",
-    images: ["/og-image.png"],
     creator: "@youngmenu",
   },
 
