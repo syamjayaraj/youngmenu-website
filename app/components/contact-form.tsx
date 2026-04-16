@@ -1,60 +1,99 @@
 "use client";
 
+import { useState } from "react";
+
 export function ContactForm() {
+  const [businessType, setBusinessType] = useState("");
+
   return (
     <form
-      className="mt-8 space-y-4"
+      className="mt-7 space-y-4"
       onSubmit={(e) => e.preventDefault()}
+      noValidate
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.24em] text-white/50">
+          <label
+            htmlFor="cf-name"
+            className="mb-1.5 block text-xs font-semibold uppercase tracking-widest"
+            style={{ color: "rgba(255,255,255,0.42)" }}
+          >
             Name
           </label>
           <input
+            id="cf-name"
             type="text"
+            autoComplete="name"
             placeholder="Your name"
-            className="w-full rounded-[1rem] border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition focus:border-[rgba(201,160,93,0.5)] focus:bg-white/[0.08]"
+            className="form-field"
           />
         </div>
         <div>
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.24em] text-white/50">
+          <label
+            htmlFor="cf-biz"
+            className="mb-1.5 block text-xs font-semibold uppercase tracking-widest"
+            style={{ color: "rgba(255,255,255,0.42)" }}
+          >
             Business name
           </label>
           <input
+            id="cf-biz"
             type="text"
+            autoComplete="organization"
             placeholder="Restaurant / cafe name"
-            className="w-full rounded-[1rem] border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition focus:border-[rgba(201,160,93,0.5)] focus:bg-white/[0.08]"
+            className="form-field"
           />
         </div>
       </div>
+
       <div>
-        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.24em] text-white/50">
+        <label
+          htmlFor="cf-email"
+          className="mb-1.5 block text-xs font-semibold uppercase tracking-widest"
+          style={{ color: "rgba(255,255,255,0.42)" }}
+        >
           Email
         </label>
         <input
+          id="cf-email"
           type="email"
+          autoComplete="email"
           placeholder="you@example.com"
-          className="w-full rounded-[1rem] border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition focus:border-[rgba(201,160,93,0.5)] focus:bg-white/[0.08]"
+          className="form-field"
         />
       </div>
+
       <div>
-        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.24em] text-white/50">
+        <label
+          htmlFor="cf-phone"
+          className="mb-1.5 block text-xs font-semibold uppercase tracking-widest"
+          style={{ color: "rgba(255,255,255,0.42)" }}
+        >
           Phone
         </label>
         <input
+          id="cf-phone"
           type="tel"
+          autoComplete="tel"
           placeholder="+91 ..."
-          className="w-full rounded-[1rem] border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition focus:border-[rgba(201,160,93,0.5)] focus:bg-white/[0.08]"
+          className="form-field"
         />
       </div>
+
       <div>
-        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.24em] text-white/50">
+        <label
+          htmlFor="cf-type"
+          className="mb-1.5 block text-xs font-semibold uppercase tracking-widest"
+          style={{ color: "rgba(255,255,255,0.42)" }}
+        >
           Business type
         </label>
         <select
-          className="w-full rounded-[1rem] border border-white/10 bg-[#1a1512] px-4 py-3 text-sm text-white/75 outline-none transition focus:border-[rgba(201,160,93,0.5)]"
-          defaultValue=""
+          id="cf-type"
+          value={businessType}
+          onChange={(e) => setBusinessType(e.target.value)}
+          className="form-field"
+          style={{ appearance: "none" }}
         >
           <option value="" disabled>Select your type</option>
           <option value="restaurant">Restaurant</option>
@@ -64,19 +103,26 @@ export function ContactForm() {
           <option value="other">Other</option>
         </select>
       </div>
+
       <div>
-        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.24em] text-white/50">
-          Message (optional)
+        <label
+          htmlFor="cf-message"
+          className="mb-1.5 block text-xs font-semibold uppercase tracking-widest"
+          style={{ color: "rgba(255,255,255,0.42)" }}
+        >
+          Message <span style={{ color: "rgba(255,255,255,0.28)" }}>(optional)</span>
         </label>
         <textarea
+          id="cf-message"
           rows={3}
           placeholder="Tell us about your setup or any questions..."
-          className="w-full resize-none rounded-[1rem] border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition focus:border-[rgba(201,160,93,0.5)] focus:bg-white/[0.08]"
+          className="form-field resize-none"
         />
       </div>
+
       <button
         type="submit"
-        className="framed-button mt-2 w-full justify-center"
+        className="framed-button mt-2 w-full"
         data-tone="amber"
       >
         Send request
