@@ -346,6 +346,30 @@ select { font: inherit; }
   50%       { transform: translateY(-10px); }
 }
 
+/* ─── Legal prose ────────────────────────────────────────────────────────── */
+
+.legal-prose ul {
+  padding-left: 1.4rem;
+  list-style: disc;
+}
+.legal-prose ul li {
+  margin-bottom: 0.35rem;
+}
+.legal-prose a {
+  color: var(--page-amber-deep);
+  text-decoration: underline;
+  text-decoration-color: rgba(141, 97, 53, 0.35);
+  text-underline-offset: 3px;
+  transition: color 180ms ease;
+}
+.legal-prose a:hover {
+  color: var(--page-brown);
+}
+.legal-prose address {
+  margin-top: 0.5rem;
+  line-height: 1.9;
+}
+
 /* ─── Reduced motion ─────────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
