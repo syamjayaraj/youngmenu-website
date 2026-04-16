@@ -6,27 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint"
   },
   "dependencies": {
-    "@next/third-parties": "^16.0.7",
-    "@strapi/blocks-react-renderer": "^1.0.1",
-    "formik": "^2.4.5",
-    "graphql-request": "^6.1.0",
-    "next": "16.0.7",
-    "react": "^18",
-    "react-autosuggest": "^10.1.0",
-    "react-dom": "^18",
-    "reactstrap": "^9.2.2",
-    "swr": "^2.2.5"
+    "next": "16.2.4",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-autosuggest": "^10.1.11",
-    "@types/react-dom": "^18",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.0.7",
+    "eslint-config-next": "16.2.4",
+    "tailwindcss": "^4",
     "typescript": "^5"
   }
 }
