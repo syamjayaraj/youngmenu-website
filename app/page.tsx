@@ -411,8 +411,9 @@ export default function Home() {
             aria-label="Hero"
             className="relative isolate flex min-h-svh items-center overflow-hidden"
           >
-            {/* Background video */}
-            <div className="absolute inset-0 bg-[#13110f]">
+            {/* Background video (temporarily commented out) */}
+            <div className="absolute inset-0 bg-[#0a0807] overflow-hidden">
+              {/*
               <video
                 autoPlay
                 muted
@@ -423,6 +424,40 @@ export default function Home() {
               >
                 <source src="/assets/videos/hero.mp4" type="video/mp4" />
               </video>
+              */}
+
+              {/* Ambient Mesh Gradient Background */}
+              <div
+                className="absolute -top-[25%] -left-[10%] w-[70%] h-[70%] rounded-full float-slow"
+                style={{
+                  background: "radial-gradient(circle, rgba(201,160,93,0.15) 0%, transparent 60%)",
+                  filter: "blur(80px)"
+                }}
+              />
+              <div
+                className="absolute top-[10%] -right-[20%] w-[70%] h-[80%] rounded-full hero-fade"
+                style={{
+                  background: "radial-gradient(circle, rgba(141,97,53,0.12) 0%, transparent 65%)",
+                  filter: "blur(100px)",
+                  animationDuration: "3s"
+                }}
+              />
+              <div
+                className="absolute -bottom-[30%] left-[20%] w-[60%] h-[60%] rounded-full float-slow"
+                style={{
+                  background: "radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 60%)",
+                  filter: "blur(120px)",
+                  animationDelay: "2s"
+                }}
+              />
+              
+              {/* Subtle grid texture */}
+              <div 
+                className="absolute inset-0 opacity-[0.03]" 
+                style={{
+                  backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm20 20h20v20H20V20zM0 20h20v20H0V20z' fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+                }}
+              />
             </div>
             <div className="hero-overlay absolute inset-0" />
             <div
