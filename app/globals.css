@@ -210,7 +210,7 @@ select { font: inherit; }
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
 }
 
-/* dark tone — white pill, dark text */
+/* dark tone - white pill, dark text */
 .framed-button[data-tone="dark"] {
   border-color: rgba(45, 31, 24, 0.18);
   background: rgba(255, 255, 255, 0.85);
@@ -222,7 +222,7 @@ select { font: inherit; }
   box-shadow: 0 14px 36px rgba(45, 31, 24, 0.14);
 }
 
-/* amber tone — accent fill */
+/* amber tone - accent fill */
 .framed-button[data-tone="amber"] {
   border-color: rgba(201, 160, 93, 0.60);
   background: var(--page-amber);

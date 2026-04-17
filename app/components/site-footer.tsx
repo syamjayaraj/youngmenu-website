@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerColumns = [
   {
@@ -54,10 +55,19 @@ export function SiteFooter() {
         {/* Top row */}
         <div className="mb-12 flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-xs">
-            <span className="display-title text-3xl" style={{ color: "#2d1f18" }}>
-              YoungMenu
-            </span>
-            <p className="mt-3 text-sm leading-7" style={{ color: "var(--page-muted)" }}>
+            <div className="flex items-center gap-3">
+              <Image 
+                src="/assets/logo/logo.png" 
+                alt="YoungMenu Logo" 
+                width={42} 
+                height={42} 
+                className="object-contain rounded-full" 
+              />
+              <span className="display-title text-3xl" style={{ color: "#2d1f18" }}>
+                YoungMenu
+              </span>
+            </div>
+            <p className="mt-4 text-sm leading-7" style={{ color: "var(--page-muted)" }}>
               A complete management solution for restaurants, cafes, and home bakers.
               Streamline operations from counter to kitchen.
             </p>

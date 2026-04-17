@@ -227,7 +227,7 @@ const features = [
     ),
     title: "QR Menu",
     description:
-      "Give every table a beautiful digital menu via QR code. Customers browse, customise, and order — no app needed.",
+      "Give every table a beautiful digital menu via QR code. Customers browse, customise, and order - no app needed.",
     color: "#c9a05d",
   },
   {
@@ -451,7 +451,7 @@ export default function Home() {
                 >
                   YoungMenu is a complete management platform for restaurants,
                   cafes, and home bakers. Counter POS, waiter app, kitchen
-                  display, QR menu — everything in one place.
+                  display, QR menu - everything in one place.
                 </p>
 
                 <div className="mt-10 flex flex-wrap gap-4">
@@ -613,7 +613,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Screenshot / video placeholder — independent reveal */}
+                {/* Screenshot / video placeholder - independent reveal */}
                 <div data-reveal className="reveal" style={rs("0.14s")}>
                   <div
                     className="overflow-hidden rounded-[2rem]"
@@ -623,7 +623,7 @@ export default function Home() {
                       boxShadow: "0 28px 90px rgba(0,0,0,0.32)",
                     }}
                   >
-                    {/* 16:10 aspect ratio — swap for a real screenshot/video later */}
+                    {/* 16:10 aspect ratio - swap for a real screenshot/video later */}
                     <div style={{ aspectRatio: "16/10", position: "relative" }}>
                       <div
                         className="absolute inset-0 flex flex-col items-center justify-center gap-3"
@@ -1074,7 +1074,7 @@ export default function Home() {
                 data-reveal
                 className="paper-card reveal overflow-hidden rounded-[2rem] px-10 py-14 text-center sm:px-16 sm:py-20"
               >
-                {/* Decorative gradients — contained by overflow:hidden + position:relative on paper-card */}
+                {/* Decorative gradients - contained by overflow:hidden + position:relative on paper-card */}
                 <div
                   className="pointer-events-none absolute right-0 top-0 h-64 w-64 rounded-full"
                   style={{
@@ -1144,7 +1144,7 @@ export default function Home() {
             />
 
             <div className="site-shell relative grid items-start gap-14 lg:grid-cols-[1fr_1.1fr]">
-              {/* Left — info */}
+              {/* Left - info */}
               <div data-reveal className="reveal" style={rs("0s")}>
                 <p className="kicker" style={{ color: "var(--page-amber)" }}>
                   Get in touch
@@ -1160,7 +1160,7 @@ export default function Home() {
                   style={{ color: "rgba(255,255,255,0.62)" }}
                 >
                   Whether you want a live demo, have a question about the
-                  platform, or are ready to get started — our team is here to
+                  platform, or are ready to get started - our team is here to
                   help.
                 </p>
 
@@ -1308,7 +1308,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right — form */}
+              {/* Right - form */}
               <div data-reveal className="reveal" style={rs("0.14s")}>
                 <div
                   className="rounded-3xl p-8 sm:p-10"

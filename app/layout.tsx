@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
 
   title: {
-    default: "YoungMenu — Restaurant Management Platform",
+    default: "YoungMenu - Restaurant Management Platform",
     template: "%s | YoungMenu",
   },
   description:
-    "YoungMenu is a complete management solution for restaurants, cafes, and home bakers. Counter POS, waiter app, kitchen display system, and QR digital menu — all in one platform.",
+    "YoungMenu is a complete management solution for restaurants, cafes, and home bakers. Counter POS, waiter app, kitchen display system, and QR digital menu - all in one platform.",
 
   keywords: [
     "restaurant management software",
@@ -50,14 +50,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: BASE_URL,
     siteName: "YoungMenu",
-    title: "YoungMenu — Restaurant Management Platform",
+    title: "YoungMenu - Restaurant Management Platform",
     description:
-      "A complete management platform for restaurants, cafes, and home bakers. Counter POS, waiter app, kitchen display, QR menu — everything in one place.",
+      "A complete management platform for restaurants, cafes, and home bakers. Counter POS, waiter app, kitchen display, QR menu - everything in one place.",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "YoungMenu — Restaurant Management Platform",
+    title: "YoungMenu - Restaurant Management Platform",
     description:
       "Counter POS, waiter app, kitchen display, and QR menu for restaurants, cafes, and home bakers.",
     creator: "@youngmenu",
@@ -80,8 +80,9 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type BrandBadgeProps = {
   className?: string;
   tone?: "light" | "dark";
@@ -14,13 +16,17 @@ export function BrandBadge({
 
   return (
     <div
-      className={`brand-seal inline-flex min-w-[118px] flex-col items-center justify-center border px-4 py-3 text-center backdrop-blur-sm ${tones} ${className}`}
+      className={`brand-seal inline-flex items-center gap-2.5 border px-3.5 py-2 backdrop-blur-sm ${tones} ${className}`}
     >
-      <span className="font-display text-[1.55rem] leading-none tracking-[-0.06em]">
+      <Image
+        src="/assets/logo/logo.png"
+        alt="YoungMenu Logo"
+        width={34}
+        height={34}
+        className="object-contain rounded-full"
+      />
+      <span className="font-display text-[1.4rem] leading-none tracking-[-0.04em] pr-1">
         YoungMenu
-      </span>
-      <span className="mt-1 text-[0.68rem] uppercase tracking-[0.28em] opacity-75">
-        Manager
       </span>
     </div>
   );

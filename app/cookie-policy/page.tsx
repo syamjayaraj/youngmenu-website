@@ -108,17 +108,17 @@ function LegalContent() {
         </p>
         <ul>
           <li>
-            <strong>Google Analytics</strong> — to analyse usage patterns and
+            <strong>Google Analytics</strong> - to analyse usage patterns and
             improve the product. Google&apos;s privacy policy applies to these
             cookies.
           </li>
           <li>
-            <strong>Payment processors</strong> — to facilitate secure payment
+            <strong>Payment processors</strong> - to facilitate secure payment
             transactions. These providers operate under their own privacy and
             cookie policies.
           </li>
           <li>
-            <strong>Customer support tools</strong> — to power our in-app help
+            <strong>Customer support tools</strong> - to power our in-app help
             and support features.
           </li>
         </ul>
