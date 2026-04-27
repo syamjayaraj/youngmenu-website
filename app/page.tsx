@@ -396,11 +396,71 @@ const stats = [
   { value: "30 min", label: "Average setup time" },
 ];
 
+const heroHighlights = [
+  "Counter POS",
+  "Waiter app",
+  "Kitchen display",
+  "QR menu",
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://youngmenu.com/#organization",
+      name: "YoungMenu",
+      url: "https://youngmenu.com",
+      logo: "https://youngmenu.com/assets/logo/logo.png",
+      sameAs: ["https://youngmenu.com"],
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://youngmenu.com/#software",
+      name: "YoungMenu",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web, iOS, Android",
+      url: "https://youngmenu.com",
+      description:
+        "YoungMenu is restaurant management software with counter POS, waiter app, kitchen display, QR digital menu, order management, and owner analytics for restaurants, cafes, and home bakers.",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "INR",
+        availability: "https://schema.org/InStock",
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        ratingCount: "2",
+      },
+      publisher: {
+        "@id": "https://youngmenu.com/#organization",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://youngmenu.com/#website",
+      name: "YoungMenu",
+      url: "https://youngmenu.com",
+      publisher: {
+        "@id": "https://youngmenu.com/#organization",
+      },
+    },
+  ],
+};
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <SiteHeader />
       <RevealObserver />
 
@@ -409,53 +469,32 @@ export default function Home() {
           {/* ── Hero ──────────────────────────────────────────────────────────── */}
           <section
             aria-label="Hero"
-            className="relative isolate flex min-h-svh items-center overflow-hidden"
+            className="hero-section relative isolate flex min-h-svh items-center overflow-hidden"
           >
-            {/* Background video (temporarily commented out) */}
             <div className="absolute inset-0 bg-[#0a0807] overflow-hidden">
-              {/*
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                aria-hidden="true"
-                className="hero-fade absolute inset-0 h-full w-full object-cover"
-              >
-                <source src="/assets/videos/hero.mp4" type="video/mp4" />
-              </video>
-              */}
-
-              {/* Ambient Mesh Gradient Background */}
               <div
-                className="absolute -top-[25%] -left-[10%] w-[70%] h-[70%] rounded-full float-slow"
+                className="absolute -left-[18%] top-[-18%] h-[34rem] w-[34rem] rounded-full float-slow"
                 style={{
-                  background: "radial-gradient(circle, rgba(201,160,93,0.15) 0%, transparent 60%)",
-                  filter: "blur(80px)"
+                  background:
+                    "radial-gradient(circle, rgba(201,160,93,0.18) 0%, transparent 66%)",
+                  filter: "blur(72px)",
                 }}
               />
               <div
-                className="absolute top-[10%] -right-[20%] w-[70%] h-[80%] rounded-full hero-fade"
+                className="absolute -right-[18%] bottom-[-16%] h-[38rem] w-[38rem] rounded-full hero-fade"
                 style={{
-                  background: "radial-gradient(circle, rgba(141,97,53,0.12) 0%, transparent 65%)",
-                  filter: "blur(100px)",
-                  animationDuration: "3s"
+                  background:
+                    "radial-gradient(circle, rgba(80,92,70,0.22) 0%, transparent 66%)",
+                  filter: "blur(92px)",
+                  animationDuration: "3s",
                 }}
               />
               <div
-                className="absolute -bottom-[30%] left-[20%] w-[60%] h-[60%] rounded-full float-slow"
+                className="absolute inset-0 opacity-[0.045]"
                 style={{
-                  background: "radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 60%)",
-                  filter: "blur(120px)",
-                  animationDelay: "2s"
-                }}
-              />
-              
-              {/* Subtle grid texture */}
-              <div 
-                className="absolute inset-0 opacity-[0.03]" 
-                style={{
-                  backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm20 20h20v20H20V20zM0 20h20v20H0V20z' fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+                  backgroundImage:
+                    "linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px)",
+                  backgroundSize: "56px 56px",
                 }}
               />
             </div>
@@ -468,70 +507,149 @@ export default function Home() {
               }}
             />
 
-            <div className="site-shell relative z-10 w-full py-36 pb-20 pt-40 text-white sm:pt-44">
-              {/* Main headline */}
-              <div className="hero-rise max-w-4xl">
-                <p className="eyebrow-pill mb-7">
-                  Complete restaurant management
-                </p>
+            <div className="site-shell relative z-10 w-full py-28 pt-36 text-white sm:pt-40 lg:py-32 lg:pt-40">
+              <div className="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
+                <div className="hero-rise max-w-3xl">
+                  <p className="eyebrow-pill mb-6">
+                    Restaurant management platform
+                  </p>
 
-                <h1 className="display-title text-6xl text-white sm:text-7xl lg:text-[6.2rem]">
-                  Run your restaurant,{" "}
-                  <span style={{ color: "var(--page-amber)" }}>smarter.</span>
-                </h1>
+                  <h1 className="display-title hero-title text-white">
+                    Modern POS, QR menu, and kitchen operations in one simple
+                    system.
+                  </h1>
 
-                <p
-                  className="mt-6 max-w-2xl text-lg leading-8"
-                  style={{ color: "rgba(255,255,255,0.74)" }}
-                >
-                  YoungMenu is a complete management platform for restaurants,
-                  cafes, and home bakers. Counter POS, waiter app, kitchen
-                  display, QR menu - everything in one place.
-                </p>
-
-                <div className="mt-10 flex flex-wrap gap-4">
-                  <Link
-                    href="#contact"
-                    className="framed-button"
-                    data-tone="amber"
+                  <p
+                    className="mt-6 max-w-2xl text-base leading-8 sm:text-lg"
+                    style={{ color: "rgba(255,255,255,0.76)" }}
                   >
-                    Request a demo
-                  </Link>
-                  <Link
-                    href="#features"
-                    className="framed-button"
-                    style={{
-                      borderColor: "rgba(255,255,255,0.20)",
-                      background: "rgba(0,0,0,0.22)",
-                      color: "rgba(255,255,255,0.88)",
-                    }}
-                  >
-                    Explore features
-                  </Link>
-                </div>
-              </div>
+                    YoungMenu helps restaurants, cafes, and home bakers take
+                    orders faster, sync teams in real time, and understand sales
+                    from a clean owner dashboard.
+                  </p>
 
-              {/* Stats strip */}
-              <div className="hero-stats-rise mt-16 grid grid-cols-2 gap-3 sm:mt-20 md:grid-cols-4">
-                {stats.map(({ value, label }) => (
-                  <div
-                    key={label}
-                    className="rounded-3xl p-5"
-                    style={{
-                      border: "1px solid rgba(255,255,255,0.10)",
-                      background: "rgba(255,255,255,0.07)",
-                      backdropFilter: "blur(12px)",
-                    }}
-                  >
-                    <p className="display-title text-4xl text-white">{value}</p>
-                    <p
-                      className="mt-1.5 text-xs uppercase tracking-widest"
-                      style={{ color: "rgba(255,255,255,0.50)" }}
-                    >
-                      {label}
-                    </p>
+                  <div className="mt-8 flex flex-wrap gap-2.5">
+                    {heroHighlights.map((item) => (
+                      <span key={item} className="hero-chip">
+                        {item}
+                      </span>
+                    ))}
                   </div>
-                ))}
+
+                  <div className="mt-10 flex flex-wrap gap-4">
+                    <Link
+                      href="#contact"
+                      className="framed-button"
+                      data-tone="amber"
+                    >
+                      Request a demo
+                    </Link>
+                    <Link href="#features" className="framed-button hero-secondary">
+                      Explore features
+                    </Link>
+                  </div>
+
+                  <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm">
+                    <span style={{ color: "rgba(255,255,255,0.68)" }}>
+                      Built for dine-in, takeaway, delivery, and pre-orders
+                    </span>
+                    <span style={{ color: "rgba(255,255,255,0.68)" }}>
+                      Works on phone, tablet, and desktop
+                    </span>
+                  </div>
+                </div>
+
+                <div className="hero-stats-rise">
+                  <div className="hero-dashboard" aria-label="YoungMenu product preview">
+                    <div className="hero-dashboard__topbar">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.24em] text-white/45">
+                          Today
+                        </p>
+                        <p className="mt-1 text-lg font-semibold text-white">
+                          Live order flow
+                        </p>
+                      </div>
+                      <span className="hero-status">Online</span>
+                    </div>
+
+                    <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                      {stats.slice(0, 3).map(({ value, label }) => (
+                        <div key={label} className="hero-metric">
+                          <p className="display-title text-3xl text-white">
+                            {value}
+                          </p>
+                          <p className="mt-1 text-[0.68rem] uppercase tracking-[0.18em] text-white/42">
+                            {label}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="mt-4 grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
+                      <div className="hero-panel">
+                        <div className="mb-4 flex items-center justify-between">
+                          <p className="text-sm font-semibold text-white">
+                            Kitchen queue
+                          </p>
+                          <span className="text-xs text-white/45">8 active</span>
+                        </div>
+                        {[
+                          ["A12", "Masala dosa", "Ready"],
+                          ["B04", "Paneer roll", "Cooking"],
+                          ["C18", "Cold coffee", "Queued"],
+                        ].map(([table, item, status]) => (
+                          <div key={table} className="hero-order-row">
+                            <span>{table}</span>
+                            <strong>{item}</strong>
+                            <em>{status}</em>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="hero-panel">
+                        <div className="mb-4 flex items-center justify-between">
+                          <p className="text-sm font-semibold text-white">
+                            Sales overview
+                          </p>
+                          <span className="text-xs text-white/45">Real time</span>
+                        </div>
+                        <div className="hero-chart" aria-hidden="true">
+                          {[52, 72, 44, 88, 66, 94, 76].map((height, index) => (
+                            <span
+                              key={index}
+                              style={{ height: `${height}%` }}
+                            />
+                          ))}
+                        </div>
+                        <div className="mt-5 grid grid-cols-2 gap-3">
+                          <div>
+                            <p className="text-xs text-white/45">Setup</p>
+                            <p className="mt-1 font-semibold text-white">
+                              30 minutes
+                            </p>
+                          </div>
+                          <div>
+                            <p className="text-xs text-white/45">Rating</p>
+                            <p className="mt-1 font-semibold text-white">4.9/5</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="hero-device-card">
+                      <span />
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.22em] text-[#6b5330]">
+                          Waiter app
+                        </p>
+                        <p className="mt-1 text-sm font-semibold text-[#2d1f18]">
+                          Table 6 order sent to kitchen
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -915,7 +1033,7 @@ export default function Home() {
               <div className="mt-12 grid gap-6 lg:grid-cols-3">
                 {testimonials.map((t, i) => (
                   <article
-                    key={t.author}
+                    key={`${t.author}-${t.role}`}
                     data-reveal
                     className="paper-card reveal rounded-3xl p-8"
                     style={rs(`${i * 0.09}s`)}

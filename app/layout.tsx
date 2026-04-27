@@ -21,13 +21,15 @@ const BASE_URL = "https://youngmenu.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
+  applicationName: "YoungMenu",
+  category: "Restaurant Management Software",
 
   title: {
-    default: "YoungMenu - Restaurant Management Platform",
+    default: "YoungMenu - Restaurant POS, QR Menu & Kitchen Display Software",
     template: "%s | YoungMenu",
   },
   description:
-    "YoungMenu is a complete management solution for restaurants, cafes, and home bakers. Counter POS, waiter app, kitchen display system, and QR digital menu - all in one platform.",
+    "YoungMenu is restaurant management software for restaurants, cafes, and home bakers with counter POS, waiter app, kitchen display system, QR digital menu, order management, and owner analytics.",
 
   keywords: [
     "restaurant management software",
@@ -50,17 +52,26 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: BASE_URL,
     siteName: "YoungMenu",
-    title: "YoungMenu - Restaurant Management Platform",
+    title: "YoungMenu - Restaurant POS, QR Menu & Kitchen Display Software",
     description:
-      "A complete management platform for restaurants, cafes, and home bakers. Counter POS, waiter app, kitchen display, QR menu - everything in one place.",
+      "Run orders, billing, QR menus, waiter apps, kitchen screens, and owner reports from one modern restaurant management platform.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "YoungMenu restaurant management platform",
+      },
+    ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "YoungMenu - Restaurant Management Platform",
+    title: "YoungMenu - Restaurant POS, QR Menu & Kitchen Display Software",
     description:
-      "Counter POS, waiter app, kitchen display, and QR menu for restaurants, cafes, and home bakers.",
+      "Counter POS, waiter app, kitchen display, QR digital menu, and owner analytics for restaurants, cafes, and home bakers.",
     creator: "@youngmenu",
+    images: ["/opengraph-image"],
   },
 
   robots: {
