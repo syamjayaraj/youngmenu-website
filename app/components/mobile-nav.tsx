@@ -24,7 +24,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
         onClick={() =>
           setOpenPath((prev) => (prev === pathname ? null : pathname))
         }
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/80 transition hover:bg-white/10 hover:text-white md:hidden"
+        className="flex h-9 w-9 items-center justify-center rounded-full border border-[#362216]/15 text-[#4f3a2e] transition hover:bg-[#2d1f18]/6 hover:text-[#2d1f18] md:hidden"
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
       >
@@ -64,7 +64,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
       {open && (
         <nav
           aria-label="Mobile navigation"
-          className="absolute inset-x-3 top-full mt-2 rounded-[1.5rem] border border-white/10 bg-[#120d0af5] p-3 shadow-[0_24px_60px_rgba(0,0,0,0.42)] backdrop-blur-xl"
+          className="absolute inset-x-3 top-full mt-2 rounded-[1.5rem] border border-[#362216]/10 bg-[#fffaf4f7] p-3 shadow-[0_24px_60px_rgba(45,31,24,0.16)] backdrop-blur-xl"
         >
           <ul className="flex flex-col gap-0.5">
             {items.map((item) => (
@@ -72,7 +72,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
                 <Link
                   href={item.href}
                   onClick={() => setOpenPath(null)}
-                  className="block rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-white/75 transition hover:bg-white/10 hover:text-white"
+                  className="block rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#5f4a3d] transition hover:bg-[#2d1f18]/6 hover:text-[#2d1f18]"
                 >
                   {item.label}
                 </Link>

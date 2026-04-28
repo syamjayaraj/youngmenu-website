@@ -11,7 +11,7 @@ export function ContactForm() {
         <label
           htmlFor="cf-name"
           className="mb-1.5 block text-xs font-semibold uppercase tracking-widest"
-          style={{ color: "rgba(255,255,255,0.42)" }}
+          style={{ color: "var(--page-muted)" }}
         >
           Name
         </label>
@@ -28,7 +28,7 @@ export function ContactForm() {
         <label
           htmlFor="cf-email"
           className="mb-1.5 block text-xs font-semibold uppercase tracking-widest"
-          style={{ color: "rgba(255,255,255,0.42)" }}
+          style={{ color: "var(--page-muted)" }}
         >
           Email
         </label>
@@ -45,7 +45,7 @@ export function ContactForm() {
         <label
           htmlFor="cf-phone"
           className="mb-1.5 block text-xs font-semibold uppercase tracking-widest"
-          style={{ color: "rgba(255,255,255,0.42)" }}
+          style={{ color: "var(--page-muted)" }}
         >
           Phone
         </label>
@@ -62,10 +62,10 @@ export function ContactForm() {
         <label
           htmlFor="cf-message"
           className="mb-1.5 block text-xs font-semibold uppercase tracking-widest"
-          style={{ color: "rgba(255,255,255,0.42)" }}
+          style={{ color: "var(--page-muted)" }}
         >
           Message{" "}
-          <span style={{ color: "rgba(255,255,255,0.28)" }}>(optional)</span>
+          <span style={{ color: "rgba(122,101,87,0.70)" }}>(optional)</span>
         </label>
         <textarea
           id="cf-message"

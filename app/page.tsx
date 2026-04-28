@@ -389,13 +389,6 @@ const plans = [
   },
 ];
 
-const stats = [
-  { value: "2", label: "Businesses powered" },
-  { value: "1,000+", label: "Orders processed" },
-  { value: "4.9★", label: "Average rating" },
-  { value: "30 min", label: "Average setup time" },
-];
-
 const heroHighlights = [
   "Counter POS",
   "Waiter app",
@@ -471,12 +464,12 @@ export default function Home() {
             aria-label="Hero"
             className="hero-section relative isolate flex min-h-svh items-center overflow-hidden"
           >
-            <div className="absolute inset-0 bg-[#0a0807] overflow-hidden">
+            <div className="absolute inset-0 overflow-hidden">
               <div
                 className="absolute -left-[18%] top-[-18%] h-[34rem] w-[34rem] rounded-full float-slow"
                 style={{
                   background:
-                    "radial-gradient(circle, rgba(201,160,93,0.18) 0%, transparent 66%)",
+                    "radial-gradient(circle, rgba(201,160,93,0.22) 0%, transparent 66%)",
                   filter: "blur(72px)",
                 }}
               />
@@ -484,7 +477,7 @@ export default function Home() {
                 className="absolute -right-[18%] bottom-[-16%] h-[38rem] w-[38rem] rounded-full hero-fade"
                 style={{
                   background:
-                    "radial-gradient(circle, rgba(80,92,70,0.22) 0%, transparent 66%)",
+                    "radial-gradient(circle, rgba(87,98,72,0.16) 0%, transparent 66%)",
                   filter: "blur(92px)",
                   animationDuration: "3s",
                 }}
@@ -493,7 +486,7 @@ export default function Home() {
                 className="absolute inset-0 opacity-[0.045]"
                 style={{
                   backgroundImage:
-                    "linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px)",
+                    "linear-gradient(rgba(45,31,24,0.20) 1px, transparent 1px), linear-gradient(90deg, rgba(45,31,24,0.20) 1px, transparent 1px)",
                   backgroundSize: "56px 56px",
                 }}
               />
@@ -503,32 +496,28 @@ export default function Home() {
               className="absolute inset-0"
               style={{
                 background:
-                  "radial-gradient(circle at center, transparent 28%, rgba(5,3,2,0.40) 100%)",
+                  "radial-gradient(circle at center, transparent 28%, rgba(255,250,244,0.45) 100%)",
               }}
             />
 
-            <div className="site-shell relative z-10 w-full py-28 pt-36 text-white sm:pt-40 lg:py-32 lg:pt-40">
-              <div className="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
-                <div className="hero-rise max-w-3xl">
-                  <p className="eyebrow-pill mb-6">
-                    Restaurant management platform
-                  </p>
+            <div className="site-shell relative z-10 w-full py-24 pt-32 text-[#241813] sm:pt-36 lg:py-28 lg:pt-36">
+              <div className="grid items-center gap-12 lg:grid-cols-[0.78fr_1.22fr]">
+                <div className="hero-rise max-w-2xl">
+                  <p className="eyebrow-pill mb-5">YoungMenu for restaurants</p>
 
-                  <h1 className="display-title hero-title text-white">
-                    Modern POS, QR menu, and kitchen operations in one simple
-                    system.
+                  <h1 className="display-title hero-title text-[#241813]">
+                    Restaurant operations, simplified.
                   </h1>
 
                   <p
-                    className="mt-6 max-w-2xl text-base leading-8 sm:text-lg"
-                    style={{ color: "rgba(255,255,255,0.76)" }}
+                    className="mt-5 max-w-xl text-base leading-7"
+                    style={{ color: "var(--page-muted)" }}
                   >
-                    YoungMenu helps restaurants, cafes, and home bakers take
-                    orders faster, sync teams in real time, and understand sales
-                    from a clean owner dashboard.
+                    POS, QR ordering, waiter app, kitchen display, and owner
+                    reports in one clean platform for busy food businesses.
                   </p>
 
-                  <div className="mt-8 flex flex-wrap gap-2.5">
+                  <div className="mt-7 flex flex-wrap gap-2.5">
                     {heroHighlights.map((item) => (
                       <span key={item} className="hero-chip">
                         {item}
@@ -536,7 +525,7 @@ export default function Home() {
                     ))}
                   </div>
 
-                  <div className="mt-10 flex flex-wrap gap-4">
+                  <div className="hero-actions mt-9">
                     <Link
                       href="#contact"
                       className="framed-button"
@@ -544,108 +533,158 @@ export default function Home() {
                     >
                       Request a demo
                     </Link>
-                    <Link href="#features" className="framed-button hero-secondary">
+                    <Link
+                      href="#features"
+                      className="framed-button hero-secondary"
+                      data-tone="dark"
+                    >
                       Explore features
                     </Link>
                   </div>
-
-                  <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm">
-                    <span style={{ color: "rgba(255,255,255,0.68)" }}>
-                      Built for dine-in, takeaway, delivery, and pre-orders
-                    </span>
-                    <span style={{ color: "rgba(255,255,255,0.68)" }}>
-                      Works on phone, tablet, and desktop
-                    </span>
-                  </div>
                 </div>
 
-                <div className="hero-stats-rise">
-                  <div className="hero-dashboard" aria-label="YoungMenu product preview">
-                    <div className="hero-dashboard__topbar">
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.24em] text-white/45">
-                          Today
-                        </p>
-                        <p className="mt-1 text-lg font-semibold text-white">
-                          Live order flow
-                        </p>
-                      </div>
-                      <span className="hero-status">Online</span>
-                    </div>
+                <div className="hero-media-rise">
+                  <div
+                    className="hero-media-shell"
+                    aria-label="YoungMenu product video preview"
+                  >
+                    <div className="hero-video-frame">
+                      <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        className="h-full w-full object-cover"
+                      >
+                        <source src="/assets/videos/hero.mp4" type="video/mp4" />
+                      </video>
+                      <div className="hero-workflow-overlay" aria-hidden="true">
+                        <svg
+                          className="hero-workflow-lines"
+                          viewBox="0 0 100 100"
+                          preserveAspectRatio="none"
+                        >
+                          <path
+                            className="workflow-line workflow-line--one"
+                            d="M15 74 C21 56, 25 36, 31 22"
+                          />
+                          <path
+                            className="workflow-line workflow-line--two"
+                            d="M35 23 C43 32, 50 41, 55 49"
+                          />
+                          <path
+                            className="workflow-line workflow-line--three"
+                            d="M61 47 C69 38, 75 29, 83 24"
+                          />
+                          <path
+                            className="workflow-line workflow-line--four"
+                            d="M61 56 C64 58, 67 60, 70 61"
+                          />
+                          <path
+                            className="workflow-line workflow-line--five"
+                            d="M85 34 C87 35, 88 36, 89 38"
+                          />
+                          <path
+                            className="workflow-line workflow-line--six"
+                            d="M63 55 C70 62, 76 67, 82 69"
+                          />
+                        </svg>
 
-                    <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                      {stats.slice(0, 3).map(({ value, label }) => (
-                        <div key={label} className="hero-metric">
-                          <p className="display-title text-3xl text-white">
-                            {value}
-                          </p>
-                          <p className="mt-1 text-[0.68rem] uppercase tracking-[0.18em] text-white/42">
-                            {label}
-                          </p>
+                        <div className="workflow-node workflow-node--customer">
+                          <span>QR</span>
+                          <strong>Customer</strong>
+                          <em>Scans menu & orders</em>
                         </div>
-                      ))}
-                    </div>
 
-                    <div className="mt-4 grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
-                      <div className="hero-panel">
-                        <div className="mb-4 flex items-center justify-between">
-                          <p className="text-sm font-semibold text-white">
-                            Kitchen queue
-                          </p>
-                          <span className="text-xs text-white/45">8 active</span>
+                        <div className="workflow-node workflow-node--waiter">
+                          <span>APP</span>
+                          <strong>Waiter</strong>
+                          <em>Receives order</em>
                         </div>
-                        {[
-                          ["A12", "Masala dosa", "Ready"],
-                          ["B04", "Paneer roll", "Cooking"],
-                          ["C18", "Cold coffee", "Queued"],
-                        ].map(([table, item, status]) => (
-                          <div key={table} className="hero-order-row">
-                            <span>{table}</span>
-                            <strong>{item}</strong>
-                            <em>{status}</em>
-                          </div>
-                        ))}
-                      </div>
 
-                      <div className="hero-panel">
-                        <div className="mb-4 flex items-center justify-between">
-                          <p className="text-sm font-semibold text-white">
-                            Sales overview
-                          </p>
-                          <span className="text-xs text-white/45">Real time</span>
+                        <div className="workflow-node workflow-node--counter workflow-node--primary">
+                          <span>POS</span>
+                          <strong>Counter</strong>
+                          <em>Billing, payment</em>
                         </div>
-                        <div className="hero-chart" aria-hidden="true">
-                          {[52, 72, 44, 88, 66, 94, 76].map((height, index) => (
-                            <span
-                              key={index}
-                              style={{ height: `${height}%` }}
-                            />
-                          ))}
-                        </div>
-                        <div className="mt-5 grid grid-cols-2 gap-3">
-                          <div>
-                            <p className="text-xs text-white/45">Setup</p>
-                            <p className="mt-1 font-semibold text-white">
-                              30 minutes
-                            </p>
-                          </div>
-                          <div>
-                            <p className="text-xs text-white/45">Rating</p>
-                            <p className="mt-1 font-semibold text-white">4.9/5</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
 
-                    <div className="hero-device-card">
-                      <span />
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.22em] text-[#6b5330]">
-                          Waiter app
-                        </p>
-                        <p className="mt-1 text-sm font-semibold text-[#2d1f18]">
-                          Table 6 order sent to kitchen
-                        </p>
+                        <div className="workflow-node workflow-node--kitchen">
+                          <span>KDS</span>
+                          <strong>Kitchen display</strong>
+                          <em>Live order queue</em>
+                        </div>
+
+                        <div className="workflow-output workflow-output--billing">
+                          <span className="workflow-printer-icon">
+                            <svg
+                              width="15"
+                              height="15"
+                              viewBox="0 0 18 18"
+                              fill="none"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M5 6V3h8v3M5 13H3V8.5A1.5 1.5 0 014.5 7h9A1.5 1.5 0 0115 8.5V13h-2"
+                                stroke="currentColor"
+                                strokeWidth="1.4"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                d="M6 11h6v4H6z"
+                                stroke="currentColor"
+                                strokeWidth="1.4"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                d="M12.5 9.5h.01"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                              />
+                            </svg>
+                          </span>
+                          Bill printer
+                        </div>
+
+                        <div className="workflow-output workflow-output--kot">
+                          <span className="workflow-printer-icon">
+                            <svg
+                              width="15"
+                              height="15"
+                              viewBox="0 0 18 18"
+                              fill="none"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M5 6V3h8v3M5 13H3V8.5A1.5 1.5 0 014.5 7h9A1.5 1.5 0 0115 8.5V13h-2"
+                                stroke="currentColor"
+                                strokeWidth="1.4"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                d="M6 11h6v4H6z"
+                                stroke="currentColor"
+                                strokeWidth="1.4"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                d="M12.5 9.5h.01"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                              />
+                            </svg>
+                          </span>
+                          KOT
+                        </div>
+
+                        <div className="workflow-mini-card workflow-mini-card--beverage">
+                          <span>BAR</span>
+                          Beverages
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -714,25 +753,25 @@ export default function Home() {
           {/* ── App Showcase ──────────────────────────────────────────────────── */}
           <section
             aria-label="Platform overview"
-            className="wood-surface py-24 text-white sm:py-32"
+            className="wood-surface light-section py-24 sm:py-32"
           >
             <div className="site-shell">
               <div className="grid items-center gap-12 lg:grid-cols-2">
                 <div data-reveal className="reveal" style={rs("0s")}>
-                  <p className="kicker" style={{ color: "var(--page-amber)" }}>
+                  <p className="kicker">
                     See it in action
                   </p>
-                  <h2 className="display-title mt-4 text-5xl text-white sm:text-[3.5rem]">
+                  <h2 className="display-title mt-4 text-5xl text-[#241813] sm:text-[3.5rem]">
                     One platform. Every role. Total clarity.
                   </h2>
-                  <div className="ornament-line mt-5" data-light="true">
+                  <div className="ornament-line mt-5">
                     <span className="text-xs uppercase tracking-widest">
                       Live product
                     </span>
                   </div>
                   <p
                     className="mt-7 text-base leading-8"
-                    style={{ color: "rgba(255,255,255,0.70)" }}
+                    style={{ color: "var(--page-muted)" }}
                   >
                     YoungMenu Manager runs on any device. The owner sees the
                     full picture, the waiter has a fast order tool, and the
@@ -748,7 +787,7 @@ export default function Home() {
                       <li
                         key={pt}
                         className="flex items-start gap-3 text-sm leading-7"
-                        style={{ color: "rgba(255,255,255,0.72)" }}
+                        style={{ color: "var(--page-muted)" }}
                       >
                         <span
                           className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full"
@@ -760,7 +799,7 @@ export default function Home() {
                     ))}
                   </ul>
                   <div className="mt-9">
-                    <Link href="#contact" className="framed-button">
+                    <Link href="#contact" className="framed-button" data-tone="dark">
                       Book a live demo
                     </Link>
                   </div>
@@ -772,15 +811,15 @@ export default function Home() {
                     className="overflow-hidden rounded-[2rem]"
                     style={{
                       border: "1px solid rgba(255,255,255,0.10)",
-                      background: "rgba(255,255,255,0.04)",
-                      boxShadow: "0 28px 90px rgba(0,0,0,0.32)",
+                      background: "rgba(255,255,255,0.58)",
+                      boxShadow: "0 28px 90px rgba(45,31,24,0.12)",
                     }}
                   >
                     {/* 16:10 aspect ratio - swap for a real screenshot/video later */}
                     <div style={{ aspectRatio: "16/10", position: "relative" }}>
                       <div
                         className="absolute inset-0 flex flex-col items-center justify-center gap-3"
-                        style={{ color: "rgba(255,255,255,0.22)" }}
+                        style={{ color: "#c4aa94" }}
                       >
                         {/* Mock app chrome */}
                         <div
@@ -791,7 +830,7 @@ export default function Home() {
                             className="mb-3 flex items-center gap-2 rounded-xl px-4 py-3"
                             style={{
                               background: "rgba(255,255,255,0.06)",
-                              border: "1px solid rgba(255,255,255,0.08)",
+                              border: "1px solid rgba(54,34,22,0.08)",
                             }}
                           >
                             <div
@@ -803,7 +842,7 @@ export default function Home() {
                             />
                             <div
                               className="h-1.5 flex-1 rounded-full"
-                              style={{ background: "rgba(255,255,255,0.12)" }}
+                              style={{ background: "rgba(54,34,22,0.12)" }}
                             />
                           </div>
                           <div className="space-y-2.5">
@@ -816,8 +855,8 @@ export default function Home() {
                                   background:
                                     i === 0
                                       ? "rgba(201,160,93,0.18)"
-                                      : "rgba(255,255,255,0.06)",
-                                  border: "1px solid rgba(255,255,255,0.07)",
+                                      : "rgba(54,34,22,0.06)",
+                                  border: "1px solid rgba(54,34,22,0.07)",
                                 }}
                               />
                             ))}
@@ -943,8 +982,7 @@ export default function Home() {
           <section
             id="how-it-works"
             aria-labelledby="how-heading"
-            className="relative overflow-hidden py-24 text-white sm:py-32"
-            style={{ background: "#13110f" }}
+            className="texture-soft light-section relative overflow-hidden py-24 sm:py-32"
           >
             <div
               className="pointer-events-none absolute inset-0"
@@ -956,18 +994,18 @@ export default function Home() {
             />
             <div className="site-shell relative">
               <div data-reveal className="reveal">
-                <p className="kicker" style={{ color: "var(--page-amber)" }}>
+                <p className="kicker">
                   Simple by design
                 </p>
                 <h2
                   id="how-heading"
-                  className="display-title mt-4 max-w-2xl text-5xl text-white sm:text-[3.5rem]"
+                  className="display-title mt-4 max-w-2xl text-5xl text-[#241813] sm:text-[3.5rem]"
                 >
                   Up and running in three steps.
                 </h2>
                 <p
                   className="mt-5 max-w-2xl text-base leading-8"
-                  style={{ color: "rgba(255,255,255,0.62)" }}
+                  style={{ color: "var(--page-muted)" }}
                 >
                   No lengthy onboarding. No technical expertise required.
                   YoungMenu is designed to go live the same day you sign up.
@@ -982,8 +1020,8 @@ export default function Home() {
                     className="reveal rounded-3xl p-8"
                     style={{
                       ...rs(`${i * 0.1}s`),
-                      border: "1px solid rgba(255,255,255,0.08)",
-                      background: "rgba(255,255,255,0.04)",
+                      border: "1px solid rgba(54,34,22,0.08)",
+                      background: "rgba(255,255,255,0.70)",
                       backdropFilter: "blur(8px)",
                     }}
                   >
@@ -993,12 +1031,12 @@ export default function Home() {
                     >
                       {step.number}
                     </p>
-                    <h3 className="display-title mt-6 text-3xl text-white">
+                    <h3 className="display-title mt-6 text-3xl text-[#241813]">
                       {step.title}
                     </h3>
                     <p
                       className="mt-3 text-sm leading-7"
-                      style={{ color: "rgba(255,255,255,0.60)" }}
+                      style={{ color: "var(--page-muted)" }}
                     >
                       {step.body}
                     </p>
@@ -1007,7 +1045,7 @@ export default function Home() {
               </div>
 
               <div data-reveal className="reveal mt-12" style={rs("0.32s")}>
-                <Link href="#contact" className="framed-button">
+                <Link href="#contact" className="framed-button" data-tone="dark">
                   Get started today
                 </Link>
               </div>
@@ -1087,22 +1125,22 @@ export default function Home() {
           <section
             id="pricing"
             aria-labelledby="pricing-heading"
-            className="wood-surface py-24 text-white sm:py-32"
+            className="wood-surface light-section py-24 sm:py-32"
           >
             <div className="site-shell">
               <div data-reveal className="reveal">
-                <p className="kicker" style={{ color: "var(--page-amber)" }}>
+                <p className="kicker">
                   Transparent pricing
                 </p>
                 <h2
                   id="pricing-heading"
-                  className="display-title mt-4 max-w-2xl text-5xl text-white sm:text-[3.5rem]"
+                  className="display-title mt-4 max-w-2xl text-5xl text-[#241813] sm:text-[3.5rem]"
                 >
                   Simple plans that grow with you.
                 </h2>
                 <p
                   className="mt-5 max-w-xl text-base leading-8"
-                  style={{ color: "rgba(255,255,255,0.62)" }}
+                  style={{ color: "var(--page-muted)" }}
                 >
                   Start free and upgrade when you are ready. No hidden fees, no
                   long-term contracts.
@@ -1120,12 +1158,12 @@ export default function Home() {
                       ...(plan.highlight
                         ? {
                             border: "1px solid rgba(201,160,93,0.42)",
-                            background: "rgba(201,160,93,0.07)",
-                            boxShadow: "0 28px 80px rgba(0,0,0,0.22)",
+                            background: "rgba(255,250,244,0.92)",
+                            boxShadow: "0 28px 80px rgba(45,31,24,0.12)",
                           }
                         : {
-                            border: "1px solid rgba(255,255,255,0.08)",
-                            background: "rgba(255,255,255,0.04)",
+                            border: "1px solid rgba(54,34,22,0.08)",
+                            background: "rgba(255,255,255,0.66)",
                             backdropFilter: "blur(8px)",
                           }),
                     }}
@@ -1143,18 +1181,18 @@ export default function Home() {
                     )}
                     <p
                       className="text-xs font-semibold uppercase tracking-widest"
-                      style={{ color: "rgba(255,255,255,0.50)" }}
+                      style={{ color: "var(--page-muted)" }}
                     >
                       {plan.name}
                     </p>
                     <div className="mt-3 flex items-end gap-1.5">
-                      <span className="display-title text-5xl text-white">
+                      <span className="display-title text-5xl text-[#241813]">
                         {plan.price}
                       </span>
                       {plan.period && (
                         <span
                           className="mb-1 text-sm"
-                          style={{ color: "rgba(255,255,255,0.45)" }}
+                          style={{ color: "var(--page-muted)" }}
                         >
                           {plan.period}
                         </span>
@@ -1162,7 +1200,7 @@ export default function Home() {
                     </div>
                     <p
                       className="mt-4 text-sm leading-7"
-                      style={{ color: "rgba(255,255,255,0.58)" }}
+                      style={{ color: "var(--page-muted)" }}
                     >
                       {plan.description}
                     </p>
@@ -1172,7 +1210,7 @@ export default function Home() {
                         <li
                           key={feat}
                           className="flex items-start gap-3 text-sm leading-7"
-                          style={{ color: "rgba(255,255,255,0.72)" }}
+                          style={{ color: "var(--page-muted)" }}
                         >
                           <svg
                             width="17"
@@ -1206,7 +1244,7 @@ export default function Home() {
                       <Link
                         href="#contact"
                         className="framed-button w-full"
-                        data-tone={plan.highlight ? "amber" : undefined}
+                        data-tone={plan.highlight ? "amber" : "dark"}
                       >
                         {plan.cta}
                       </Link>
@@ -1284,8 +1322,7 @@ export default function Home() {
           <section
             id="contact"
             aria-labelledby="contact-heading"
-            className="relative overflow-hidden py-24 text-white sm:py-32"
-            style={{ background: "#13110f" }}
+            className="texture-alt light-section relative overflow-hidden py-24 sm:py-32"
           >
             <div
               className="pointer-events-none absolute inset-0"
@@ -1299,18 +1336,18 @@ export default function Home() {
             <div className="site-shell relative grid items-start gap-14 lg:grid-cols-[1fr_1.1fr]">
               {/* Left - info */}
               <div data-reveal className="reveal" style={rs("0s")}>
-                <p className="kicker" style={{ color: "var(--page-amber)" }}>
+                <p className="kicker">
                   Get in touch
                 </p>
                 <h2
                   id="contact-heading"
-                  className="display-title mt-4 text-5xl text-white sm:text-[3.25rem]"
+                  className="display-title mt-4 text-5xl text-[#241813] sm:text-[3.25rem]"
                 >
                   Let&apos;s talk about your restaurant.
                 </h2>
                 <p
                   className="mt-5 max-w-md text-base leading-8"
-                  style={{ color: "rgba(255,255,255,0.62)" }}
+                  style={{ color: "var(--page-muted)" }}
                 >
                   Whether you want a live demo, have a question about the
                   platform, or are ready to get started - our team is here to
@@ -1323,8 +1360,8 @@ export default function Home() {
                     <div
                       className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl"
                       style={{
-                        border: "1px solid rgba(255,255,255,0.10)",
-                        background: "rgba(255,255,255,0.06)",
+                        border: "1px solid rgba(54,34,22,0.10)",
+                        background: "rgba(255,255,255,0.66)",
                         color: "var(--page-amber)",
                       }}
                     >
@@ -1353,13 +1390,13 @@ export default function Home() {
                     <div>
                       <p
                         className="text-xs font-semibold uppercase tracking-widest"
-                        style={{ color: "rgba(255,255,255,0.36)" }}
+                        style={{ color: "var(--page-muted)" }}
                       >
                         Address
                       </p>
                       <p
                         className="mt-0.5 text-sm leading-6"
-                        style={{ color: "rgba(255,255,255,0.74)" }}
+                        style={{ color: "var(--page-muted)" }}
                       >
                         Floyet Labs &amp; Technologies LLP
                         <br />
@@ -1377,8 +1414,8 @@ export default function Home() {
                     <div
                       className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl"
                       style={{
-                        border: "1px solid rgba(255,255,255,0.10)",
-                        background: "rgba(255,255,255,0.06)",
+                        border: "1px solid rgba(54,34,22,0.10)",
+                        background: "rgba(255,255,255,0.66)",
                         color: "var(--page-amber)",
                       }}
                     >
@@ -1405,13 +1442,13 @@ export default function Home() {
                     <div>
                       <p
                         className="text-xs font-semibold uppercase tracking-widest"
-                        style={{ color: "rgba(255,255,255,0.36)" }}
+                        style={{ color: "var(--page-muted)" }}
                       >
                         Email
                       </p>
                       <p
                         className="mt-0.5 text-sm leading-6"
-                        style={{ color: "rgba(255,255,255,0.74)" }}
+                        style={{ color: "var(--page-muted)" }}
                       >
                         info@floyet.com
                       </p>
@@ -1423,8 +1460,8 @@ export default function Home() {
                     <div
                       className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl"
                       style={{
-                        border: "1px solid rgba(255,255,255,0.10)",
-                        background: "rgba(255,255,255,0.06)",
+                        border: "1px solid rgba(54,34,22,0.10)",
+                        background: "rgba(255,255,255,0.66)",
                         color: "var(--page-amber)",
                       }}
                     >
@@ -1446,13 +1483,13 @@ export default function Home() {
                     <div>
                       <p
                         className="text-xs font-semibold uppercase tracking-widest"
-                        style={{ color: "rgba(255,255,255,0.36)" }}
+                        style={{ color: "var(--page-muted)" }}
                       >
                         Phone
                       </p>
                       <p
                         className="mt-0.5 text-sm leading-6"
-                        style={{ color: "rgba(255,255,255,0.74)" }}
+                        style={{ color: "var(--page-muted)" }}
                       >
                         +91 9746742650
                       </p>
@@ -1466,17 +1503,17 @@ export default function Home() {
                 <div
                   className="rounded-3xl p-8 sm:p-10"
                   style={{
-                    border: "1px solid rgba(255,255,255,0.09)",
-                    background: "rgba(255,255,255,0.05)",
+                    border: "1px solid rgba(54,34,22,0.08)",
+                    background: "rgba(255,255,255,0.74)",
                     backdropFilter: "blur(12px)",
                   }}
                 >
-                  <h3 className="display-title text-3xl text-white">
+                  <h3 className="display-title text-3xl text-[#241813]">
                     Request a demo
                   </h3>
                   <p
                     className="mt-2 text-sm leading-7"
-                    style={{ color: "rgba(255,255,255,0.55)" }}
+                    style={{ color: "var(--page-muted)" }}
                   >
                     Fill in your details and we&apos;ll set up a personalised
                     walkthrough.
