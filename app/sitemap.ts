@@ -1,31 +1,34 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://youngmenu.com";
-const LAST_MODIFIED = new Date("2026-04-27");
+const BASE_URL = (process.env.SITE_URL ?? "https://youngmenu.com").replace(
+  /\/+$/,
+  ""
+);
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date();
   return [
     {
       url: BASE_URL,
-      lastModified: LAST_MODIFIED,
+      lastModified,
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
       url: `${BASE_URL}/privacy-policy`,
-      lastModified: LAST_MODIFIED,
+      lastModified,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${BASE_URL}/terms-of-service`,
-      lastModified: LAST_MODIFIED,
+      lastModified,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${BASE_URL}/cookie-policy`,
-      lastModified: LAST_MODIFIED,
+      lastModified,
       changeFrequency: "yearly",
       priority: 0.3,
     },
