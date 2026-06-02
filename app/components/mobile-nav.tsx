@@ -3,10 +3,17 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AppSwitcher } from "@/app/components/app-switcher";
 
 type NavItem = { href: string; label: string };
 
-export function MobileNav({ items }: { items: NavItem[] }) {
+export function MobileNav({
+  items,
+  showAppSwitcher = false,
+}: {
+  items: NavItem[];
+  showAppSwitcher?: boolean;
+}) {
   const [openPath, setOpenPath] = useState<string | null>(null);
   const pathname = usePathname();
   const open = openPath === pathname;
@@ -24,7 +31,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
         onClick={() =>
           setOpenPath((prev) => (prev === pathname ? null : pathname))
         }
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-[#362216]/15 text-[#4f3a2e] transition hover:bg-[#2d1f18]/6 hover:text-[#2d1f18] md:hidden"
+        className="flex h-9 w-9 items-center justify-center rounded-full border border-[#362216]/15 text-[#4f3a2e] transition hover:bg-[#2d1f18]/6 hover:text-[#2d1f18] lg:hidden"
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
       >
@@ -66,6 +73,11 @@ export function MobileNav({ items }: { items: NavItem[] }) {
           aria-label="Mobile navigation"
           className="absolute inset-x-3 top-full mt-2 rounded-[1.5rem] border border-[#362216]/10 bg-[#fffaf4f7] p-3 shadow-[0_24px_60px_rgba(45,31,24,0.16)] backdrop-blur-xl"
         >
+          {showAppSwitcher && (
+            <div className="mb-3 border-b border-[#362216]/10 pb-3">
+              <AppSwitcher variant="header" />
+            </div>
+          )}
           <ul className="flex flex-col gap-0.5">
             {items.map((item) => (
               <li key={item.href}>

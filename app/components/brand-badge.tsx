@@ -18,9 +18,9 @@ export function BrandBadge({
       <Image
         src="/assets/logo/logo.png"
         alt="YoungMenu Logo"
-        width={32}
-        height={32}
-        className="object-contain rounded-full"
+        width={60}
+        height={60}
+        className="h-[60px] w-[60px] object-contain rounded-full"
       />
       <span className="font-display text-[1.4rem] leading-none tracking-[-0.04em] pr-1">
         YoungMenu

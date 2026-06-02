@@ -25,11 +25,11 @@ export const metadata: Metadata = {
   category: "Restaurant Management Software",
 
   title: {
-    default: "YoungMenu - Restaurant POS, QR Menu & Kitchen Display Software",
+    default: "YoungMenu - Two Apps for Food Business and Customers",
     template: "%s | YoungMenu",
   },
   description:
-    "YoungMenu is restaurant management software for restaurants, cafes, and home bakers with counter POS, waiter app, kitchen display system, QR digital menu, order management, and owner analytics.",
+    "YoungMenu is a two-app ecosystem with YoungMenu Manager for restaurants, cafes, and home bakers, and YoungMenu for customers to browse digital menus and place orders.",
 
   keywords: [
     "restaurant management software",
@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     "POS system for restaurants",
     "cafe management app",
     "home baker order management",
+    "restaurant customer ordering app",
+    "youngmenu manager",
+    "youngmenu app",
     "kitchen display system",
     "waiter app",
     "restaurant billing software India",
@@ -52,9 +55,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: BASE_URL,
     siteName: "YoungMenu",
-    title: "YoungMenu - Restaurant POS, QR Menu & Kitchen Display Software",
+    title: "YoungMenu - Two Apps for Food Businesses and Customers",
     description:
-      "Run orders, billing, QR menus, waiter apps, kitchen screens, and owner reports from one modern restaurant management platform.",
+      "YoungMenu Manager helps food businesses run operations, while YoungMenu gives customers a smooth digital ordering experience.",
     images: [
       {
         url: "/opengraph-image",
@@ -67,9 +70,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "YoungMenu - Restaurant POS, QR Menu & Kitchen Display Software",
+    title: "YoungMenu - Two Apps for Food Businesses and Customers",
     description:
-      "Counter POS, waiter app, kitchen display, QR digital menu, and owner analytics for restaurants, cafes, and home bakers.",
+      "YoungMenu Manager for operations and YoungMenu for customers: one connected ecosystem for modern food businesses.",
     creator: "@youngmenu",
     images: ["/opengraph-image"],
   },
