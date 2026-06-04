@@ -1,17 +1,30 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { BrandBadge } from "@/app/components/brand-badge";
 import { AppSwitcher } from "@/app/components/app-switcher";
 import { CurrencyProvider, CurrencySelector } from "@/app/components/currency-selector";
 import { MobileNav } from "@/app/components/mobile-nav";
 
-const navItems = [
-  { href: "/youngmenu-manager#contact", label: "Contact" },
+const baseNavItems = [
+  { href: "/features", label: "Features" },
+  { href: "/contact", label: "Contact" },
+  { href: "/blog", label: "Blog" },
+];
+
+const managerNavItems = [
+  { href: "/features", label: "Features" },
+  { href: "/youngmenu-manager#pricing", label: "Pricing" },
+  { href: "/contact", label: "Contact" },
   { href: "/blog", label: "Blog" },
 ];
 
 export function SiteHeaderShell() {
+  const pathname = usePathname();
+  const isManagerPage = pathname?.startsWith("/youngmenu-manager");
+  const navItems = isManagerPage ? managerNavItems : baseNavItems;
+
   return (
     <CurrencyProvider>
       <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4">

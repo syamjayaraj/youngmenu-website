@@ -3,7 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 const companyLinks = [
-  { href: "/youngmenu-manager#contact", label: "Contact" },
+  { href: "/features", label: "Features" },
+  { href: "/contact", label: "Contact" },
   { href: "/blog", label: "Blog" },
   { href: "/privacy-policy", label: "Privacy Policy" },
   { href: "/terms-of-service", label: "Terms" },
@@ -11,6 +12,7 @@ const companyLinks = [
 
 const productLinks = [
   { href: "/youngmenu-manager", label: "YoungMenu Manager" },
+  { href: "/youngmenu-manager/pricing", label: "Pricing" },
   { href: null, label: "YoungMenu", note: "Coming soon" },
 ];
 

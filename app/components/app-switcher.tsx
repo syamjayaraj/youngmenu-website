@@ -38,13 +38,13 @@ export function AppSwitcher({ variant = "header", className = "" }: AppSwitcherP
             <span
               key={option.mode}
               role="tab"
-              aria-selected={false}
+              aria-selected={selected}
               aria-disabled="true"
               className={tabClassName}
               title="Coming soon"
             >
-              <span className="app-switcher__label-full">{option.shortLabel}</span>
-              <span className="app-switcher__label-short">{option.shortLabel}</span>
+              <span className="app-switcher__label-full">{option.label}</span>
+              <span className="app-switcher__label-short">{option.label}</span>
             </span>
           );
         }

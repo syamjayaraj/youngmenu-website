@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HomeContent } from "@/app/components/home-content";
+import { ManagerLandingContent } from "@/app/components/manager-landing-content";
 import { SiteHeader } from "@/app/components/site-header";
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default function YoungMenuManagerPage() {
         }}
       />
       <SiteHeader />
-      <HomeContent mode="manager" />
+      <ManagerLandingContent />
     </>
   );
 }

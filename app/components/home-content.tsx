@@ -193,6 +193,27 @@ export function HomeContent({ mode }: { mode: AppMode }) {
             </div>
           </section>
 
+          {mode === "manager" ? (
+            <section
+              aria-label="YoungMenu Manager on tablet and phone"
+              className="manager-showcase"
+            >
+              <div className="site-shell">
+                <div data-reveal className="reveal manager-showcase__frame">
+                  <Image
+                    src="/assets/youngmenu-ss-phone-tab.png"
+                    alt="YoungMenu Manager Counter POS on tablet and phone"
+                    width={1400}
+                    height={900}
+                    className="manager-showcase__image h-auto w-full"
+                    priority
+                    sizes="(max-width: 1200px) 100vw, 1180px"
+                  />
+                </div>
+              </div>
+            </section>
+          ) : null}
+
           <section id="features" className="texture-soft py-16 sm:py-20">
             <div className="site-shell">
               <div className="grid gap-5 sm:grid-cols-3">
